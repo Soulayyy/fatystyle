@@ -1,0 +1,1379 @@
+{
+  "site": {
+    "name": "Faty Style",
+    "baseline": "Atelier de couture, haute couture et retouches à Limay",
+    "phone": "07 68 65 56 43",
+    "phoneDisplay": "+33 7 68 65 56 43",
+    "whatsapp": "33768655643",
+    "email": "fatystyle@hotmail.fr",
+    "address": "9 Bis Boulevard Aristide Briand, 78520 Limay",
+    "hours": "Les mardis et samedis de 8h à 12h ou sur RDV",
+    "facebook": "https://www.facebook.com/fatystylefr/",
+    "instagram": "https://www.instagram.com/fatystylefr/",
+    "maps": "https://www.google.com/maps/search/?api=1&query=9%20Bis%20Boulevard%20Aristide%20Briand%2C%2078520%20Limay"
+  },
+  "navigation": [
+    {
+      "label": "Accueil",
+      "url": "index.html"
+    },
+    {
+      "label": "Présentation",
+      "url": "presentation.html"
+    },
+    {
+      "label": "Savoir-faire",
+      "url": "savoir-faire.html"
+    },
+    {
+      "label": "Contact",
+      "url": "contact.html"
+    }
+  ],
+  "home": {},
+  "presentation": {},
+  "services": [
+    {
+      "id": "sur-mesure",
+      "title": "Vêtements sur mesure",
+      "image": "assets/images/prestations/sur-mesure/cover.jpg",
+      "text": "Vous souhaitez faire réaliser un vêtement de vos rêves ou des petites séries issues de votre collection ? L’atelier transforme vos envies en réalité, du patronage à la production du vêtement."
+    },
+    {
+      "id": "retouches",
+      "title": "Retouches de vêtements",
+      "image": "assets/images/prestations/retouches/cover.jpg",
+      "text": "Fermetures éclair, customisation, doublure, boutons, ourlets, recintrage, boutonnières ou raccourcissement : l’atelier ajuste et transforme vos vêtements avec soin."
+    },
+    {
+      "id": "initiation-couture",
+      "title": "Initiation / formation couture",
+      "image": "assets/images/prestations/initiation-couture/cover.jpg",
+      "text": "Apprendre les petites retouches quotidiennes ou réaliser ses propres pièces : des cours sur mesure sont possibles selon votre niveau et vos objectifs."
+    }
+  ],
+  "creationCategories": [
+    {
+      "id": "robes-mariage",
+      "name": "Robes de mariage",
+      "sourceId": "mariage",
+      "description": "Robes nuptiales sur mesure, pensées pour sublimer chaque silhouette avec élégance et précision.",
+      "cover": "assets/images/creations/robes-mariage/cover.jpg",
+      "count": 10
+    },
+    {
+      "id": "robes-soiree",
+      "name": "Robes de soirée",
+      "sourceId": "robes-soiree",
+      "description": "Tenues habillées, robes élégantes et pièces de cérémonie réalisées avec soin.",
+      "cover": "assets/images/creations/robes-soiree/cover.jpg",
+      "count": 9
+    },
+    {
+      "id": "ensembles-vestes",
+      "name": "Ensembles & vestes",
+      "sourceId": "ensembles-vestes",
+      "description": "Vestes, capes, pantalons et tenues professionnelles conçus pour allier confort et raffinement.",
+      "cover": "assets/images/creations/ensembles-vestes/cover.jpg",
+      "count": 34
+    },
+    {
+      "id": "accessoires",
+      "name": "Accessoires",
+      "sourceId": "accessoires",
+      "description": "Accessoires et tenues utiles ou décoratives, personnalisés selon vos besoins.",
+      "cover": "assets/images/creations/accessoires/cover.jpg",
+      "count": 4
+    },
+    {
+      "id": "noeuds-papillon",
+      "name": "Nœuds papillon",
+      "sourceId": "noeuds-papillon",
+      "description": "Nœuds papillon et détails assortis pour personnaliser une tenue avec caractère.",
+      "cover": "assets/images/creations/noeuds-papillon/cover.jpg",
+      "count": 6
+    },
+    {
+      "id": "tabliers",
+      "name": "Tabliers",
+      "sourceId": "tabliers",
+      "description": "Tabliers artisanaux, colorés et pratiques, réalisés avec des finitions soignées.",
+      "cover": "assets/images/creations/tabliers/cover.jpg",
+      "count": 22
+    },
+    {
+      "id": "sacs-porte-plat",
+      "name": "Sacs porte-plat",
+      "sourceId": "sacs-porte-plat",
+      "description": "Accessoires textiles pratiques, solides et élégants pour le quotidien.",
+      "cover": "assets/images/creations/sacs-porte-plat/cover.jpg",
+      "count": 9
+    },
+    {
+      "id": "echarpes",
+      "name": "Écharpes",
+      "sourceId": "echarpes",
+      "description": "Écharpes et accessoires chaleureux confectionnés dans des matières confortables.",
+      "cover": "assets/images/creations/echarpes/cover.jpg",
+      "count": 4
+    },
+    {
+      "id": "enfants",
+      "name": "L’Atelier des Petits",
+      "sourceId": "enfants",
+      "description": "Vêtements enfants sur mesure, confortables, colorés et adaptés aux occasions.",
+      "cover": "assets/images/creations/enfants/cover.jpg",
+      "count": 35
+    },
+    {
+      "id": "retouches",
+      "name": "Retouches / transformations",
+      "sourceId": "retouches",
+      "description": "Ajustements, transformations et finitions pour adapter ou moderniser vos vêtements.",
+      "cover": "assets/images/creations/retouches/cover.jpg",
+      "count": 2
+    },
+    {
+      "id": "formation-couture",
+      "name": "Initiation couture",
+      "sourceId": "formation-couture",
+      "description": "Cours et accompagnements pour apprendre les bases ou progresser en couture.",
+      "cover": "assets/images/creations/formation-couture/cover.jpg",
+      "count": 3
+    },
+    {
+      "id": "vetements-sur-mesure",
+      "name": "Vêtements sur mesure",
+      "sourceId": "vetements-sur-mesure",
+      "description": "Robes, vestes, pantalons, jupes, manteaux et pièces uniques créés selon vos envies.",
+      "cover": "assets/images/creations/vetements-sur-mesure/cover.jpg",
+      "count": 6
+    }
+  ],
+  "gallery": [
+    {
+      "id": "robes-mariage-01",
+      "category": "robes-mariage",
+      "title": "Robe de mariage 1",
+      "image": "assets/images/creations/robes-mariage/01.jpg",
+      "alt": "Faty Style - robe de mariage 01",
+      "featured": true
+    },
+    {
+      "id": "robes-mariage-02",
+      "category": "robes-mariage",
+      "title": "Robe de mariage 2",
+      "image": "assets/images/creations/robes-mariage/02.jpg",
+      "alt": "Faty Style - robe de mariage 02",
+      "featured": true
+    },
+    {
+      "id": "robes-mariage-03",
+      "category": "robes-mariage",
+      "title": "Robe de mariage 3",
+      "image": "assets/images/creations/robes-mariage/03.jpg",
+      "alt": "Faty Style - robe de mariage 03",
+      "featured": true
+    },
+    {
+      "id": "robes-mariage-04",
+      "category": "robes-mariage",
+      "title": "Robe de mariage 4",
+      "image": "assets/images/creations/robes-mariage/04.jpg",
+      "alt": "Faty Style - robe de mariage 04",
+      "featured": true
+    },
+    {
+      "id": "robes-mariage-05",
+      "category": "robes-mariage",
+      "title": "Robe de mariage 5",
+      "image": "assets/images/creations/robes-mariage/05.jpg",
+      "alt": "Faty Style - robe de mariage 05",
+      "featured": true
+    },
+    {
+      "id": "robes-mariage-06",
+      "category": "robes-mariage",
+      "title": "Robe de mariage 6",
+      "image": "assets/images/creations/robes-mariage/06.jpg",
+      "alt": "Faty Style - robe de mariage 06",
+      "featured": true
+    },
+    {
+      "id": "robes-mariage-07",
+      "category": "robes-mariage",
+      "title": "Robe de mariage 7",
+      "image": "assets/images/creations/robes-mariage/07.jpg",
+      "alt": "Faty Style - robe de mariage 07",
+      "featured": false
+    },
+    {
+      "id": "robes-mariage-08",
+      "category": "robes-mariage",
+      "title": "Robe de mariage 8",
+      "image": "assets/images/creations/robes-mariage/08.jpg",
+      "alt": "Faty Style - robe de mariage 08",
+      "featured": false
+    },
+    {
+      "id": "robes-mariage-09",
+      "category": "robes-mariage",
+      "title": "Robe de mariage 9",
+      "image": "assets/images/creations/robes-mariage/09.jpg",
+      "alt": "Faty Style - robe de mariage 09",
+      "featured": false
+    },
+    {
+      "id": "robes-mariage-10",
+      "category": "robes-mariage",
+      "title": "Robe de mariage 10",
+      "image": "assets/images/creations/robes-mariage/10.jpg",
+      "alt": "Faty Style - robe de mariage 10",
+      "featured": false
+    },
+    {
+      "id": "ensembles-vestes-01",
+      "category": "ensembles-vestes",
+      "title": "Ensemble élégant 1",
+      "image": "assets/images/creations/ensembles-vestes/01.jpg",
+      "alt": "Faty Style - ensemble élégant 01",
+      "featured": true
+    },
+    {
+      "id": "ensembles-vestes-02",
+      "category": "ensembles-vestes",
+      "title": "Ensemble élégant 2",
+      "image": "assets/images/creations/ensembles-vestes/02.jpg",
+      "alt": "Faty Style - ensemble élégant 02",
+      "featured": true
+    },
+    {
+      "id": "ensembles-vestes-03",
+      "category": "ensembles-vestes",
+      "title": "Ensemble élégant 3",
+      "image": "assets/images/creations/ensembles-vestes/03.jpg",
+      "alt": "Faty Style - ensemble élégant 03",
+      "featured": true
+    },
+    {
+      "id": "ensembles-vestes-04",
+      "category": "ensembles-vestes",
+      "title": "Ensemble élégant 4",
+      "image": "assets/images/creations/ensembles-vestes/04.jpg",
+      "alt": "Faty Style - ensemble élégant 04",
+      "featured": true
+    },
+    {
+      "id": "ensembles-vestes-05",
+      "category": "ensembles-vestes",
+      "title": "Ensemble élégant 5",
+      "image": "assets/images/creations/ensembles-vestes/05.jpg",
+      "alt": "Faty Style - ensemble élégant 05",
+      "featured": true
+    },
+    {
+      "id": "ensembles-vestes-06",
+      "category": "ensembles-vestes",
+      "title": "Ensemble élégant 6",
+      "image": "assets/images/creations/ensembles-vestes/06.jpg",
+      "alt": "Faty Style - ensemble élégant 06",
+      "featured": true
+    },
+    {
+      "id": "ensembles-vestes-07",
+      "category": "ensembles-vestes",
+      "title": "Ensemble élégant 7",
+      "image": "assets/images/creations/ensembles-vestes/07.jpg",
+      "alt": "Faty Style - ensemble élégant 07",
+      "featured": false
+    },
+    {
+      "id": "ensembles-vestes-08",
+      "category": "ensembles-vestes",
+      "title": "Ensemble élégant 8",
+      "image": "assets/images/creations/ensembles-vestes/08.jpg",
+      "alt": "Faty Style - ensemble élégant 08",
+      "featured": false
+    },
+    {
+      "id": "ensembles-vestes-09",
+      "category": "ensembles-vestes",
+      "title": "Ensemble élégant 9",
+      "image": "assets/images/creations/ensembles-vestes/09.jpg",
+      "alt": "Faty Style - ensemble élégant 09",
+      "featured": false
+    },
+    {
+      "id": "ensembles-vestes-10",
+      "category": "ensembles-vestes",
+      "title": "Ensemble élégant 10",
+      "image": "assets/images/creations/ensembles-vestes/10.jpg",
+      "alt": "Faty Style - ensemble élégant 10",
+      "featured": false
+    },
+    {
+      "id": "ensembles-vestes-11",
+      "category": "ensembles-vestes",
+      "title": "Ensemble élégant 11",
+      "image": "assets/images/creations/ensembles-vestes/11.jpg",
+      "alt": "Faty Style - ensemble élégant 11",
+      "featured": false
+    },
+    {
+      "id": "ensembles-vestes-12",
+      "category": "ensembles-vestes",
+      "title": "Ensemble élégant 12",
+      "image": "assets/images/creations/ensembles-vestes/12.jpg",
+      "alt": "Faty Style - ensemble élégant 12",
+      "featured": false
+    },
+    {
+      "id": "ensembles-vestes-13",
+      "category": "ensembles-vestes",
+      "title": "Ensemble élégant 13",
+      "image": "assets/images/creations/ensembles-vestes/13.jpg",
+      "alt": "Faty Style - ensemble élégant 13",
+      "featured": false
+    },
+    {
+      "id": "ensembles-vestes-14",
+      "category": "ensembles-vestes",
+      "title": "Ensemble élégant 14",
+      "image": "assets/images/creations/ensembles-vestes/14.jpg",
+      "alt": "Faty Style - ensemble élégant 14",
+      "featured": false
+    },
+    {
+      "id": "ensembles-vestes-15",
+      "category": "ensembles-vestes",
+      "title": "Ensemble élégant 15",
+      "image": "assets/images/creations/ensembles-vestes/15.jpg",
+      "alt": "Faty Style - ensemble élégant 15",
+      "featured": false
+    },
+    {
+      "id": "ensembles-vestes-16",
+      "category": "ensembles-vestes",
+      "title": "Ensemble élégant 16",
+      "image": "assets/images/creations/ensembles-vestes/16.jpg",
+      "alt": "Faty Style - ensemble élégant 16",
+      "featured": false
+    },
+    {
+      "id": "ensembles-vestes-17",
+      "category": "ensembles-vestes",
+      "title": "Ensemble élégant 17",
+      "image": "assets/images/creations/ensembles-vestes/17.jpg",
+      "alt": "Faty Style - ensemble élégant 17",
+      "featured": false
+    },
+    {
+      "id": "ensembles-vestes-18",
+      "category": "ensembles-vestes",
+      "title": "Ensemble élégant 18",
+      "image": "assets/images/creations/ensembles-vestes/18.jpg",
+      "alt": "Faty Style - ensemble élégant 18",
+      "featured": false
+    },
+    {
+      "id": "ensembles-vestes-19",
+      "category": "ensembles-vestes",
+      "title": "Ensemble élégant 19",
+      "image": "assets/images/creations/ensembles-vestes/19.jpg",
+      "alt": "Faty Style - ensemble élégant 19",
+      "featured": false
+    },
+    {
+      "id": "ensembles-vestes-20",
+      "category": "ensembles-vestes",
+      "title": "Ensemble élégant 20",
+      "image": "assets/images/creations/ensembles-vestes/20.jpg",
+      "alt": "Faty Style - ensemble élégant 20",
+      "featured": false
+    },
+    {
+      "id": "ensembles-vestes-21",
+      "category": "ensembles-vestes",
+      "title": "Ensemble élégant 21",
+      "image": "assets/images/creations/ensembles-vestes/21.jpg",
+      "alt": "Faty Style - ensemble élégant 21",
+      "featured": false
+    },
+    {
+      "id": "ensembles-vestes-22",
+      "category": "ensembles-vestes",
+      "title": "Ensemble élégant 22",
+      "image": "assets/images/creations/ensembles-vestes/22.jpg",
+      "alt": "Faty Style - ensemble élégant 22",
+      "featured": false
+    },
+    {
+      "id": "ensembles-vestes-23",
+      "category": "ensembles-vestes",
+      "title": "Ensemble élégant 23",
+      "image": "assets/images/creations/ensembles-vestes/23.jpg",
+      "alt": "Faty Style - ensemble élégant 23",
+      "featured": false
+    },
+    {
+      "id": "ensembles-vestes-24",
+      "category": "ensembles-vestes",
+      "title": "Ensemble élégant 24",
+      "image": "assets/images/creations/ensembles-vestes/24.jpg",
+      "alt": "Faty Style - ensemble élégant 24",
+      "featured": false
+    },
+    {
+      "id": "ensembles-vestes-25",
+      "category": "ensembles-vestes",
+      "title": "Ensemble élégant 25",
+      "image": "assets/images/creations/ensembles-vestes/25.jpg",
+      "alt": "Faty Style - ensemble élégant 25",
+      "featured": false
+    },
+    {
+      "id": "ensembles-vestes-26",
+      "category": "ensembles-vestes",
+      "title": "Ensemble élégant 26",
+      "image": "assets/images/creations/ensembles-vestes/26.jpg",
+      "alt": "Faty Style - ensemble élégant 26",
+      "featured": false
+    },
+    {
+      "id": "ensembles-vestes-27",
+      "category": "ensembles-vestes",
+      "title": "Ensemble élégant 27",
+      "image": "assets/images/creations/ensembles-vestes/27.jpg",
+      "alt": "Faty Style - ensemble élégant 27",
+      "featured": false
+    },
+    {
+      "id": "ensembles-vestes-28",
+      "category": "ensembles-vestes",
+      "title": "Ensemble élégant 28",
+      "image": "assets/images/creations/ensembles-vestes/28.jpg",
+      "alt": "Faty Style - ensemble élégant 28",
+      "featured": false
+    },
+    {
+      "id": "ensembles-vestes-29",
+      "category": "ensembles-vestes",
+      "title": "Ensemble élégant 29",
+      "image": "assets/images/creations/ensembles-vestes/29.jpg",
+      "alt": "Faty Style - ensemble élégant 29",
+      "featured": false
+    },
+    {
+      "id": "ensembles-vestes-30",
+      "category": "ensembles-vestes",
+      "title": "Ensemble élégant 30",
+      "image": "assets/images/creations/ensembles-vestes/30.jpg",
+      "alt": "Faty Style - ensemble élégant 30",
+      "featured": false
+    },
+    {
+      "id": "ensembles-vestes-31",
+      "category": "ensembles-vestes",
+      "title": "Ensemble élégant 31",
+      "image": "assets/images/creations/ensembles-vestes/31.jpg",
+      "alt": "Faty Style - ensemble élégant 31",
+      "featured": false
+    },
+    {
+      "id": "ensembles-vestes-32",
+      "category": "ensembles-vestes",
+      "title": "Ensemble élégant 32",
+      "image": "assets/images/creations/ensembles-vestes/32.jpg",
+      "alt": "Faty Style - ensemble élégant 32",
+      "featured": false
+    },
+    {
+      "id": "ensembles-vestes-33",
+      "category": "ensembles-vestes",
+      "title": "Ensemble élégant 33",
+      "image": "assets/images/creations/ensembles-vestes/33.jpg",
+      "alt": "Faty Style - ensemble élégant 33",
+      "featured": false
+    },
+    {
+      "id": "ensembles-vestes-34",
+      "category": "ensembles-vestes",
+      "title": "Ensemble élégant 34",
+      "image": "assets/images/creations/ensembles-vestes/34.jpg",
+      "alt": "Faty Style - ensemble élégant 34",
+      "featured": false
+    },
+    {
+      "id": "robes-soiree-01",
+      "category": "robes-soiree",
+      "title": "Robe de soirée 1",
+      "image": "assets/images/creations/robes-soiree/01.jpg",
+      "alt": "Faty Style - robe de soirée 01",
+      "featured": true
+    },
+    {
+      "id": "robes-soiree-02",
+      "category": "robes-soiree",
+      "title": "Robe de soirée 2",
+      "image": "assets/images/creations/robes-soiree/02.jpg",
+      "alt": "Faty Style - robe de soirée 02",
+      "featured": true
+    },
+    {
+      "id": "robes-soiree-03",
+      "category": "robes-soiree",
+      "title": "Robe de soirée 3",
+      "image": "assets/images/creations/robes-soiree/03.jpg",
+      "alt": "Faty Style - robe de soirée 03",
+      "featured": true
+    },
+    {
+      "id": "robes-soiree-04",
+      "category": "robes-soiree",
+      "title": "Robe de soirée 4",
+      "image": "assets/images/creations/robes-soiree/04.jpg",
+      "alt": "Faty Style - robe de soirée 04",
+      "featured": true
+    },
+    {
+      "id": "robes-soiree-05",
+      "category": "robes-soiree",
+      "title": "Robe de soirée 5",
+      "image": "assets/images/creations/robes-soiree/05.jpg",
+      "alt": "Faty Style - robe de soirée 05",
+      "featured": true
+    },
+    {
+      "id": "robes-soiree-06",
+      "category": "robes-soiree",
+      "title": "Robe de soirée 6",
+      "image": "assets/images/creations/robes-soiree/06.jpg",
+      "alt": "Faty Style - robe de soirée 06",
+      "featured": true
+    },
+    {
+      "id": "robes-soiree-07",
+      "category": "robes-soiree",
+      "title": "Robe de soirée 7",
+      "image": "assets/images/creations/robes-soiree/07.jpg",
+      "alt": "Faty Style - robe de soirée 07",
+      "featured": false
+    },
+    {
+      "id": "robes-soiree-08",
+      "category": "robes-soiree",
+      "title": "Robe de soirée 8",
+      "image": "assets/images/creations/robes-soiree/08.jpg",
+      "alt": "Faty Style - robe de soirée 08",
+      "featured": false
+    },
+    {
+      "id": "robes-soiree-09",
+      "category": "robes-soiree",
+      "title": "Robe de soirée 9",
+      "image": "assets/images/creations/robes-soiree/09.jpg",
+      "alt": "Faty Style - robe de soirée 09",
+      "featured": false
+    },
+    {
+      "id": "enfants-01",
+      "category": "enfants",
+      "title": "Création enfant 1",
+      "image": "assets/images/creations/enfants/01.jpg",
+      "alt": "Faty Style - création enfant 01",
+      "featured": true
+    },
+    {
+      "id": "enfants-02",
+      "category": "enfants",
+      "title": "Création enfant 2",
+      "image": "assets/images/creations/enfants/02.jpg",
+      "alt": "Faty Style - création enfant 02",
+      "featured": true
+    },
+    {
+      "id": "enfants-03",
+      "category": "enfants",
+      "title": "Création enfant 3",
+      "image": "assets/images/creations/enfants/03.jpg",
+      "alt": "Faty Style - création enfant 03",
+      "featured": true
+    },
+    {
+      "id": "enfants-04",
+      "category": "enfants",
+      "title": "Création enfant 4",
+      "image": "assets/images/creations/enfants/04.jpg",
+      "alt": "Faty Style - création enfant 04",
+      "featured": true
+    },
+    {
+      "id": "enfants-05",
+      "category": "enfants",
+      "title": "Création enfant 5",
+      "image": "assets/images/creations/enfants/05.jpg",
+      "alt": "Faty Style - création enfant 05",
+      "featured": true
+    },
+    {
+      "id": "enfants-06",
+      "category": "enfants",
+      "title": "Création enfant 6",
+      "image": "assets/images/creations/enfants/06.jpg",
+      "alt": "Faty Style - création enfant 06",
+      "featured": true
+    },
+    {
+      "id": "enfants-07",
+      "category": "enfants",
+      "title": "Création enfant 7",
+      "image": "assets/images/creations/enfants/07.jpg",
+      "alt": "Faty Style - création enfant 07",
+      "featured": false
+    },
+    {
+      "id": "enfants-08",
+      "category": "enfants",
+      "title": "Création enfant 8",
+      "image": "assets/images/creations/enfants/08.jpg",
+      "alt": "Faty Style - création enfant 08",
+      "featured": false
+    },
+    {
+      "id": "enfants-09",
+      "category": "enfants",
+      "title": "Création enfant 9",
+      "image": "assets/images/creations/enfants/09.jpg",
+      "alt": "Faty Style - création enfant 09",
+      "featured": false
+    },
+    {
+      "id": "enfants-10",
+      "category": "enfants",
+      "title": "Création enfant 10",
+      "image": "assets/images/creations/enfants/10.jpg",
+      "alt": "Faty Style - création enfant 10",
+      "featured": false
+    },
+    {
+      "id": "enfants-11",
+      "category": "enfants",
+      "title": "Création enfant 11",
+      "image": "assets/images/creations/enfants/11.jpg",
+      "alt": "Faty Style - création enfant 11",
+      "featured": false
+    },
+    {
+      "id": "enfants-12",
+      "category": "enfants",
+      "title": "Création enfant 12",
+      "image": "assets/images/creations/enfants/12.jpg",
+      "alt": "Faty Style - création enfant 12",
+      "featured": false
+    },
+    {
+      "id": "enfants-13",
+      "category": "enfants",
+      "title": "Création enfant 13",
+      "image": "assets/images/creations/enfants/13.jpg",
+      "alt": "Faty Style - création enfant 13",
+      "featured": false
+    },
+    {
+      "id": "enfants-14",
+      "category": "enfants",
+      "title": "Création enfant 14",
+      "image": "assets/images/creations/enfants/14.jpg",
+      "alt": "Faty Style - création enfant 14",
+      "featured": false
+    },
+    {
+      "id": "enfants-15",
+      "category": "enfants",
+      "title": "Création enfant 15",
+      "image": "assets/images/creations/enfants/15.jpg",
+      "alt": "Faty Style - création enfant 15",
+      "featured": false
+    },
+    {
+      "id": "enfants-16",
+      "category": "enfants",
+      "title": "Création enfant 16",
+      "image": "assets/images/creations/enfants/16.jpg",
+      "alt": "Faty Style - création enfant 16",
+      "featured": false
+    },
+    {
+      "id": "enfants-17",
+      "category": "enfants",
+      "title": "Création enfant 17",
+      "image": "assets/images/creations/enfants/17.jpg",
+      "alt": "Faty Style - création enfant 17",
+      "featured": false
+    },
+    {
+      "id": "enfants-18",
+      "category": "enfants",
+      "title": "Création enfant 18",
+      "image": "assets/images/creations/enfants/18.jpg",
+      "alt": "Faty Style - création enfant 18",
+      "featured": false
+    },
+    {
+      "id": "enfants-19",
+      "category": "enfants",
+      "title": "Création enfant 19",
+      "image": "assets/images/creations/enfants/19.jpg",
+      "alt": "Faty Style - création enfant 19",
+      "featured": false
+    },
+    {
+      "id": "enfants-20",
+      "category": "enfants",
+      "title": "Création enfant 20",
+      "image": "assets/images/creations/enfants/20.jpg",
+      "alt": "Faty Style - création enfant 20",
+      "featured": false
+    },
+    {
+      "id": "enfants-21",
+      "category": "enfants",
+      "title": "Création enfant 21",
+      "image": "assets/images/creations/enfants/21.jpg",
+      "alt": "Faty Style - création enfant 21",
+      "featured": false
+    },
+    {
+      "id": "enfants-22",
+      "category": "enfants",
+      "title": "Création enfant 22",
+      "image": "assets/images/creations/enfants/22.jpg",
+      "alt": "Faty Style - création enfant 22",
+      "featured": false
+    },
+    {
+      "id": "enfants-23",
+      "category": "enfants",
+      "title": "Création enfant 23",
+      "image": "assets/images/creations/enfants/23.jpg",
+      "alt": "Faty Style - création enfant 23",
+      "featured": false
+    },
+    {
+      "id": "enfants-24",
+      "category": "enfants",
+      "title": "Création enfant 24",
+      "image": "assets/images/creations/enfants/24.jpg",
+      "alt": "Faty Style - création enfant 24",
+      "featured": false
+    },
+    {
+      "id": "enfants-25",
+      "category": "enfants",
+      "title": "Création enfant 25",
+      "image": "assets/images/creations/enfants/25.jpg",
+      "alt": "Faty Style - création enfant 25",
+      "featured": false
+    },
+    {
+      "id": "enfants-26",
+      "category": "enfants",
+      "title": "Création enfant 26",
+      "image": "assets/images/creations/enfants/26.jpg",
+      "alt": "Faty Style - création enfant 26",
+      "featured": false
+    },
+    {
+      "id": "enfants-27",
+      "category": "enfants",
+      "title": "Création enfant 27",
+      "image": "assets/images/creations/enfants/27.jpg",
+      "alt": "Faty Style - création enfant 27",
+      "featured": false
+    },
+    {
+      "id": "enfants-28",
+      "category": "enfants",
+      "title": "Création enfant 28",
+      "image": "assets/images/creations/enfants/28.jpg",
+      "alt": "Faty Style - création enfant 28",
+      "featured": false
+    },
+    {
+      "id": "enfants-29",
+      "category": "enfants",
+      "title": "Création enfant 29",
+      "image": "assets/images/creations/enfants/29.jpg",
+      "alt": "Faty Style - création enfant 29",
+      "featured": false
+    },
+    {
+      "id": "enfants-30",
+      "category": "enfants",
+      "title": "Création enfant 30",
+      "image": "assets/images/creations/enfants/30.jpg",
+      "alt": "Faty Style - création enfant 30",
+      "featured": false
+    },
+    {
+      "id": "enfants-31",
+      "category": "enfants",
+      "title": "Création enfant 31",
+      "image": "assets/images/creations/enfants/31.jpg",
+      "alt": "Faty Style - création enfant 31",
+      "featured": false
+    },
+    {
+      "id": "enfants-32",
+      "category": "enfants",
+      "title": "Création enfant 32",
+      "image": "assets/images/creations/enfants/32.jpg",
+      "alt": "Faty Style - création enfant 32",
+      "featured": false
+    },
+    {
+      "id": "enfants-33",
+      "category": "enfants",
+      "title": "Création enfant 33",
+      "image": "assets/images/creations/enfants/33.jpg",
+      "alt": "Faty Style - création enfant 33",
+      "featured": false
+    },
+    {
+      "id": "enfants-34",
+      "category": "enfants",
+      "title": "Création enfant 34",
+      "image": "assets/images/creations/enfants/34.jpg",
+      "alt": "Faty Style - création enfant 34",
+      "featured": false
+    },
+    {
+      "id": "enfants-35",
+      "category": "enfants",
+      "title": "Création enfant 35",
+      "image": "assets/images/creations/enfants/35.jpg",
+      "alt": "Faty Style - création enfant 35",
+      "featured": false
+    },
+    {
+      "id": "noeuds-papillon-01",
+      "category": "noeuds-papillon",
+      "title": "Nœud papillon 1",
+      "image": "assets/images/creations/noeuds-papillon/01.jpg",
+      "alt": "Faty Style - nœud papillon 01",
+      "featured": true
+    },
+    {
+      "id": "noeuds-papillon-02",
+      "category": "noeuds-papillon",
+      "title": "Nœud papillon 2",
+      "image": "assets/images/creations/noeuds-papillon/02.jpg",
+      "alt": "Faty Style - nœud papillon 02",
+      "featured": true
+    },
+    {
+      "id": "noeuds-papillon-03",
+      "category": "noeuds-papillon",
+      "title": "Nœud papillon 3",
+      "image": "assets/images/creations/noeuds-papillon/03.jpg",
+      "alt": "Faty Style - nœud papillon 03",
+      "featured": true
+    },
+    {
+      "id": "noeuds-papillon-04",
+      "category": "noeuds-papillon",
+      "title": "Nœud papillon 4",
+      "image": "assets/images/creations/noeuds-papillon/04.jpg",
+      "alt": "Faty Style - nœud papillon 04",
+      "featured": true
+    },
+    {
+      "id": "noeuds-papillon-05",
+      "category": "noeuds-papillon",
+      "title": "Nœud papillon 5",
+      "image": "assets/images/creations/noeuds-papillon/05.jpg",
+      "alt": "Faty Style - nœud papillon 05",
+      "featured": true
+    },
+    {
+      "id": "noeuds-papillon-06",
+      "category": "noeuds-papillon",
+      "title": "Nœud papillon 6",
+      "image": "assets/images/creations/noeuds-papillon/06.jpg",
+      "alt": "Faty Style - nœud papillon 06",
+      "featured": true
+    },
+    {
+      "id": "tabliers-01",
+      "category": "tabliers",
+      "title": "Tablier artisanal 1",
+      "image": "assets/images/creations/tabliers/01.jpg",
+      "alt": "Faty Style - tablier artisanal 01",
+      "featured": true
+    },
+    {
+      "id": "tabliers-02",
+      "category": "tabliers",
+      "title": "Tablier artisanal 2",
+      "image": "assets/images/creations/tabliers/02.jpg",
+      "alt": "Faty Style - tablier artisanal 02",
+      "featured": true
+    },
+    {
+      "id": "tabliers-03",
+      "category": "tabliers",
+      "title": "Tablier artisanal 3",
+      "image": "assets/images/creations/tabliers/03.jpg",
+      "alt": "Faty Style - tablier artisanal 03",
+      "featured": true
+    },
+    {
+      "id": "tabliers-04",
+      "category": "tabliers",
+      "title": "Tablier artisanal 4",
+      "image": "assets/images/creations/tabliers/04.jpg",
+      "alt": "Faty Style - tablier artisanal 04",
+      "featured": true
+    },
+    {
+      "id": "tabliers-05",
+      "category": "tabliers",
+      "title": "Tablier artisanal 5",
+      "image": "assets/images/creations/tabliers/05.jpg",
+      "alt": "Faty Style - tablier artisanal 05",
+      "featured": true
+    },
+    {
+      "id": "tabliers-06",
+      "category": "tabliers",
+      "title": "Tablier artisanal 6",
+      "image": "assets/images/creations/tabliers/06.jpg",
+      "alt": "Faty Style - tablier artisanal 06",
+      "featured": true
+    },
+    {
+      "id": "tabliers-07",
+      "category": "tabliers",
+      "title": "Tablier artisanal 7",
+      "image": "assets/images/creations/tabliers/07.jpg",
+      "alt": "Faty Style - tablier artisanal 07",
+      "featured": false
+    },
+    {
+      "id": "tabliers-08",
+      "category": "tabliers",
+      "title": "Tablier artisanal 8",
+      "image": "assets/images/creations/tabliers/08.jpg",
+      "alt": "Faty Style - tablier artisanal 08",
+      "featured": false
+    },
+    {
+      "id": "tabliers-09",
+      "category": "tabliers",
+      "title": "Tablier artisanal 9",
+      "image": "assets/images/creations/tabliers/09.jpg",
+      "alt": "Faty Style - tablier artisanal 09",
+      "featured": false
+    },
+    {
+      "id": "tabliers-10",
+      "category": "tabliers",
+      "title": "Tablier artisanal 10",
+      "image": "assets/images/creations/tabliers/10.jpg",
+      "alt": "Faty Style - tablier artisanal 10",
+      "featured": false
+    },
+    {
+      "id": "tabliers-11",
+      "category": "tabliers",
+      "title": "Tablier artisanal 11",
+      "image": "assets/images/creations/tabliers/11.jpg",
+      "alt": "Faty Style - tablier artisanal 11",
+      "featured": false
+    },
+    {
+      "id": "tabliers-12",
+      "category": "tabliers",
+      "title": "Tablier artisanal 12",
+      "image": "assets/images/creations/tabliers/12.jpg",
+      "alt": "Faty Style - tablier artisanal 12",
+      "featured": false
+    },
+    {
+      "id": "tabliers-13",
+      "category": "tabliers",
+      "title": "Tablier artisanal 13",
+      "image": "assets/images/creations/tabliers/13.jpg",
+      "alt": "Faty Style - tablier artisanal 13",
+      "featured": false
+    },
+    {
+      "id": "tabliers-14",
+      "category": "tabliers",
+      "title": "Tablier artisanal 14",
+      "image": "assets/images/creations/tabliers/14.jpg",
+      "alt": "Faty Style - tablier artisanal 14",
+      "featured": false
+    },
+    {
+      "id": "tabliers-15",
+      "category": "tabliers",
+      "title": "Tablier artisanal 15",
+      "image": "assets/images/creations/tabliers/15.jpg",
+      "alt": "Faty Style - tablier artisanal 15",
+      "featured": false
+    },
+    {
+      "id": "tabliers-16",
+      "category": "tabliers",
+      "title": "Tablier artisanal 16",
+      "image": "assets/images/creations/tabliers/16.jpg",
+      "alt": "Faty Style - tablier artisanal 16",
+      "featured": false
+    },
+    {
+      "id": "tabliers-17",
+      "category": "tabliers",
+      "title": "Tablier artisanal 17",
+      "image": "assets/images/creations/tabliers/17.jpg",
+      "alt": "Faty Style - tablier artisanal 17",
+      "featured": false
+    },
+    {
+      "id": "tabliers-18",
+      "category": "tabliers",
+      "title": "Tablier artisanal 18",
+      "image": "assets/images/creations/tabliers/18.jpg",
+      "alt": "Faty Style - tablier artisanal 18",
+      "featured": false
+    },
+    {
+      "id": "tabliers-19",
+      "category": "tabliers",
+      "title": "Tablier artisanal 19",
+      "image": "assets/images/creations/tabliers/19.jpg",
+      "alt": "Faty Style - tablier artisanal 19",
+      "featured": false
+    },
+    {
+      "id": "tabliers-20",
+      "category": "tabliers",
+      "title": "Tablier artisanal 20",
+      "image": "assets/images/creations/tabliers/20.jpg",
+      "alt": "Faty Style - tablier artisanal 20",
+      "featured": false
+    },
+    {
+      "id": "tabliers-21",
+      "category": "tabliers",
+      "title": "Tablier artisanal 21",
+      "image": "assets/images/creations/tabliers/21.jpg",
+      "alt": "Faty Style - tablier artisanal 21",
+      "featured": false
+    },
+    {
+      "id": "tabliers-22",
+      "category": "tabliers",
+      "title": "Tablier artisanal 22",
+      "image": "assets/images/creations/tabliers/22.jpg",
+      "alt": "Faty Style - tablier artisanal 22",
+      "featured": false
+    },
+    {
+      "id": "sacs-porte-plat-01",
+      "category": "sacs-porte-plat",
+      "title": "Sac porte-plat 1",
+      "image": "assets/images/creations/sacs-porte-plat/01.jpg",
+      "alt": "Faty Style - sac porte-plat 01",
+      "featured": true
+    },
+    {
+      "id": "sacs-porte-plat-02",
+      "category": "sacs-porte-plat",
+      "title": "Sac porte-plat 2",
+      "image": "assets/images/creations/sacs-porte-plat/02.jpg",
+      "alt": "Faty Style - sac porte-plat 02",
+      "featured": true
+    },
+    {
+      "id": "sacs-porte-plat-03",
+      "category": "sacs-porte-plat",
+      "title": "Sac porte-plat 3",
+      "image": "assets/images/creations/sacs-porte-plat/03.jpg",
+      "alt": "Faty Style - sac porte-plat 03",
+      "featured": true
+    },
+    {
+      "id": "sacs-porte-plat-04",
+      "category": "sacs-porte-plat",
+      "title": "Sac porte-plat 4",
+      "image": "assets/images/creations/sacs-porte-plat/04.jpg",
+      "alt": "Faty Style - sac porte-plat 04",
+      "featured": true
+    },
+    {
+      "id": "sacs-porte-plat-05",
+      "category": "sacs-porte-plat",
+      "title": "Sac porte-plat 5",
+      "image": "assets/images/creations/sacs-porte-plat/05.jpg",
+      "alt": "Faty Style - sac porte-plat 05",
+      "featured": true
+    },
+    {
+      "id": "sacs-porte-plat-06",
+      "category": "sacs-porte-plat",
+      "title": "Sac porte-plat 6",
+      "image": "assets/images/creations/sacs-porte-plat/06.jpg",
+      "alt": "Faty Style - sac porte-plat 06",
+      "featured": true
+    },
+    {
+      "id": "sacs-porte-plat-07",
+      "category": "sacs-porte-plat",
+      "title": "Sac porte-plat 7",
+      "image": "assets/images/creations/sacs-porte-plat/07.jpg",
+      "alt": "Faty Style - sac porte-plat 07",
+      "featured": false
+    },
+    {
+      "id": "sacs-porte-plat-08",
+      "category": "sacs-porte-plat",
+      "title": "Sac porte-plat 8",
+      "image": "assets/images/creations/sacs-porte-plat/08.jpg",
+      "alt": "Faty Style - sac porte-plat 08",
+      "featured": false
+    },
+    {
+      "id": "sacs-porte-plat-09",
+      "category": "sacs-porte-plat",
+      "title": "Sac porte-plat 9",
+      "image": "assets/images/creations/sacs-porte-plat/09.jpg",
+      "alt": "Faty Style - sac porte-plat 09",
+      "featured": false
+    },
+    {
+      "id": "echarpes-01",
+      "category": "echarpes",
+      "title": "Écharpe 1",
+      "image": "assets/images/creations/echarpes/01.jpg",
+      "alt": "Faty Style - écharpe 01",
+      "featured": true
+    },
+    {
+      "id": "echarpes-02",
+      "category": "echarpes",
+      "title": "Écharpe 2",
+      "image": "assets/images/creations/echarpes/02.jpg",
+      "alt": "Faty Style - écharpe 02",
+      "featured": true
+    },
+    {
+      "id": "echarpes-03",
+      "category": "echarpes",
+      "title": "Écharpe 3",
+      "image": "assets/images/creations/echarpes/03.jpg",
+      "alt": "Faty Style - écharpe 03",
+      "featured": true
+    },
+    {
+      "id": "echarpes-04",
+      "category": "echarpes",
+      "title": "Écharpe 4",
+      "image": "assets/images/creations/echarpes/04.jpg",
+      "alt": "Faty Style - écharpe 04",
+      "featured": true
+    },
+    {
+      "id": "retouches-01",
+      "category": "retouches",
+      "title": "Retouche atelier 1",
+      "image": "assets/images/creations/retouches/01.jpg",
+      "alt": "Faty Style - retouche atelier 01",
+      "featured": true
+    },
+    {
+      "id": "retouches-02",
+      "category": "retouches",
+      "title": "Retouche atelier 2",
+      "image": "assets/images/creations/retouches/02.jpg",
+      "alt": "Faty Style - retouche atelier 02",
+      "featured": true
+    },
+    {
+      "id": "formation-couture-01",
+      "category": "formation-couture",
+      "title": "Formation couture 1",
+      "image": "assets/images/creations/formation-couture/01.jpg",
+      "alt": "Faty Style - formation couture 01",
+      "featured": true
+    },
+    {
+      "id": "formation-couture-02",
+      "category": "formation-couture",
+      "title": "Formation couture 2",
+      "image": "assets/images/creations/formation-couture/02.jpg",
+      "alt": "Faty Style - formation couture 02",
+      "featured": true
+    },
+    {
+      "id": "formation-couture-03",
+      "category": "formation-couture",
+      "title": "Formation couture 3",
+      "image": "assets/images/creations/formation-couture/03.jpg",
+      "alt": "Faty Style - formation couture 03",
+      "featured": true
+    },
+    {
+      "id": "accessoires-01",
+      "category": "accessoires",
+      "title": "Accessoire sur mesure 1",
+      "image": "assets/images/creations/accessoires/01.jpg",
+      "alt": "Faty Style - accessoire sur mesure 01",
+      "featured": true
+    },
+    {
+      "id": "accessoires-02",
+      "category": "accessoires",
+      "title": "Accessoire sur mesure 2",
+      "image": "assets/images/creations/accessoires/02.jpg",
+      "alt": "Faty Style - accessoire sur mesure 02",
+      "featured": true
+    },
+    {
+      "id": "accessoires-03",
+      "category": "accessoires",
+      "title": "Accessoire sur mesure 3",
+      "image": "assets/images/creations/accessoires/03.jpg",
+      "alt": "Faty Style - accessoire sur mesure 03",
+      "featured": true
+    },
+    {
+      "id": "accessoires-04",
+      "category": "accessoires",
+      "title": "Accessoire sur mesure 4",
+      "image": "assets/images/creations/accessoires/04.jpg",
+      "alt": "Faty Style - accessoire sur mesure 04",
+      "featured": true
+    },
+    {
+      "id": "vetements-sur-mesure-01",
+      "category": "vetements-sur-mesure",
+      "title": "Vêtement sur mesure 1",
+      "image": "assets/images/creations/vetements-sur-mesure/01.jpg",
+      "alt": "Faty Style - vêtement sur mesure 01",
+      "featured": true
+    },
+    {
+      "id": "vetements-sur-mesure-02",
+      "category": "vetements-sur-mesure",
+      "title": "Vêtement sur mesure 2",
+      "image": "assets/images/creations/vetements-sur-mesure/02.jpg",
+      "alt": "Faty Style - vêtement sur mesure 02",
+      "featured": true
+    },
+    {
+      "id": "vetements-sur-mesure-03",
+      "category": "vetements-sur-mesure",
+      "title": "Vêtement sur mesure 3",
+      "image": "assets/images/creations/vetements-sur-mesure/03.jpg",
+      "alt": "Faty Style - vêtement sur mesure 03",
+      "featured": true
+    },
+    {
+      "id": "vetements-sur-mesure-04",
+      "category": "vetements-sur-mesure",
+      "title": "Vêtement sur mesure 4",
+      "image": "assets/images/creations/vetements-sur-mesure/04.jpg",
+      "alt": "Faty Style - vêtement sur mesure 04",
+      "featured": true
+    },
+    {
+      "id": "vetements-sur-mesure-05",
+      "category": "vetements-sur-mesure",
+      "title": "Vêtement sur mesure 5",
+      "image": "assets/images/creations/vetements-sur-mesure/05.jpg",
+      "alt": "Faty Style - vêtement sur mesure 05",
+      "featured": true
+    },
+    {
+      "id": "vetements-sur-mesure-06",
+      "category": "vetements-sur-mesure",
+      "title": "Vêtement sur mesure 6",
+      "image": "assets/images/creations/vetements-sur-mesure/06.jpg",
+      "alt": "Faty Style - vêtement sur mesure 06",
+      "featured": true
+    }
+  ],
+  "savoirFaire": [
+    {
+      "title": "Écoute du projet",
+      "text": "Comprendre votre envie, votre silhouette, l’occasion et les contraintes de la pièce."
+    },
+    {
+      "title": "Conseil matière & style",
+      "text": "Choisir les tissus, les volumes, les détails et les finitions adaptés à votre projet."
+    },
+    {
+      "title": "Patronage & coupe",
+      "text": "Construire une base propre avant la création pour garantir le tombé et le confort."
+    },
+    {
+      "title": "Essayages",
+      "text": "Valider progressivement les volumes, la longueur et les ajustements importants."
+    },
+    {
+      "title": "Ajustements",
+      "text": "Affiner la pièce avec précision pour respecter la morphologie et l’usage."
+    },
+    {
+      "title": "Finitions artisanales",
+      "text": "Soigner doublures, boutons, ourlets, détails textiles et confort intérieur."
+    },
+    {
+      "title": "Livraison de la pièce",
+      "text": "Remettre une création prête à porter, pensée pour durer et vous ressembler."
+    }
+  ],
+  "reasons": [
+    {
+      "title": "Créations uniques",
+      "text": "Chaque pièce part d’un besoin réel, d’une silhouette et d’une occasion."
+    },
+    {
+      "title": "Travail artisanal",
+      "text": "Les détails, ajustements et finitions sont réalisés avec exigence."
+    },
+    {
+      "title": "Ajustement personnalisé",
+      "text": "L’atelier accompagne les essayages pour obtenir un tombé juste."
+    },
+    {
+      "title": "Atelier local à Limay",
+      "text": "Une adresse de proximité dans les Yvelines, accessible sur rendez-vous."
+    }
+  ],
+  "contact": {
+    "requestTypes": [
+      "Création sur mesure",
+      "Robe de mariage",
+      "Robe de soirée",
+      "Retouche",
+      "Accessoire",
+      "Enfant",
+      "Initiation couture",
+      "Autre demande"
+    ]
+  },
+  "socialLinks": [
+    {
+      "label": "Facebook",
+      "url": "https://www.facebook.com/fatystylefr/",
+      "icon": "facebook"
+    },
+    {
+      "label": "Instagram",
+      "url": "https://www.instagram.com/fatystylefr/",
+      "icon": "instagram"
+    }
+  ]
+}
