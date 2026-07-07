@@ -1368,12 +1368,14 @@
     {
       "label": "Facebook",
       "url": "https://www.facebook.com/fatystylefr/",
-      "icon": "facebook"
+      "icon": "facebook",
+      "image": "assets/images/icons/facebook.jpeg"
     },
     {
       "label": "Instagram",
       "url": "https://www.instagram.com/fatystylefr/",
-      "icon": "instagram"
+      "icon": "instagram",
+      "image": "assets/images/icons/instagram.avif"
     }
   ]
 }

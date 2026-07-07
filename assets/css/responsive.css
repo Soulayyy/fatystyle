@@ -1,3 +1,60 @@
+@media (max-width: 1100px){
+  .quick-grid{grid-template-columns:repeat(3,1fr)}
+  .reason-grid,.steps-grid{grid-template-columns:repeat(2,1fr)}
+  .universe-card{grid-template-columns:280px 1fr}
+}
 
-@media (max-width: 980px){.topbar{display:none}.navbar{height:auto;min-height:76px;align-items:flex-start;padding-top:.7rem;padding-bottom:.7rem}.nav-toggle{display:block;margin-top:1rem}.nav-links{display:none;position:absolute;left:0;right:0;top:76px;background:#fff;padding:1rem;box-shadow:0 20px 40px rgba(0,0,0,.12);flex-direction:column;align-items:stretch}.nav-links.open{display:flex}.nav-cta{text-align:center}.hero{min-height:620px}.split,.split.reverse,.contact-grid,.universe-card{grid-template-columns:1fr}.quick-grid{grid-template-columns:repeat(3,1fr)}.services-grid,.reason-grid,.steps-grid{grid-template-columns:repeat(2,1fr)}.carousel-track{grid-auto-columns:calc((100% - 18px)/2);gap:18px}.footer-grid{grid-template-columns:1fr 1fr}.cta-band{display:block;text-align:center}.cta-band .btn{margin-top:1rem}}
-@media (max-width: 620px){.brand img{width:120px}.hero{min-height:560px}.page-hero{min-height:280px}.section{padding:3rem 1rem}.quick-grid,.services-grid,.reason-grid,.steps-grid,.mini-gallery{grid-template-columns:1fr}.carousel-track{grid-auto-columns:86%;overflow-x:auto;scroll-snap-type:x mandatory}.creation-slide{scroll-snap-align:center}.carousel-arrow{display:none}.image-duo{grid-template-columns:1fr}.image-duo img,.image-duo img:nth-child(2),.feature-img{height:auto}.footer-grid{grid-template-columns:1fr}.whatsapp-float{left:50%;right:auto;transform:translateX(-50%);bottom:14px}.whatsapp-float span{font-size:0}.whatsapp-float:after{content:"WhatsApp";font-size:1rem}.photo-card img{height:auto}.topbar+ .navbar{top:0}}
+@media (max-width: 980px){
+  .topbar{display:none}
+  .navbar{height:auto;min-height:70px;align-items:flex-start;padding-top:.6rem;padding-bottom:.6rem}
+  .nav-toggle{display:block;margin-top:.82rem}
+  .nav-links{display:none;position:absolute;left:0;right:0;top:70px;background:#fff;padding:1rem;box-shadow:0 20px 40px rgba(0,0,0,.12);flex-direction:column;align-items:stretch}
+  .nav-links.open{display:flex}
+  .nav-cta{text-align:center}
+  .hero{min-height:570px}
+  .page-hero{min-height:280px}
+  .split,.split.reverse,.contact-grid,.universe-card{grid-template-columns:1fr}
+  .services-grid{grid-template-columns:repeat(2,1fr)}
+  .carousel-track{grid-auto-columns:calc((100% - 18px)/2);gap:18px}
+  .footer-grid{grid-template-columns:1fr 1fr}
+  .cta-band{display:block;text-align:center}
+  .cta-band .btn{margin-top:1rem}
+}
+
+@media (max-width: 620px){
+  body{line-height:1.6}
+  .brand img{width:116px;height:42px}
+  .nav-toggle{font-size:.95rem}
+  .hero{min-height:520px}
+  .page-hero{min-height:245px}
+  .hero-content,.page-hero>div:not(.hero-bg){padding:1.25rem}
+  .hero h1{font-size:clamp(2rem,10vw,3.05rem)}
+  .page-hero h1{font-size:clamp(1.8rem,8vw,2.55rem)}
+  .script{font-size:clamp(2rem,12vw,3.1rem)}
+  .section{padding:2.75rem 1rem}
+  .section-head{margin-bottom:1.8rem}
+  .quick-grid,.services-grid,.reason-grid,.steps-grid,.mini-gallery{grid-template-columns:1fr}
+  .quick-grid article{min-height:auto}
+  .carousel-track{grid-auto-columns:86%;overflow-x:auto;scroll-snap-type:x mandatory}
+  .creation-slide{scroll-snap-align:center}
+  .creation-slide img{height:300px}
+  .carousel-arrow{display:none}
+  .image-duo{grid-template-columns:1fr}
+  .image-duo img,.image-duo img:nth-child(2),.feature-img{height:auto}
+  .service-card img{height:220px}
+  .universe-card{padding:1rem}
+  .universe-card:is(#robes-mariage,#robes-soiree,#ensembles-vestes,#enfants) .photo-card img,
+  .photo-card img{height:auto;max-height:none}
+  .footer-grid{grid-template-columns:1fr}
+  .social-links.large a{min-width:auto}
+  .whatsapp-float{right:14px;bottom:14px;width:54px;height:54px;padding:0;display:grid;place-items:center}
+  .whatsapp-float span{font-size:0}
+  .whatsapp-float span:before{width:.86rem;height:.86rem;margin:0;box-shadow:0 0 0 6px rgba(255,255,255,.16)}
+  .lightbox{padding:1rem}
+  .lightbox img{max-height:72vh}
+  .lightbox figcaption{font-size:.9rem}
+  .lightbox-close{top:.75rem;right:.75rem}
+  .lightbox-nav{width:42px;height:42px}
+  .lightbox-prev{left:.65rem}
+  .lightbox-next{right:.65rem}
+}
