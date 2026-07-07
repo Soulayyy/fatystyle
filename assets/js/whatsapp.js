@@ -1,2 +1,24 @@
+(function () {
+  const form = document.querySelector("[data-whatsapp-form]");
+  if (!form) return;
 
-const form=document.getElementById('whatsapp-form');if(form){form.addEventListener('submit',event=>{event.preventDefault();const d=new FormData(form);const message=`Bonjour Faty Style,\nJe souhaite vous contacter pour un projet couture.\n\nNom : ${d.get('name')||''}\nTéléphone : ${d.get('phone')||''}\nEmail : ${d.get('email')||''}\nType de demande : ${d.get('type')||''}\nDate souhaitée : ${d.get('date')||''}\nMessage : ${d.get('message')||''}\n\nMerci.`;window.location.href=`https://wa.me/33768655643?text=${encodeURIComponent(message)}`;});}
+  form.addEventListener("submit", (event) => {
+    event.preventDefault();
+    const data = new FormData(form);
+    const message = [
+      "Bonjour Faty Style,",
+      "Je souhaite vous contacter pour un projet couture.",
+      "",
+      `Nom : ${data.get("name") || ""}`,
+      `Téléphone : ${data.get("phone") || ""}`,
+      `Email : ${data.get("email") || ""}`,
+      `Type de demande : ${data.get("requestType") || ""}`,
+      `Date souhaitée : ${data.get("date") || ""}`,
+      `Message : ${data.get("message") || ""}`,
+      "",
+      "Merci."
+    ].join("\n");
+
+    window.location.href = "https://wa.me/33768655643?text=" + encodeURIComponent(message);
+  });
+})();

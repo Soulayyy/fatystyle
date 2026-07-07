@@ -8,11 +8,12 @@ Livrer un site premium, clair, transférable et sans dépendance WordPress. Le s
 
 ## Structure
 
-- `index.html` : accueil, à propos court, univers, carousel de vraies créations, confiance.
+- `index.html` : accueil, à propos court, univers, aperçu maîtrisé des vraies créations, confiance.
 - `presentation.html` : présentation détaillée, prestations et univers de créations.
 - `savoir-faire.html` : méthode de travail artisanale.
 - `contact.html` : coordonnées, réseaux sociaux et formulaire WhatsApp.
 - `assets/` : CSS, JS, images et polices locales.
+- `assets/images/fatystyle/` : images structurées par usage et par univers, avec noms simples pour faciliter une future administration.
 - `data/content.json` : structure de contenu prête pour la future administration.
 - `admin/README_ADMIN_STANDBY.md` : admin prévue pour une phase suivante.
 - `docs/README_INSTALLATION.md` : guide d’installation.
@@ -36,4 +37,4 @@ Le site fonctionne sur un hébergement Apache ou Nginx classique. Aucun build, a
 
 ## Future admin
 
-Une future interface d’administration pourra modifier `data/content.json` et gérer les images rangées dans `assets/images/`.
+Une future interface d’administration pourra modifier `data/content.json` et gérer les images rangées dans `assets/images/fatystyle/`.

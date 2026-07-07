@@ -1,45 +1,220 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="fr">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Faty Style | Atelier de couture haute couture à Limay</title>
-  <meta name="description" content="Atelier de couture à Limay : créations sur mesure, robes de mariage, robes de soirée, retouches, accessoires et initiation couture.">
-  <meta name="keywords" content="couturière Limay, atelier couture Limay, haute couture Yvelines, vêtements sur mesure, robe de mariage sur mesure, robe de soirée, retouches vêtements, ourlet, fermeture éclair, initiation couture, accessoires couture, Faty Style">
+  <meta name="description" content="Atelier de couture à Limay : créations sur mesure, robes de mariage, robes de soirée, retouches, accessoires, enfants et initiation couture.">
   <meta property="og:title" content="Faty Style | Atelier de couture haute couture à Limay">
-  <meta property="og:description" content="Atelier de couture à Limay : créations sur mesure, robes de mariage, robes de soirée, retouches, accessoires et initiation couture.">
-  <meta property="og:image" content="assets/images/hero/01.jpg">
+  <meta property="og:description" content="Créations sur mesure, retouches, robes de mariage, robes de soirée, accessoires et initiation couture à Limay.">
+  <meta property="og:image" content="assets/images/fatystyle/hero/1.jpg">
   <meta property="og:type" content="website">
-  <link rel="icon" href="assets/images/logo/logo-fatystyle.png">
-  <link rel="stylesheet" href="assets/css/vendor.css">
+  <link rel="icon" href="assets/images/fatystyle/logo/logo.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@400;600;700;800;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/css/main.css">
   <link rel="stylesheet" href="assets/css/responsive.css">
 </head>
 <body>
-<header class="site-header">
-  <div class="topbar"><div><a href="tel:+33768655643">+33 7 68 65 56 43</a><a href="mailto:fatystyle@hotmail.fr">fatystyle@hotmail.fr</a></div><span>Les mardis et samedis de 8h à 12h ou sur RDV</span></div>
-  <nav class="navbar" aria-label="Navigation principale">
-    <a class="brand" href="index.html"><img src="assets/images/logo/logo-fatystyle.png" alt="Faty Style"><span>Faty Style</span></a>
-    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="main-nav" aria-label="Ouvrir le menu"><span></span><span></span><span></span></button>
-    <div class="nav-links" id="main-nav"><a class="active" href="index.html">Accueil</a><a class="" href="presentation.html">Présentation</a><a class="" href="savoir-faire.html">Savoir-faire</a><a class="" href="contact.html">Contact</a><a class="mobile-rdv-link" href="contact.html">Prendre RDV</a></div>
+  <header class="site-header">
+    <div class="top-strip">
+      <div class="container">
+        <a href="tel:+33768655643">+33 7 68 65 56 43</a>
+        <a href="mailto:fatystyle@hotmail.fr">fatystyle@hotmail.fr</a>
+        <span>Les mardis et samedis de 8h à 12h ou sur RDV</span>
+      </div>
+    </div>
+    <div class="container brand-row">
+      <a class="brand" href="index.html" aria-label="Accueil Faty Style">
+        <img src="assets/images/fatystyle/logo/logo.png" alt="Faty Style, maître artisan en métier d'art">
+      </a>
+      <button class="nav-toggle" type="button" data-nav-toggle aria-label="Ouvrir le menu" aria-expanded="false"><span></span></button>
+    </div>
+    <nav class="main-nav" data-nav aria-label="Navigation principale">
+      <ul>
+        <li><a class="active" href="index.html">Accueil</a></li>
+        <li><a href="presentation.html">Présentation</a></li>
+        <li><a href="savoir-faire.html">Savoir-faire</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero hero--home" style="background-image:url('assets/images/fatystyle/hero/1.jpg')">
+      <div class="hero-content">
+        <span class="eyebrow">Atelier couture à Limay</span>
+        <h1><span>Faty Style</span>Atelier de couture, haute couture et retouches à Limay</h1>
+        <p>Créations sur mesure, robes de mariage, robes de soirée, retouches, accessoires et initiation couture.</p>
+        <div class="actions">
+          <a class="btn" href="presentation.html">Voir la présentation</a>
+          <a class="btn btn-outline" href="contact.html">Contacter l'atelier</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="section-head">
+          <span class="script-title">Univers</span>
+          <h2>La couture pensée pour votre projet</h2>
+          <p>Une lecture simple des services pour comprendre rapidement ce que l'atelier peut créer, ajuster ou transmettre.</p>
+        </div>
+        <div class="pill-grid">
+          <article class="pill-card">
+            <div class="pill-image"><img src="assets/images/fatystyle/prestations/sur-mesure/1.jpg" alt="Vêtement sur mesure Faty Style" loading="lazy"></div>
+            <span class="pill-label">Pièce unique</span>
+            <h3>Sur-mesure</h3>
+            <p>Robes, vestes, pantalons et tenues adaptées à votre silhouette.</p>
+          </article>
+          <article class="pill-card">
+            <div class="pill-image"><img src="assets/images/fatystyle/prestations/retouches/1.jpg" alt="Machine pour retouches de vêtements" loading="lazy"></div>
+            <span class="pill-label">Ajustement</span>
+            <h3>Retouches</h3>
+            <p>Ourlets, fermetures, recintrage, doublures et transformations.</p>
+          </article>
+          <article class="pill-card">
+            <div class="pill-image"><img src="assets/images/fatystyle/creations/robes-mariage/cover.jpg" alt="Robe de mariage sur mesure" loading="lazy"></div>
+            <span class="pill-label">Cérémonie</span>
+            <h3>Mariage</h3>
+            <p>Robes nuptiales, tuniques et finitions délicates pour le grand jour.</p>
+          </article>
+          <article class="pill-card">
+            <div class="pill-image"><img src="assets/images/fatystyle/creations/noeuds-papillon/cover.jpg" alt="Nœud papillon fait main" loading="lazy"></div>
+            <span class="pill-label">Détail</span>
+            <h3>Accessoires</h3>
+            <p>Nœuds papillon, sacs, tabliers, écharpes et pièces utiles.</p>
+          </article>
+          <article class="pill-card">
+            <div class="pill-image"><img src="assets/images/fatystyle/creations/enfants/cover.jpg" alt="Création enfant Faty Style" loading="lazy"></div>
+            <span class="pill-label">Enfants</span>
+            <h3>Petits</h3>
+            <p>Tenues confortables, colorées et pensées pour les occasions.</p>
+          </article>
+          <article class="pill-card">
+            <div class="pill-image"><img src="assets/images/fatystyle/prestations/initiation-couture/1.jpg" alt="Initiation couture avec fils et aiguilles" loading="lazy"></div>
+            <span class="pill-label">Apprendre</span>
+            <h3>Initiation</h3>
+            <p>Cours sur mesure pour débuter, progresser et créer.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-soft">
+      <div class="container split">
+        <div class="split-copy">
+          <span class="script-title">À propos</span>
+          <h2>Un atelier artisanal au service de vos envies</h2>
+          <p>Créée en 2003, Faty Style accompagne les projets de robe de mariage, robe de soirée, vêtement sur mesure, retouche et accessoire textile. Fatima Abajjane met son expérience d'artisan couturière au service de pièces uniques, pensées pour votre style et votre silhouette.</p>
+          <p>Chaque création naît d'un échange, d'un choix de matière, d'une coupe précise et d'une finition soignée. L'atelier accueille à Limay les mardis et samedis matin, ou sur rendez-vous.</p>
+          <div class="actions" style="justify-content:flex-start">
+            <a class="btn" href="presentation.html">Découvrir l'offre</a>
+          </div>
+          <div class="signature">Fatima Abajjane</div>
+        </div>
+        <div class="split-media">
+          <img src="assets/images/fatystyle/ambiance/1.jpg" alt="Machine à coudre et outils de couture Faty Style" loading="lazy">
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="section-head">
+          <span class="script-title">Créations</span>
+          <h2>Aperçu des réalisations Faty Style</h2>
+          <p>Quelques pièces réelles pour ressentir la diversité de l'atelier. Les galeries complètes sont organisées par univers dans la présentation.</p>
+        </div>
+        <div class="showcase">
+          <a class="showcase-card" href="presentation.html#univers">
+            <img src="assets/images/fatystyle/creations/robes-mariage/cover.jpg" alt="Robe de mariage créée par Faty Style" loading="lazy">
+            <div class="showcase-caption"><small>Mariage</small><h3>Robes nuptiales</h3></div>
+          </a>
+          <a class="showcase-card" href="presentation.html#univers">
+            <img src="assets/images/fatystyle/creations/ensembles-vestes/cover.jpg" alt="Ensemble élégant et veste professionnelle" loading="lazy">
+            <div class="showcase-caption"><small>Sur-mesure</small><h3>Ensembles & vestes</h3></div>
+          </a>
+          <a class="showcase-card" href="presentation.html#univers">
+            <img src="assets/images/fatystyle/creations/noeuds-papillon/cover.jpg" alt="Nœuds papillon et accessoires Faty Style" loading="lazy">
+            <div class="showcase-caption"><small>Accessoires</small><h3>Détails faits main</h3></div>
+          </a>
+        </div>
+        <div class="actions">
+          <a class="btn" href="presentation.html#univers">Voir les univers</a>
+          <a class="btn btn-light" href="contact.html">Demander un devis</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-dark">
+      <div class="container">
+        <div class="section-head">
+          <span class="script-title">Méthode</span>
+          <h2>Un savoir-faire précis et humain</h2>
+          <p>Du premier échange jusqu'à la pièce finale, chaque étape sert le confort, le tombé et l'élégance.</p>
+        </div>
+        <div class="steps">
+          <article class="step"><span>1</span><h3>Écoute</h3><p>Comprendre votre envie, votre morphologie et l'occasion.</p></article>
+          <article class="step"><span>2</span><h3>Matières</h3><p>Choisir les tissus, détails et finitions adaptés au projet.</p></article>
+          <article class="step"><span>3</span><h3>Coupe</h3><p>Construire une base propre avant la réalisation.</p></article>
+          <article class="step"><span>4</span><h3>Finitions</h3><p>Ajuster, contrôler et soigner les derniers détails.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container cta-band">
+        <h2>Un projet couture, une retouche ou une tenue de cérémonie ?</h2>
+        <a class="btn" href="contact.html">Contacter l'atelier</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div>
+        <img class="footer-logo" src="assets/images/fatystyle/logo/logo.png" alt="Logo Faty Style">
+        <p>Atelier de couture et haute couture à Limay. Créations sur mesure, retouches, robes de mariage, tenues de cérémonie, accessoires et initiation couture.</p>
+      </div>
+      <div>
+        <h3>Navigation</h3>
+        <div class="footer-links">
+          <a href="index.html">Accueil</a>
+          <a href="presentation.html">Présentation</a>
+          <a href="savoir-faire.html">Savoir-faire</a>
+          <a href="contact.html">Contact</a>
+        </div>
+      </div>
+      <div>
+        <h3>Contact</h3>
+        <div class="footer-links">
+          <a href="tel:+33768655643">07 68 65 56 43</a>
+          <a data-wa-message="Bonjour Faty Style, je souhaite vous contacter pour un projet couture." href="https://wa.me/33768655643">WhatsApp</a>
+          <a href="mailto:fatystyle@hotmail.fr">fatystyle@hotmail.fr</a>
+        </div>
+        <div class="footer-social" aria-label="Réseaux sociaux">
+          <a class="social-pill" href="https://www.facebook.com/fatystylefr/" target="_blank" rel="noopener noreferrer"><img src="assets/images/fatystyle/icons/facebook.svg" alt="">Facebook</a>
+          <a class="social-pill" href="https://www.instagram.com/fatystylefr/" target="_blank" rel="noopener noreferrer"><img src="assets/images/fatystyle/icons/instagram.svg" alt="">Instagram</a>
+        </div>
+      </div>
+      <div>
+        <h3>Horaires</h3>
+        <p>Mardi : 8h-12h<br>Samedi : 8h-12h<br>Autres jours : sur RDV</p>
+        <p>9 Bis Boulevard Aristide Briand,<br>78520 Limay</p>
+      </div>
+    </div>
+    <div class="container footer-bottom">© 2026 Faty Style. Site créé par MaVitrine Online.</div>
+  </footer>
+
+  <a class="floating-whatsapp" data-wa-message="Bonjour Faty Style, je souhaite vous contacter pour un projet couture." href="https://wa.me/33768655643" aria-label="Contacter Faty Style sur WhatsApp">WhatsApp</a>
+  <nav class="bottom-actions" aria-label="Accès rapides">
+    <a data-wa-message="Bonjour Faty Style, je souhaite vous contacter pour un projet couture." href="https://wa.me/33768655643">WhatsApp</a>
+    <a href="tel:+33768655643">Appeler</a>
+    <a href="presentation.html">Offre</a>
+    <a href="contact.html">Contact</a>
   </nav>
-</header>
-<main>
-<section class="hero home-hero"><div class="hero-bg" style="background-image:url('assets/images/hero/01.jpg')"></div><div class="hero-content"><p class="script">Faty Style</p><h1>Atelier de couture, haute couture et retouches à Limay</h1><p>Créations sur mesure, robes de mariage, robes de soirée, retouches, accessoires et initiation couture.</p><div class="actions"><a class="btn primary" href="presentation.html">Voir la présentation</a><a class="btn ghost" href="contact.html">Prendre RDV</a></div></div></section>
-<section class="section about-home"><div class="split"><div><p class="script">À propos</p><h2>Un atelier artisanal au service de vos envies</h2><p>Créée en 2003, Faty Style accompagne les projets de robe de mariage, robe de soirée, vêtement sur mesure, retouche et accessoire textile. Fatima Abajjane met son expérience d’artisan couturière au service de pièces uniques, pensées pour votre style et votre silhouette.</p><a class="btn primary" href="presentation.html">Découvrir l’offre</a></div><img class="feature-img about-main-img" src="assets/images/ambiance/atelier-premium.jpg" alt="Atelier couture Faty Style"></div></section>
-<section class="section soft"><div class="section-head"><p class="script">Univers</p><h2>Ce que propose l’atelier</h2><p>Un aperçu clair des demandes les plus fréquentes avant de découvrir le détail en présentation.</p></div><div class="quick-grid"><article><img src="assets/images/creations/ensembles-vestes/cover.jpg" alt="Sur-mesure"><h3>Sur-mesure</h3></article><article><img src="assets/images/creations/retouches/cover.jpg" alt="Retouches"><h3>Retouches</h3></article><article><img src="assets/images/creations/robes-mariage/cover.jpg" alt="Mariage & cérémonie"><h3>Mariage & cérémonie</h3></article><article><img src="assets/images/creations/accessoires/cover.jpg" alt="Accessoires"><h3>Accessoires</h3></article><article><img src="assets/images/creations/enfants/cover.jpg" alt="Enfants"><h3>Enfants</h3></article><article><img src="assets/images/creations/formation-couture/cover.jpg" alt="Initiation couture"><h3>Initiation couture</h3></article></div></section>
-<section class="section"><div class="section-head"><p class="script">Créations</p><h2>Vraies créations Faty Style</h2><p>Un aperçu maîtrisé de pièces réelles réalisées par l’atelier. La galerie détaillée se trouve dans la page Présentation.</p></div><div class="carousel" data-carousel><button class="carousel-arrow prev" type="button" aria-label="Création précédente">‹</button><div class="carousel-track"><article class="creation-slide"><img src="assets/images/creations/robes-mariage/cover.jpg" alt="Robes de mariage"><div><strong>Robes de mariage</strong><span>Création réelle Faty Style</span></div></article><article class="creation-slide"><img src="assets/images/creations/ensembles-vestes/cover.jpg" alt="Ensembles & vestes"><div><strong>Ensembles & vestes</strong><span>Création réelle Faty Style</span></div></article><article class="creation-slide"><img src="assets/images/creations/robes-soiree/cover.jpg" alt="Robes de soirée"><div><strong>Robes de soirée</strong><span>Création réelle Faty Style</span></div></article><article class="creation-slide"><img src="assets/images/creations/noeuds-papillon/cover.jpg" alt="Nœuds papillon"><div><strong>Nœuds papillon</strong><span>Création réelle Faty Style</span></div></article><article class="creation-slide"><img src="assets/images/creations/tabliers/cover.jpg" alt="Tabliers"><div><strong>Tabliers</strong><span>Création réelle Faty Style</span></div></article><article class="creation-slide"><img src="assets/images/creations/sacs-porte-plat/cover.jpg" alt="Sacs porte-plat"><div><strong>Sacs porte-plat</strong><span>Création réelle Faty Style</span></div></article><article class="creation-slide"><img src="assets/images/creations/enfants/cover.jpg" alt="L’Atelier des Petits"><div><strong>L’Atelier des Petits</strong><span>Création réelle Faty Style</span></div></article><article class="creation-slide"><img src="assets/images/creations/retouches/cover.jpg" alt="Retouches / transformations"><div><strong>Retouches / transformations</strong><span>Création réelle Faty Style</span></div></article></div><button class="carousel-arrow next" type="button" aria-label="Création suivante">›</button></div><div class="center-actions"><a class="btn primary" href="presentation.html#univers">Voir les univers</a><a class="btn outline" href="contact.html">Demander un devis</a></div></section>
-<section class="section dark"><div class="section-head"><p class="script">Confiance</p><h2>Pourquoi choisir Faty Style ?</h2></div><div class="reason-grid"><article><h3>Créations uniques</h3><p>Chaque pièce part d’un besoin réel, d’une silhouette et d’une occasion.</p></article><article><h3>Travail artisanal</h3><p>Les détails, ajustements et finitions sont réalisés avec exigence.</p></article><article><h3>Ajustement personnalisé</h3><p>L’atelier accompagne les essayages pour obtenir un tombé juste.</p></article><article><h3>Atelier local à Limay</h3><p>Une adresse de proximité dans les Yvelines, accessible sur rendez-vous.</p></article></div></section>
-<section class="cta-band"><h2>Un projet couture, une retouche ou une tenue de cérémonie ?</h2><a class="btn primary" href="contact.html">Contacter l’atelier</a></section>
-</main><footer class="site-footer">
-  <div class="footer-grid">
-    <div><img class="footer-logo" src="assets/images/logo/logo-fatystyle.png" alt="Faty Style"><p>Atelier de couture et haute couture à Limay. Créations sur mesure, retouches, robes de mariage, tenues de cérémonie, accessoires et initiation couture.</p></div>
-    <div><h2>Plan du site</h2><a href="index.html">Accueil</a><a href="presentation.html">Présentation</a><a href="savoir-faire.html">Savoir-faire</a><a href="contact.html">Contact</a></div>
-    <div><h2>Contact</h2><a href="tel:+33768655643">07 68 65 56 43</a><a href="https://wa.me/33768655643?text=Bonjour%20Faty%20Style%2C%20je%20souhaite%20vous%20contacter%20pour%20un%20projet%20couture.">WhatsApp</a><a href="mailto:fatystyle@hotmail.fr">fatystyle@hotmail.fr</a><div class="social-links"><a href="https://www.facebook.com/fatystylefr/" target="_blank" rel="noopener noreferrer" aria-label="Facebook Faty Style"><span class="social-icon social-icon--facebook" aria-hidden="true"></span><span>Facebook</span></a><a href="https://www.instagram.com/fatystylefr/" target="_blank" rel="noopener noreferrer" aria-label="Instagram Faty Style"><span class="social-icon social-icon--instagram" aria-hidden="true"></span><span>Instagram</span></a></div></div>
-    <div><h2>Horaires</h2><p>Mardi : 8h–12h<br>Samedi : 8h–12h<br>Autres jours : sur RDV</p><p>9 Bis Boulevard Aristide Briand,<br>78520 Limay</p></div>
-  </div>
-  <div class="footer-bottom">© 2026 Faty Style. Site créé par MaVitrine Online.</div>
-</footer>
-<a class="whatsapp-float" href="https://wa.me/33768655643?text=Bonjour%20Faty%20Style%2C%20je%20souhaite%20vous%20contacter%20pour%20un%20projet%20couture." aria-label="Contacter Faty Style sur WhatsApp"><span>WhatsApp</span></a>
-<script src="assets/js/vendor.js"></script><script src="assets/js/gallery.js"></script><script src="assets/js/whatsapp.js"></script><script src="assets/js/main.js"></script>
-</body></html>
+  <script src="assets/js/main.js"></script>
+</body>
+</html>

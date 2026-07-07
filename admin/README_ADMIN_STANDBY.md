@@ -13,6 +13,6 @@ La structure est déjà préparée pour une phase suivante :
 - contact ;
 - réseaux sociaux Facebook et Instagram.
 
-Le futur admin devra utiliser `data/content.json` comme source de contenu et les dossiers `assets/images/` déjà structurés par rubrique.
+Le futur admin devra utiliser `data/content.json` comme source de contenu et les dossiers `assets/images/fatystyle/` déjà structurés par rubrique.
 
 Aucun bouton Admin, identifiant temporaire ou faux back-office n’est actif sur le site public.
