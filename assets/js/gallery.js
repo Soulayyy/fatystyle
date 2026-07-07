@@ -46,6 +46,31 @@
       galleries[gallery].push(item);
     });
 
+    Object.entries(galleries).forEach(([gallery, items]) => {
+      const card = items[0]?.closest('.universe-card');
+      const info = card?.querySelector(':scope > div:first-child');
+      if (!card || !info || !items.length) return;
+      items[0].classList.add('category-cover');
+
+      if (!info.querySelector('.category-count')) {
+        const count = document.createElement('p');
+        count.className = 'category-count';
+        count.textContent = `${items.length} photo${items.length > 1 ? 's' : ''}`;
+        const firstButton = info.querySelector('a[data-wa]');
+        info.insertBefore(count, firstButton || null);
+      }
+
+      if (!info.querySelector('.gallery-action')) {
+        const action = document.createElement('button');
+        action.className = 'btn small outline gallery-action';
+        action.type = 'button';
+        action.dataset.openGallery = gallery;
+        action.textContent = 'Voir les créations';
+        const quoteButton = info.querySelector('a[data-wa]');
+        info.insertBefore(action, quoteButton || null);
+      }
+    });
+
     const update = () => {
       const items = galleries[currentGallery] || [];
       const item = items[currentIndex];
@@ -87,10 +112,25 @@
     };
 
     lightboxItems.forEach(item => item.addEventListener('click', () => open(item)));
+    document.querySelectorAll('[data-open-gallery]').forEach(button => {
+      button.addEventListener('click', () => {
+        const items = galleries[button.dataset.openGallery] || [];
+        if (items[0]) open(items[0]);
+      });
+    });
     close.addEventListener('click', closeBox);
     prev.addEventListener('click', event => { event.stopPropagation(); move(-1); });
     next.addEventListener('click', event => { event.stopPropagation(); move(1); });
     box.addEventListener('click', event => { if (event.target === box) closeBox(); });
+    let touchStartX = 0;
+    box.addEventListener('touchstart', event => {
+      touchStartX = event.changedTouches[0]?.clientX || 0;
+    }, {passive: true});
+    box.addEventListener('touchend', event => {
+      const touchEndX = event.changedTouches[0]?.clientX || 0;
+      const delta = touchEndX - touchStartX;
+      if (Math.abs(delta) > 45) move(delta > 0 ? -1 : 1);
+    }, {passive: true});
     document.addEventListener('keydown', event => {
       if (!box.classList.contains('open')) return;
       if (event.key === 'Escape') closeBox();
