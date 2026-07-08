@@ -12,6 +12,23 @@
     "metaTitle": "Faty Style | Atelier de couture haute couture à Limay",
     "metaDescription": "Atelier de couture à Limay : créations sur mesure, robes de mariage, robes de soirée, retouches, accessoires, enfants et initiation couture."
   },
+  "seo": {
+    "title": "Faty Style | Atelier de couture, haute couture et retouches à Limay",
+    "description": "Faty Style, atelier de couture à Limay : créations sur mesure, robes de mariage, robes de soirée, retouches, accessoires et initiation couture.",
+    "keywords": [
+      "couture Limay",
+      "couturière Limay",
+      "retouches Limay",
+      "atelier couture Yvelines",
+      "robe de mariage sur mesure",
+      "robe de soirée sur mesure",
+      "haute couture Limay",
+      "retouche vêtement Yvelines",
+      "création vêtement sur mesure",
+      "initiation couture",
+      "Faty Style"
+    ]
+  },
   "navigation": [
     { "label": "Accueil", "url": "index.html" },
     { "label": "Présentation", "url": "presentation.html" },
@@ -24,31 +41,31 @@
       "title": "Faty Style",
       "subtitle": "Atelier de couture, haute couture et retouches à Limay",
       "text": "Créations sur mesure, robes de mariage, robes de soirée, retouches, accessoires et initiation couture.",
-      "image": "assets/images/fatystyle/hero/1.jpg"
+      "image": "assets/images/hero/1.jpg"
     },
     "about": {
       "title": "Un atelier artisanal au service de vos envies",
       "text": "Créée en 2003, Faty Style accompagne les projets de robe de mariage, robe de soirée, vêtement sur mesure, retouche et accessoire textile. Fatima Abajjane met son expérience d'artisan couturière au service de pièces uniques, pensées pour votre style et votre silhouette.",
-      "image": "assets/images/fatystyle/ambiance/1.jpg"
+      "image": "assets/images/ambiance/1.jpg"
     }
   },
   "services": [
     {
       "title": "Vêtements sur mesure",
       "slug": "sur-mesure",
-      "image": "assets/images/fatystyle/prestations/sur-mesure/1.jpg",
+      "image": "assets/images/prestations/sur-mesure/1.jpg",
       "description": "Création de vêtements uniques ou petites séries, du patronage à la production."
     },
     {
       "title": "Retouches de vêtements",
       "slug": "retouches",
-      "image": "assets/images/fatystyle/prestations/retouches/1.jpg",
+      "image": "assets/images/prestations/retouches/1.jpg",
       "description": "Ourlets, fermetures éclair, doublures, boutons, recintrage, transformations et ajustements."
     },
     {
       "title": "Initiation / formation couture",
       "slug": "initiation-couture",
-      "image": "assets/images/fatystyle/prestations/initiation-couture/1.jpg",
+      "image": "assets/images/prestations/initiation-couture/1.jpg",
       "description": "Cours sur mesure pour apprendre les bases, progresser et créer ses propres pièces."
     }
   ],
@@ -56,7 +73,7 @@
     {
       "title": "Robes de mariage",
       "slug": "robes-mariage",
-      "folder": "assets/images/fatystyle/creations/robes-mariage/",
+      "folder": "assets/images/creations/robes-mariage/",
       "cover": "cover.jpg",
       "description": "Robes nuptiales sur mesure, pensées pour sublimer chaque silhouette avec élégance et précision.",
       "photos": ["1.jpg", "2.jpg", "3.jpg", "4.jpg", "5.jpg", "6.jpg", "7.jpg", "8.jpg", "9.jpg", "10.jpg"]
@@ -64,7 +81,7 @@
     {
       "title": "Robes de soirée",
       "slug": "robes-soiree",
-      "folder": "assets/images/fatystyle/creations/robes-soiree/",
+      "folder": "assets/images/creations/robes-soiree/",
       "cover": "cover.jpg",
       "description": "Tenues habillées, robes élégantes et pièces de cérémonie réalisées avec soin.",
       "photos": ["1.jpg", "2.jpg", "3.jpg", "4.jpg", "5.jpg", "6.jpg", "7.jpg", "8.jpg", "9.jpg"]
@@ -72,36 +89,77 @@
     {
       "title": "Ensembles & vestes",
       "slug": "ensembles-vestes",
-      "folder": "assets/images/fatystyle/creations/ensembles-vestes/",
+      "folder": "assets/images/creations/ensembles-vestes/",
       "cover": "cover.jpg",
       "description": "Capes, vestes, pantalons et tenues professionnelles conçues pour allier raffinement et confort.",
       "photos": ["1.jpg", "2.jpg", "3.jpg", "4.jpg", "5.jpg", "6.jpg"]
     },
     {
-      "title": "Accessoires & nœuds papillon",
+      "title": "Accessoires",
       "slug": "accessoires",
-      "folder": "assets/images/fatystyle/creations/noeuds-papillon/",
+      "folder": "assets/images/creations/accessoires/",
       "cover": "cover.jpg",
-      "description": "Nœuds papillon, accessoires coordonnés et petites pièces textiles réalisées avec soin.",
+      "description": "Accessoires et petites pièces textiles réalisées sur mesure pour compléter une tenue.",
+      "photos": ["1.jpg", "2.jpg", "3.jpg", "4.jpg"]
+    },
+    {
+      "title": "Nœuds papillon",
+      "slug": "noeuds-papillon",
+      "folder": "assets/images/creations/noeuds-papillon/",
+      "cover": "cover.jpg",
+      "description": "Nœuds papillon élégants, coordonnés et confectionnés avec soin.",
       "photos": ["1.jpg", "2.jpg", "3.jpg", "4.jpg", "5.jpg", "6.jpg"]
     },
     {
-      "title": "Tabliers, sacs & écharpes",
-      "slug": "pratique",
-      "folder": "assets/images/fatystyle/creations/tabliers/",
+      "title": "Tabliers",
+      "slug": "tabliers",
+      "folder": "assets/images/creations/tabliers/",
       "cover": "cover.jpg",
-      "description": "Pièces pratiques et chaleureuses : tabliers colorés, sacs porte-plat, écharpes et accessoires du quotidien.",
+      "description": "Tabliers artisanaux, utiles et colorés, réalisés selon vos envies.",
       "photos": ["1.jpg", "2.jpg", "3.jpg", "4.jpg", "5.jpg", "6.jpg"]
+    },
+    {
+      "title": "Sacs porte-plat",
+      "slug": "sacs-porte-plat",
+      "folder": "assets/images/creations/sacs-porte-plat/",
+      "cover": "cover.jpg",
+      "description": "Sacs porte-plat et accessoires pratiques pour transporter avec style.",
+      "photos": ["1.jpg", "2.jpg", "3.jpg", "4.jpg", "5.jpg", "6.jpg"]
+    },
+    {
+      "title": "Écharpes",
+      "slug": "echarpes",
+      "folder": "assets/images/creations/echarpes/",
+      "cover": "cover.jpg",
+      "description": "Écharpes et accessoires chaleureux, pensés pour le confort et le détail.",
+      "photos": ["1.jpg", "2.jpg", "3.jpg", "4.jpg"]
     },
     {
       "title": "L'Atelier des Petits",
       "slug": "enfants",
-      "folder": "assets/images/fatystyle/creations/enfants/",
+      "folder": "assets/images/creations/enfants/",
       "cover": "cover.jpg",
       "description": "Vêtements enfants sur mesure, confortables, colorés et adaptés aux occasions.",
       "photos": ["1.jpg", "2.jpg", "3.jpg", "4.jpg", "5.jpg", "6.jpg"]
+    },
+    {
+      "title": "Retouches / transformations",
+      "slug": "retouches",
+      "folder": "assets/images/creations/retouches/",
+      "cover": "cover.jpg",
+      "description": "Retouches, ajustements et transformations pour redonner vie à vos vêtements.",
+      "photos": ["1.jpg", "2.jpg"]
+    },
+    {
+      "title": "Initiation couture",
+      "slug": "formation-couture",
+      "folder": "assets/images/creations/formation-couture/",
+      "cover": "cover.jpg",
+      "description": "Cours et moments d'atelier pour apprendre les bases ou progresser.",
+      "photos": ["1.jpg", "2.jpg", "3.jpg"]
     }
   ],
+  "gallery": [],
   "savoirFaire": [
     { "title": "Écoute du projet", "text": "Comprendre l'envie, l'usage, la silhouette et les contraintes de la pièce." },
     { "title": "Conseil matière & style", "text": "Orienter le choix des tissus, des couleurs, du tombé et des détails." },
@@ -124,7 +182,7 @@
     ]
   },
   "socialLinks": [
-    { "label": "Facebook", "url": "https://www.facebook.com/fatystylefr/", "icon": "assets/images/fatystyle/icons/facebook.svg" },
-    { "label": "Instagram", "url": "https://www.instagram.com/fatystylefr/", "icon": "assets/images/fatystyle/icons/instagram.svg" }
+    { "label": "Facebook", "url": "https://www.facebook.com/fatystylefr/", "icon": "assets/images/icons/facebook.svg" },
+    { "label": "Instagram", "url": "https://www.instagram.com/fatystylefr/", "icon": "assets/images/icons/instagram.svg" }
   ]
 }

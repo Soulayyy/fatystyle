@@ -22,6 +22,7 @@
 
 html {
   scroll-behavior: smooth;
+  overflow-x: hidden;
 }
 
 body {
@@ -30,6 +31,7 @@ body {
   background: var(--ivory);
   font-family: "Montserrat", Arial, sans-serif;
   line-height: 1.65;
+  overflow-x: hidden;
 }
 
 body.is-locked {
@@ -1090,7 +1092,7 @@ textarea {
 
   .floating-whatsapp {
     right: 14px;
-    bottom: calc(92px + env(safe-area-inset-bottom));
+    bottom: calc(18px + env(safe-area-inset-bottom));
     width: 54px;
     height: 54px;
     min-height: 54px;
@@ -1105,13 +1107,11 @@ textarea {
   }
 
   .bottom-actions {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 8px;
+    display: none;
   }
 
   .site-footer {
-    padding-bottom: 128px;
+    padding-bottom: 88px;
   }
 
   .lightbox-panel {
@@ -1178,11 +1178,8 @@ textarea {
     display: none;
   }
 
-  .bottom-actions {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  .bottom-actions a {
-    font-size: 12px;
+  .floating-whatsapp {
+    right: 12px;
+    bottom: calc(14px + env(safe-area-inset-bottom));
   }
 }

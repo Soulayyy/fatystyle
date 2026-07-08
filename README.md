@@ -13,7 +13,7 @@ Livrer un site premium, clair, transférable et sans dépendance WordPress. Le s
 - `savoir-faire.html` : méthode de travail artisanale.
 - `contact.html` : coordonnées, réseaux sociaux et formulaire WhatsApp.
 - `assets/` : CSS, JS, images et polices locales.
-- `assets/images/fatystyle/` : images structurées par usage et par univers, avec noms simples pour faciliter une future administration.
+- `assets/images/` : images structurées par usage et par univers, avec noms simples pour faciliter une future administration.
 - `data/content.json` : structure de contenu prête pour la future administration.
 - `admin/README_ADMIN_STANDBY.md` : admin prévue pour une phase suivante.
 - `docs/README_INSTALLATION.md` : guide d’installation.
@@ -37,4 +37,4 @@ Le site fonctionne sur un hébergement Apache ou Nginx classique. Aucun build, a
 
 ## Future admin
 
-Une future interface d’administration pourra modifier `data/content.json` et gérer les images rangées dans `assets/images/fatystyle/`.
+Une future interface d’administration pourra modifier `data/content.json` et gérer les images rangées dans `assets/images/`.

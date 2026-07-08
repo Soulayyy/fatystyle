@@ -7,7 +7,8 @@
 3. Vérifier les droits de lecture des fichiers HTML, CSS, JS, JSON et images.
 4. Ouvrir `index.html` depuis le domaine.
 5. Tester le formulaire WhatsApp, le téléphone, l’email, Facebook et Instagram.
-6. Tester sur mobile et desktop.
+6. Vérifier les balises SEO, les données structurées et l’image Open Graph.
+7. Tester sur mobile et desktop.
 
 Aucun WordPress, aucune base MySQL et aucun build Node ne sont nécessaires.
 
