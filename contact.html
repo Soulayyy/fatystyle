@@ -81,15 +81,20 @@
           <h2>Envoyer votre demande</h2>
           <p>Votre message est transmis par email à Faty Style. Vous recevrez aussi une confirmation avec les coordonnées de l'atelier.</p>
           <p class="form-alert" data-form-alert hidden>Le message n'a pas pu être envoyé. Merci de vérifier les champs ou de contacter l'atelier par téléphone.</p>
-          <form action="/api/contact" method="POST">
+          <form action="https://formsubmit.co/hichamaifout@gmail.com" method="POST" data-contact-form>
+            <input type="hidden" name="_subject" value="Faty Style - Nouvelle demande depuis le site">
+            <input type="hidden" name="_template" value="table">
+            <input type="hidden" name="_captcha" value="false">
+            <input type="hidden" name="_next" value="message-envoye.html" data-form-next>
+            <input type="hidden" name="_autoresponse" value="Bonjour, nous avons bien reçu votre message envoyé à Faty Style. L'atelier reviendra vers vous très bientôt. Pour une demande urgente, vous pouvez aussi contacter directement l'atelier au 07 68 65 56 43. Merci pour votre confiance. Faty Style">
             <input type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;opacity:0">
             <div class="form-grid">
-              <div class="form-field"><label for="name">Nom</label><input id="name" name="name" autocomplete="name" required></div>
-              <div class="form-field"><label for="phone">Téléphone</label><input id="phone" name="phone" autocomplete="tel" required></div>
+              <div class="form-field"><label for="name">Nom</label><input id="name" name="Nom" autocomplete="name" required></div>
+              <div class="form-field"><label for="phone">Téléphone</label><input id="phone" name="Téléphone" autocomplete="tel" required></div>
               <div class="form-field"><label for="email">Email</label><input id="email" name="email" type="email" autocomplete="email" required></div>
-              <div class="form-field"><label for="requestType">Type de demande</label><select id="requestType" name="requestType"><option>Création sur mesure</option><option>Robe de mariage</option><option>Robe de soirée</option><option>Retouche</option><option>Accessoire</option><option>Enfant</option><option>Initiation couture</option><option>Autre demande</option></select></div>
-              <div class="form-field full"><label for="date">Date souhaitée</label><input id="date" name="date" type="date"></div>
-              <div class="form-field full"><label for="message">Message</label><textarea id="message" name="message" required></textarea></div>
+              <div class="form-field"><label for="requestType">Type de demande</label><select id="requestType" name="Type de demande"><option>Création sur mesure</option><option>Robe de mariage</option><option>Robe de soirée</option><option>Retouche</option><option>Accessoire</option><option>Enfant</option><option>Initiation couture</option><option>Autre demande</option></select></div>
+              <div class="form-field full"><label for="date">Date souhaitée</label><input id="date" name="Date souhaitée" type="date"></div>
+              <div class="form-field full"><label for="message">Message</label><textarea id="message" name="Message" required></textarea></div>
             </div>
             <div class="actions" style="justify-content:flex-start"><button class="btn" type="submit">Envoyer le message</button></div>
           </form>
@@ -123,6 +128,8 @@
       var select = document.getElementById("requestType");
       var alert = document.querySelector("[data-form-alert]");
       if (params.get("erreur") && alert) alert.hidden = false;
+      var next = document.querySelector("[data-form-next]");
+      if (next) next.value = window.location.origin + window.location.pathname.replace(/contact\.html$/, "message-envoye.html");
       if (type && select) {
         var normalized = type.trim().toLowerCase();
         Array.prototype.forEach.call(select.options, function (option) {
