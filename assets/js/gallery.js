@@ -43,9 +43,20 @@
     title.textContent = item.title;
     category.textContent = item.category;
     counter.textContent = `${currentIndex + 1} / ${list.length}`;
-    quote.href = "https://wa.me/33768655643?text=" + encodeURIComponent(
-      `Bonjour Faty Style, je souhaite avoir plus d'informations concernant vos créations : ${item.category}.`
-    );
+    const typeByCategory = {
+      "Robes de mariage": "Robe de mariage",
+      "Robes de soirée": "Robe de soirée",
+      "Ensembles & vestes": "Création sur mesure",
+      "Nœuds papillon": "Accessoire",
+      "Accessoires": "Accessoire",
+      "Tabliers": "Accessoire",
+      "Sacs porte-plat": "Accessoire",
+      "Écharpes": "Accessoire",
+      "L'Atelier des Petits": "Enfant",
+      "Retouches / transformations": "Retouche",
+      "Initiation couture": "Initiation couture"
+    };
+    quote.href = "contact.html?type=" + encodeURIComponent(typeByCategory[item.category] || item.category);
   }
 
   function open(gallery, index) {
