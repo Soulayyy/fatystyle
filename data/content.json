@@ -169,7 +169,7 @@
     { "title": "Finitions artisanales", "text": "Soigner doublures, boutons, coutures, détails et rendu final." }
   ],
   "contact": {
-    "intro": "Décrivez votre projet couture. Le message sera préparé automatiquement sur WhatsApp afin de contacter directement l'atelier.",
+    "intro": "Décrivez votre projet couture. Le message est envoyé par email à l'atelier, avec une confirmation automatique à votre adresse.",
     "requestTypes": [
       "Création sur mesure",
       "Robe de mariage",

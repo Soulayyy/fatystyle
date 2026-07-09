@@ -11,7 +11,8 @@ Livrer un site premium, clair, transférable et sans dépendance WordPress. Le s
 - `index.html` : accueil, à propos court, univers, aperçu maîtrisé des vraies créations, confiance.
 - `presentation.html` : présentation détaillée, prestations et univers de créations.
 - `savoir-faire.html` : méthode de travail artisanale.
-- `contact.html` : coordonnées, réseaux sociaux et formulaire WhatsApp.
+- `contact.html` : coordonnées, réseaux sociaux et formulaire email.
+- `message-envoye.html` : confirmation après envoi du formulaire.
 - `assets/` : CSS, JS, images et polices locales.
 - `assets/images/` : images structurées par usage et par univers, avec noms simples pour faciliter une future administration.
 - `data/content.json` : structure de contenu prête pour la future administration.

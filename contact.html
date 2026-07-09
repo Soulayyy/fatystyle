@@ -15,8 +15,8 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@400;600;700;800;900&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="assets/css/main.css?v=20260708b">
-  <link rel="stylesheet" href="assets/css/responsive.css?v=20260708b">
+  <link rel="stylesheet" href="assets/css/main.css?v=20260709a">
+  <link rel="stylesheet" href="assets/css/responsive.css?v=20260709a">
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -52,7 +52,7 @@
       <div class="hero-content">
         <span class="eyebrow">Rendez-vous à Limay</span>
         <h1 class="page-title">Contact Faty Style</h1>
-        <p>Décrivez votre projet couture. Le message sera préparé automatiquement sur WhatsApp afin de contacter directement l'atelier.</p>
+        <p>Décrivez votre projet couture. Le message sera envoyé par email à l'atelier, avec une confirmation automatique à votre adresse.</p>
       </div>
     </section>
 
@@ -78,18 +78,23 @@
 
         <section class="contact-form">
           <span class="script-title">Message</span>
-          <h2>Préparer votre demande</h2>
-          <p>Le formulaire ouvre WhatsApp avec un message prérempli. Aucun faux envoi email n'est simulé.</p>
-          <form data-whatsapp-form>
+          <h2>Envoyer votre demande</h2>
+          <p>Votre message est transmis par email à Faty Style. Vous recevrez aussi une confirmation avec les coordonnées de l'atelier.</p>
+          <form action="https://formsubmit.co/hichamaifout@gmail.com" method="POST">
+            <input type="hidden" name="_subject" value="Nouvelle demande depuis le site Faty Style">
+            <input type="hidden" name="_template" value="table">
+            <input type="hidden" name="_captcha" value="false">
+            <input type="hidden" name="_next" value="http://178.105.180.143:8082/message-envoye.html">
+            <input type="hidden" name="_autoresponse" value="Bonjour, nous avons bien reçu votre message envoyé à Faty Style. L'atelier vous répondra très bientôt. Vous pouvez aussi nous joindre directement par téléphone au 07 68 65 56 43. Merci pour votre confiance.">
             <div class="form-grid">
-              <div class="form-field"><label for="name">Nom</label><input id="name" name="name" autocomplete="name" required></div>
-              <div class="form-field"><label for="phone">Téléphone</label><input id="phone" name="phone" autocomplete="tel" required></div>
-              <div class="form-field"><label for="email">Email</label><input id="email" name="email" type="email" autocomplete="email"></div>
-              <div class="form-field"><label for="requestType">Type de demande</label><select id="requestType" name="requestType"><option>Création sur mesure</option><option>Robe de mariage</option><option>Robe de soirée</option><option>Retouche</option><option>Accessoire</option><option>Enfant</option><option>Initiation couture</option><option>Autre demande</option></select></div>
-              <div class="form-field full"><label for="date">Date souhaitée</label><input id="date" name="date" type="date"></div>
-              <div class="form-field full"><label for="message">Message</label><textarea id="message" name="message" required></textarea></div>
+              <div class="form-field"><label for="name">Nom</label><input id="name" name="Nom" autocomplete="name" required></div>
+              <div class="form-field"><label for="phone">Téléphone</label><input id="phone" name="Téléphone" autocomplete="tel" required></div>
+              <div class="form-field"><label for="email">Email</label><input id="email" name="email" type="email" autocomplete="email" required></div>
+              <div class="form-field"><label for="requestType">Type de demande</label><select id="requestType" name="Type de demande"><option>Création sur mesure</option><option>Robe de mariage</option><option>Robe de soirée</option><option>Retouche</option><option>Accessoire</option><option>Enfant</option><option>Initiation couture</option><option>Autre demande</option></select></div>
+              <div class="form-field full"><label for="date">Date souhaitée</label><input id="date" name="Date souhaitée" type="date"></div>
+              <div class="form-field full"><label for="message">Message</label><textarea id="message" name="Message" required></textarea></div>
             </div>
-            <div class="actions" style="justify-content:flex-start"><button class="btn" type="submit">Préparer l'envoi WhatsApp</button></div>
+            <div class="actions" style="justify-content:flex-start"><button class="btn" type="submit">Envoyer le message</button></div>
           </form>
         </section>
       </div>
@@ -113,7 +118,6 @@
   </footer>
   <a class="floating-whatsapp" data-wa-message="Bonjour Faty Style, je souhaite vous contacter pour un projet couture." href="https://wa.me/33768655643" aria-label="Contacter Faty Style sur WhatsApp">WhatsApp</a>
   <nav class="bottom-actions" aria-label="Accès rapides"><a data-wa-message="Bonjour Faty Style, je souhaite vous contacter pour un projet couture." href="https://wa.me/33768655643">WhatsApp</a><a href="tel:+33768655643">Appeler</a><a href="presentation.html">Offre</a><a href="contact.html">Contact</a></nav>
-  <script src="assets/js/main.js?v=20260708b"></script>
-  <script src="assets/js/whatsapp.js?v=20260708b"></script>
+  <script src="assets/js/main.js?v=20260709a"></script>
 </body>
 </html>

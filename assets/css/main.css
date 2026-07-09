@@ -53,6 +53,10 @@ a {
   margin: 0 auto;
 }
 
+.container.narrow {
+  width: min(820px, calc(100% - 48px));
+}
+
 .site-header {
   position: sticky;
   top: 0;
