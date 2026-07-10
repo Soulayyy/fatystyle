@@ -36,6 +36,32 @@
     { "label": "Savoir-faire", "url": "savoir-faire.html" },
     { "label": "Contact", "url": "contact.html" }
   ],
+  "pages": {
+    "index.html": {
+      "seo": {
+        "title": "Faty Style | Atelier de couture, haute couture et retouches à Limay",
+        "description": "Faty Style, atelier de couture à Limay : créations sur mesure, robes de mariage, robes de soirée, retouches, accessoires et initiation couture dans les Yvelines."
+      }
+    },
+    "presentation.html": {
+      "seo": {
+        "title": "Prestations couture et créations sur mesure | Faty Style Limay",
+        "description": "Découvrez les prestations Faty Style à Limay : vêtements sur mesure, retouches, initiation couture, robes de mariage, robes de soirée, accessoires et créations enfants."
+      }
+    },
+    "savoir-faire.html": {
+      "seo": {
+        "title": "Savoir-faire couture et finitions artisanales | Faty Style",
+        "description": "Découvrez le savoir-faire couture Faty Style : écoute du projet, choix des matières, patronage, coupe, essayages, ajustements et finitions artisanales."
+      }
+    },
+    "contact.html": {
+      "seo": {
+        "title": "Contact Faty Style | Atelier couture à Limay",
+        "description": "Contactez Faty Style, atelier couture à Limay : téléphone, WhatsApp, email, adresse, horaires et demande de projet couture."
+      }
+    }
+  },
   "home": {
     "hero": {
       "eyebrow": "Atelier couture à Limay",
@@ -192,6 +218,9 @@
   ],
   "contact": {
     "intro": "Décrivez votre projet couture. Le message est envoyé par email à l'atelier, avec une confirmation automatique à votre adresse.",
+    "web3formsAccessKey": "24828741-d117-4016-811f-d9d24eca2ecb",
+    "ownerNotification": "Un visiteur vient d'envoyer une demande depuis le site Faty Style. Merci de le recontacter rapidement.",
+    "confirmationMessage": "Bonjour, nous avons bien reçu votre message envoyé à Faty Style. L'atelier revient vers vous très bientôt. Pour une demande urgente, vous pouvez aussi contacter directement Faty Style au 07 68 65 56 43. Merci pour votre confiance.",
     "requestTypes": [
       "Création sur mesure",
       "Robe de mariage",
@@ -206,5 +235,9 @@
   "socialLinks": [
     { "label": "Facebook", "url": "https://www.facebook.com/fatystylefr/", "icon": "assets/images/icons/facebook.svg" },
     { "label": "Instagram", "url": "https://www.instagram.com/fatystylefr/", "icon": "assets/images/icons/instagram.svg" }
-  ]
+  ],
+  "footer": {
+    "text": "Atelier de couture et haute couture à Limay. Créations sur mesure, retouches, robes de mariage, tenues de cérémonie, accessoires et initiation couture.",
+    "copyright": "© 2026 Faty Style. Site créé par MaVitrine Online."
+  }
 }

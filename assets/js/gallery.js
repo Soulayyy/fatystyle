@@ -1,4 +1,5 @@
 (function () {
+function initGallery() {
   const items = Array.from(document.querySelectorAll("[data-gallery]"));
   if (!items.length) return;
 
@@ -82,10 +83,14 @@
   }
 
   items.forEach((item) => {
+    if (item.dataset.lightboxBound === "true") return;
+    item.dataset.lightboxBound = "true";
     item.addEventListener("click", () => open(item.dataset.gallery, item.dataset.index));
   });
 
   document.querySelectorAll("[data-open-gallery]").forEach((button) => {
+    if (button.dataset.lightboxBound === "true") return;
+    button.dataset.lightboxBound = "true";
     button.addEventListener("click", () => open(button.dataset.openGallery, 0));
   });
 
@@ -111,4 +116,8 @@
     if (event.key === "ArrowLeft") move(-1);
     if (event.key === "ArrowRight") move(1);
   });
+}
+
+initGallery();
+window.addEventListener("fatystyle:content-ready", initGallery);
 })();

@@ -12,6 +12,19 @@
 
 Aucun WordPress, aucune base MySQL et aucun build Node ne sont nécessaires.
 
+## Administration
+
+L’interface `admin/index.html` fonctionne sans base de données. Elle lit `data/content.json`.
+
+Pour bénéficier de la sauvegarde directe depuis l’admin, l’hébergement doit exécuter PHP et autoriser l’écriture dans :
+
+- `data/content.json`
+- `data/backups/`
+- `assets/images/admin/`
+
+Sans PHP, l’admin reste utilisable avec l’export/import JSON.
+Le bouton `Voir le site` lance une prévisualisation locale avec `?preview=admin`, utile pour contrôler les modifications avant de remplacer le fichier `data/content.json`.
+
 ## Exemple Nginx sur port dédié
 
 ```nginx
@@ -31,6 +44,12 @@ server {
         add_header Cache-Control "public";
         try_files $uri =404;
     }
+
+    # Optionnel : uniquement si PHP-FPM est installé pour la sauvegarde admin.
+    # location ~ \.php$ {
+    #     include snippets/fastcgi-php.conf;
+    #     fastcgi_pass unix:/run/php/php8.2-fpm.sock;
+    # }
 }
 ```
 

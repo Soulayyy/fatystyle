@@ -16,7 +16,7 @@ Livrer un site premium, clair, transférable et sans dépendance WordPress. Le s
 - `assets/` : CSS, JS, images et polices locales.
 - `assets/images/` : images structurées par usage et par univers, avec noms simples pour faciliter une future administration.
 - `data/content.json` : structure de contenu prête pour la future administration.
-- `admin/README_ADMIN_STANDBY.md` : admin prévue pour une phase suivante.
+- `admin/` : interface d’administration légère pour modifier `data/content.json`, avec sauvegarde PHP si l’hébergement le permet et export/import JSON en secours.
 - `docs/README_INSTALLATION.md` : guide d’installation.
 
 ## Lancer localement
@@ -36,6 +36,15 @@ Le site fonctionne sur un hébergement Apache ou Nginx classique. Aucun build, a
 - Facebook : https://www.facebook.com/fatystylefr/
 - Instagram : https://www.instagram.com/fatystylefr/
 
-## Future admin
+## Administration
 
-Une future interface d’administration pourra modifier `data/content.json` et gérer les images rangées dans `assets/images/`.
+L’interface `admin/index.html` permet de modifier les textes, coordonnées, prestations, catégories de créations, galeries, savoir-faire, contact, réseaux sociaux et SEO.
+
+Accès temporaire :
+
+- identifiant : `admin`
+- mot de passe : `pwd123`
+
+La sauvegarde réelle utilise `admin/save-content.php` et nécessite un hébergement compatible PHP avec droits d’écriture sur `data/content.json`. Si PHP n’est pas disponible, l’admin propose une sauvegarde locale navigateur et un export/import JSON.
+
+Le bouton `Voir le site` ouvre une prévisualisation locale (`?preview=admin`) basée sur le contenu stocké dans le navigateur. Cette prévisualisation ne remplace pas la version publiée tant que `data/content.json` n’est pas exporté/importé ou sauvegardé côté serveur.

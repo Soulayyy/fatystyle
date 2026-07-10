@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Administration Faty Style</title>
+  <link rel="icon" href="../assets/images/logo/logo.png">
+  <link rel="stylesheet" href="admin.css">
+</head>
+<body>
+  <main class="admin-shell" data-app>
+    <section class="login-card" data-login>
+      <img src="../assets/images/logo/logo.png" alt="Faty Style">
+      <h1>Administration</h1>
+      <p>Gestion du contenu Faty Style. Authentification temporaire front-end, à remplacer par une vraie authentification serveur si mise en production sensible.</p>
+      <form data-login-form>
+        <label>Identifiant<input name="username" autocomplete="username" required></label>
+        <label>Mot de passe<input name="password" type="password" autocomplete="current-password" required></label>
+        <button class="btn" type="submit">Connexion</button>
+      </form>
+      <p class="form-message" data-login-message></p>
+    </section>
+
+    <section class="dashboard" data-dashboard hidden>
+      <aside class="sidebar">
+        <div class="sidebar-brand">
+          <img src="../assets/images/logo/logo.png" alt="Faty Style">
+          <div>
+            <strong>Faty Style</strong>
+            <span>Contenu du site</span>
+          </div>
+        </div>
+        <nav data-tabs>
+          <button class="is-active" type="button" data-tab="overview">Tableau de bord</button>
+          <button type="button" data-tab="general">Général & SEO</button>
+          <button type="button" data-tab="home">Accueil</button>
+          <button type="button" data-tab="services">Prestations</button>
+          <button type="button" data-tab="categories">Créations</button>
+          <button type="button" data-tab="savoir">Savoir-faire</button>
+          <button type="button" data-tab="contact">Contact</button>
+          <button type="button" data-tab="media">Images</button>
+          <button type="button" data-tab="json">Export / Import</button>
+        </nav>
+      </aside>
+
+      <section class="workspace">
+        <header class="toolbar">
+          <div>
+            <span class="eyebrow">Administration</span>
+            <h1 data-panel-title>Tableau de bord</h1>
+          </div>
+          <div class="toolbar-actions">
+            <a class="btn btn-light" href="../index.html?preview=admin" target="_blank" rel="noopener noreferrer">Voir le site</a>
+            <button class="btn" type="button" data-save>Enregistrer</button>
+            <button class="btn btn-ghost" type="button" data-logout>Déconnexion</button>
+          </div>
+        </header>
+
+        <p class="status" data-status></p>
+        <section class="panel" data-panel></section>
+      </section>
+    </section>
+  </main>
+  <script src="admin.js"></script>
+</body>
+</html>
