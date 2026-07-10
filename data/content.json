@@ -233,8 +233,8 @@
     ]
   },
   "socialLinks": [
-    { "label": "Facebook", "url": "https://www.facebook.com/fatystylefr/", "icon": "assets/images/icons/facebook.svg" },
-    { "label": "Instagram", "url": "https://www.instagram.com/fatystylefr/", "icon": "assets/images/icons/instagram.svg" }
+    { "label": "Facebook", "url": "https://www.facebook.com/fatystylefr/", "icon": "assets/images/icons/facebook.png" },
+    { "label": "Instagram", "url": "https://www.instagram.com/fatystylefr/", "icon": "assets/images/icons/instagram.png" }
   ],
   "footer": {
     "text": "Atelier de couture et haute couture à Limay. Créations sur mesure, retouches, robes de mariage, tenues de cérémonie, accessoires et initiation couture.",
