@@ -639,7 +639,7 @@ a {
 }
 
 .method-section .step p {
-  color: var(--muted);
+  color: var(--muted) !important;
 }
 
 .reviews-section {
@@ -711,8 +711,12 @@ a {
 }
 
 .google-review-link img {
-  width: 22px;
-  height: 22px;
+  width: 22px !important;
+  height: 22px !important;
+  max-width: 22px;
+  max-height: 22px;
+  flex: 0 0 22px;
+  object-fit: contain;
   border-radius: 999px;
   background: #fff;
 }
@@ -1079,6 +1083,11 @@ textarea {
   gap: 10px;
 }
 
+.footer-social .social-pill {
+  min-width: 130px;
+  justify-content: center;
+}
+
 .footer-bottom {
   margin-top: 40px;
   padding-top: 22px;
@@ -1258,36 +1267,41 @@ textarea {
   }
 
   .nav-toggle {
-    display: inline-flex;
-    align-items: center;
+    display: none;
   }
 
   .main-nav {
-    position: fixed;
-    inset: 0 0 0 auto;
-    width: min(360px, 88vw);
-    padding: 92px 28px 28px;
-    border: 0;
-    background: var(--night);
-    transform: translateX(105%);
-    transition: transform 0.25s ease;
-    box-shadow: -20px 0 50px rgba(0, 0, 0, 0.2);
+    position: static;
+    width: 100%;
+    overflow-x: auto;
+    border-top: 1px solid rgba(21, 21, 21, 0.08);
+    background: rgba(255, 253, 248, 0.98);
+    transform: none;
+    box-shadow: none;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .main-nav::-webkit-scrollbar {
+    display: none;
   }
 
   .main-nav.is-open {
-    transform: translateX(0);
+    transform: none;
   }
 
   .main-nav ul {
-    display: grid;
-    gap: 8px;
-    justify-content: stretch;
+    display: flex;
+    width: min(var(--container), calc(100% - 34px));
+    margin: 0 auto;
+    gap: 12px;
+    justify-content: space-between;
+    white-space: nowrap;
   }
 
   .main-nav a {
-    padding: 14px 0;
-    color: #fff;
-    font-size: 15px;
+    padding: 10px 0 12px;
+    color: #33343a;
+    font-size: 10px;
   }
 
   .hero--home {
@@ -1313,7 +1327,6 @@ textarea {
 
   .pill-grid,
   .cards-grid,
-  .steps,
   .service-list,
   .method-grid,
   .reviews-grid,
@@ -1411,6 +1424,52 @@ textarea {
     width: fit-content;
   }
 
+  .google-review-link img {
+    width: 20px !important;
+    height: 20px !important;
+    max-width: 20px;
+    max-height: 20px;
+    flex-basis: 20px;
+  }
+
+  .method-section .steps {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 14px;
+  }
+
+  .method-section .step {
+    padding: 18px;
+  }
+
+  .method-section .step span {
+    width: 34px;
+    height: 34px;
+    margin-bottom: 12px;
+  }
+
+  .method-section .step h3 {
+    font-size: 18px;
+  }
+
+  .method-section .step p {
+    color: var(--muted) !important;
+    font-size: 13px;
+    line-height: 1.55;
+  }
+
+  .footer-social {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 180px));
+    gap: 12px;
+    justify-content: start;
+  }
+
+  .footer-social .social-pill {
+    min-width: 0;
+    justify-content: center;
+    padding: 10px 16px;
+  }
+
   .mini-gallery {
     grid-template-columns: repeat(2, 1fr);
   }
@@ -1502,6 +1561,18 @@ textarea {
     padding: 22px 16px;
   }
 
+  .reviews-header p {
+    font-size: 15px;
+  }
+
+  .google-review-link img {
+    width: 18px !important;
+    height: 18px !important;
+    max-width: 18px;
+    max-height: 18px;
+    flex-basis: 18px;
+  }
+
   .review-card {
     min-height: auto;
     padding: 22px;
@@ -1544,6 +1615,23 @@ textarea {
 
   .mini-gallery {
     display: none;
+  }
+
+  .method-section .steps {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+  }
+
+  .method-section .step {
+    padding: 16px 14px;
+  }
+
+  .method-section .step p {
+    display: none;
+  }
+
+  .footer-social {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
   .floating-whatsapp {
