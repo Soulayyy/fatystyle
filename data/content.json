@@ -9,6 +9,7 @@
     "hours": "Les mardis et samedis de 8h à 12h ou sur RDV",
     "facebook": "https://www.facebook.com/fatystylefr/",
     "instagram": "https://www.instagram.com/fatystylefr/",
+    "googleReviews": "https://maps.app.goo.gl/nF1pmM96V2LGEomj8?g_st=ic",
     "metaTitle": "Faty Style | Atelier de couture haute couture à Limay",
     "metaDescription": "Atelier de couture à Limay : créations sur mesure, robes de mariage, robes de soirée, retouches, accessoires, enfants et initiation couture."
   },
@@ -47,6 +48,27 @@
       "title": "Un atelier artisanal au service de vos envies",
       "text": "Créée en 2003, Faty Style accompagne les projets de robe de mariage, robe de soirée, vêtement sur mesure, retouche et accessoire textile. Fatima Abajjane met son expérience d'artisan couturière au service de pièces uniques, pensées pour votre style et votre silhouette.",
       "image": "assets/images/ambiance/1.jpg"
+    },
+    "certification": {
+      "title": "Maître Artisan en métier d'art",
+      "subtitle": "Une reconnaissance officielle du savoir-faire, de l'expérience et de l'exigence artisanale.",
+      "text": "Faty Style bénéficie du titre de Maître Artisan en métier d'art, une distinction qui valorise un savoir-faire reconnu, une maîtrise technique et un haut niveau d'exigence dans le travail artisanal.",
+      "image": "assets/images/icons/maitre-artisan.png"
+    },
+    "creationPreview": {
+      "title": "Des créations réelles, regroupées par univers",
+      "text": "Un aperçu maîtrisé du travail de l'atelier : robes, ensembles, accessoires et pièces enfants.",
+      "items": [
+        { "title": "Robes nuptiales", "category": "Mariage & cérémonie", "image": "assets/images/creations/robes-mariage/cover.jpg", "url": "presentation.html#univers" },
+        { "title": "Ensembles & vestes", "category": "Sur-mesure", "image": "assets/images/creations/ensembles-vestes/cover.jpg", "url": "presentation.html#univers" },
+        { "title": "Détails faits main", "category": "Accessoires", "image": "assets/images/creations/noeuds-papillon/cover.jpg", "url": "presentation.html#univers" },
+        { "title": "L'Atelier des Petits", "category": "Enfants", "image": "assets/images/creations/enfants/cover.jpg", "url": "presentation.html#univers" }
+      ]
+    },
+    "googleReviews": {
+      "title": "Les retours clients sur Google",
+      "url": "https://maps.app.goo.gl/nF1pmM96V2LGEomj8?g_st=ic",
+      "note": "Les avis authentiques de l'atelier sont consultables directement sur la fiche Google Faty Style."
     }
   },
   "services": [
