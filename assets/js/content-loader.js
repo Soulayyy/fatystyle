@@ -125,7 +125,7 @@
     const grid = document.querySelector(".creation-widget-grid");
     if (grid && Array.isArray(home.creationPreview?.items)) {
       grid.innerHTML = home.creationPreview.items.map((item) => `
-        <a class="creation-tile" href="${esc(item.url || "presentation.html#univers")}">
+        <a class="creation-tile" href="${esc(item.url || "savoir-faire.html#univers")}">
           <img src="${esc(item.image)}" alt="${esc(item.title)}" loading="lazy">
           <span>${esc(item.category)}</span>
           <strong>${esc(item.title)}</strong>
@@ -239,11 +239,8 @@
     updateSeo(content);
     updateCommon(content);
     if (page === "index.html" || page === "") renderHome(content);
-    if (page === "presentation.html") {
-      renderServices(content);
-      renderUnivers(content);
-    }
-    if (page === "savoir-faire.html") renderSavoir(content);
+    if (page === "presentation.html") renderServices(content);
+    if (page === "savoir-faire.html") renderUnivers(content);
     if (page === "contact.html") renderContact(content);
     window.dispatchEvent(new CustomEvent("fatystyle:content-ready", { detail: content }));
   }

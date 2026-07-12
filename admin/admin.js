@@ -281,7 +281,7 @@
         <label>Image<input data-array-field data-index="${index}" data-key="image" value="${escapeHtml(item.image)}"></label>
         <label>Lien<input data-array-field data-index="${index}" data-key="url" value="${escapeHtml(item.url)}"></label>
         ${cardActions(index)}
-      </article>`, () => ({ title: "Nouvelle création", category: "Univers", image: "assets/images/creations/robes-mariage/cover.jpg", url: "presentation.html#univers" }));
+      </article>`, () => ({ title: "Nouvelle création", category: "Univers", image: "assets/images/creations/robes-mariage/cover.jpg", url: "savoir-faire.html#univers" }));
   }
 
   function renderServices() {

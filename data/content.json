@@ -8,7 +8,7 @@
     "address": "9 Bis Boulevard Aristide Briand, 78520 Limay",
     "hours": "Les mardis et samedis de 8h à 12h ou sur RDV",
     "facebook": "https://www.facebook.com/fatystylefr/",
-    "instagram": "https://www.instagram.com/fatystylefr/",
+    "instagram": "https://www.instagram.com/atelier_fatystyle/",
     "googleReviews": "https://maps.app.goo.gl/nF1pmM96V2LGEomj8?g_st=ic",
     "metaTitle": "Faty Style | Atelier de couture haute couture à Limay",
     "metaDescription": "Atelier de couture à Limay : créations sur mesure, robes de mariage, robes de soirée, retouches, accessoires, enfants et initiation couture."
@@ -33,7 +33,8 @@
   "navigation": [
     { "label": "Accueil", "url": "index.html" },
     { "label": "Présentation", "url": "presentation.html" },
-    { "label": "Savoir-faire", "url": "savoir-faire.html" },
+    { "label": "Création", "url": "savoir-faire.html" },
+    { "label": "Page Pro", "url": "pro.html" },
     { "label": "Contact", "url": "contact.html" }
   ],
   "pages": {
@@ -45,14 +46,20 @@
     },
     "presentation.html": {
       "seo": {
-        "title": "Prestations couture et créations sur mesure | Faty Style Limay",
-        "description": "Découvrez les prestations Faty Style à Limay : vêtements sur mesure, retouches, initiation couture, robes de mariage, robes de soirée, accessoires et créations enfants."
+        "title": "Présentation de l'atelier couture | Faty Style Limay",
+        "description": "Découvrez Faty Style à Limay : atelier de couture, vêtements sur mesure, retouches, initiation couture et accompagnement artisanal."
       }
     },
     "savoir-faire.html": {
       "seo": {
-        "title": "Savoir-faire couture et finitions artisanales | Faty Style",
-        "description": "Découvrez le savoir-faire couture Faty Style : écoute du projet, choix des matières, patronage, coupe, essayages, ajustements et finitions artisanales."
+        "title": "Créations couture réelles | Faty Style Limay",
+        "description": "Découvrez les créations Faty Style : robes de mariage, robes de soirée, ensembles, accessoires, enfants, retouches et pièces faites main."
+      }
+    },
+    "pro.html": {
+      "seo": {
+        "title": "Projet textile professionnel et petites séries | Faty Style",
+        "description": "Faty Style accompagne les professionnels, créateurs et petites collections : patronage, prototypes, retouches, ajustements et petites séries."
       }
     },
     "contact.html": {
@@ -66,8 +73,8 @@
     "hero": {
       "eyebrow": "Atelier couture à Limay",
       "title": "Faty Style",
-      "subtitle": "Atelier de couture, haute couture et retouches à Limay",
-      "text": "Créations sur mesure, robes de mariage, robes de soirée, retouches, accessoires et initiation couture.",
+      "subtitle": "Votre atelier de couture sur mesure",
+      "text": "Un atelier dédié aux particuliers et aux professionnels, de la création de vêtements au développement de projets textiles.",
       "image": "assets/images/hero/1.jpg"
     },
     "about": {
@@ -85,10 +92,10 @@
       "title": "Des créations réelles, regroupées par univers",
       "text": "Un aperçu maîtrisé du travail de l'atelier : robes, ensembles, accessoires et pièces enfants.",
       "items": [
-        { "title": "Robes nuptiales", "category": "Mariage & cérémonie", "image": "assets/images/creations/robes-mariage/cover.jpg", "url": "presentation.html#univers" },
-        { "title": "Ensembles & vestes", "category": "Sur-mesure", "image": "assets/images/creations/ensembles-vestes/cover.jpg", "url": "presentation.html#univers" },
-        { "title": "Détails faits main", "category": "Accessoires", "image": "assets/images/creations/noeuds-papillon/cover.jpg", "url": "presentation.html#univers" },
-        { "title": "L'Atelier des Petits", "category": "Enfants", "image": "assets/images/creations/enfants/cover.jpg", "url": "presentation.html#univers" }
+        { "title": "Robes nuptiales", "category": "Mariage & cérémonie", "image": "assets/images/creations/robes-mariage/cover.jpg", "url": "savoir-faire.html#univers" },
+        { "title": "Ensembles & vestes", "category": "Sur-mesure", "image": "assets/images/creations/ensembles-vestes/cover.jpg", "url": "savoir-faire.html#univers" },
+        { "title": "Détails faits main", "category": "Accessoires", "image": "assets/images/creations/noeuds-papillon/cover.jpg", "url": "savoir-faire.html#univers" },
+        { "title": "L'Atelier des Petits", "category": "Enfants", "image": "assets/images/creations/enfants/cover.jpg", "url": "savoir-faire.html#univers" }
       ]
     },
     "googleReviews": {
@@ -229,12 +236,13 @@
       "Accessoire",
       "Enfant",
       "Initiation couture",
+      "Projet professionnel / petite série",
       "Autre demande"
     ]
   },
   "socialLinks": [
     { "label": "Facebook", "url": "https://www.facebook.com/fatystylefr/", "icon": "assets/images/icons/facebook.png" },
-    { "label": "Instagram", "url": "https://www.instagram.com/fatystylefr/", "icon": "assets/images/icons/instagram.png" }
+    { "label": "Instagram", "url": "https://www.instagram.com/atelier_fatystyle/", "icon": "assets/images/icons/instagram.png" }
   ],
   "footer": {
     "text": "Atelier de couture et haute couture à Limay. Créations sur mesure, retouches, robes de mariage, tenues de cérémonie, accessoires et initiation couture.",
