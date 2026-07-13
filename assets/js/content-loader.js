@@ -33,19 +33,44 @@
 
   function setOg(property, value) {
     if (!value) return;
-    const meta = document.querySelector(`meta[property="${property}"]`);
-    if (meta) meta.setAttribute("content", value);
+    let meta = document.querySelector(`meta[property="${property}"]`);
+    if (!meta) {
+      meta = document.createElement("meta");
+      meta.setAttribute("property", property);
+      document.head.appendChild(meta);
+    }
+    meta.setAttribute("content", value);
+  }
+
+  function setLinkRel(rel, href) {
+    if (!href) return;
+    let link = document.querySelector(`link[rel="${rel}"]`);
+    if (!link) {
+      link = document.createElement("link");
+      link.setAttribute("rel", rel);
+      document.head.appendChild(link);
+    }
+    link.setAttribute("href", href);
   }
 
   function updateSeo(content) {
     const seoByPage = (content.pages && content.pages[page] && content.pages[page].seo) || {};
     const titleValue = seoByPage.title || content.seo?.title || content.site?.metaTitle;
     const description = seoByPage.description || content.seo?.description || content.site?.metaDescription;
+    const canonical = `${window.location.origin}${window.location.pathname}`;
+    const socialImage = new URL(content.seo?.image || "assets/images/hero/1.jpg", window.location.href).href;
     if (titleValue) document.title = titleValue;
     setMeta("description", description);
     if (Array.isArray(content.seo?.keywords)) setMeta("keywords", content.seo.keywords.join(", "));
+    setLinkRel("canonical", canonical);
     setOg("og:title", titleValue);
     setOg("og:description", description);
+    setOg("og:url", canonical);
+    setOg("og:image", socialImage);
+    setMeta("twitter:card", "summary_large_image");
+    setMeta("twitter:title", titleValue);
+    setMeta("twitter:description", description);
+    setMeta("twitter:image", socialImage);
   }
 
   function updateCommon(content) {
@@ -170,7 +195,7 @@
         const src = category.folder + photo;
         return `<button type="button"><img data-gallery="${esc(category.slug)}" data-category="${esc(category.title)}" data-title="${esc(category.title)} ${index + 1}" data-src="${esc(src)}" src="${esc(src)}" alt="${esc(category.title)} ${index + 1}" loading="lazy"></button>`;
       }).join("");
-      return `<article class="universe-card">
+      return `<article class="universe-card" data-category-card="${esc(category.slug)}">
         <div class="universe-cover"><img src="${esc(category.folder + category.cover)}" alt="${esc(category.title)}" loading="lazy"></div>
         <div class="universe-content">
           <h3>${esc(category.title)}</h3>
@@ -184,6 +209,8 @@
       </article>`;
     }).join("");
 
+    bindUniverseFilters(list, content.creationCategories);
+
     const hidden = document.querySelector(".sr-only");
     if (hidden) {
       hidden.innerHTML = content.creationCategories.map((category) => {
@@ -193,6 +220,48 @@
         }).join("");
       }).join("");
     }
+  }
+
+  function bindUniverseFilters(list, categories) {
+    const section = list.closest("section");
+    if (!section || !Array.isArray(categories) || !categories.length) return;
+    section.querySelector("[data-universe-filters]")?.remove();
+
+    const filters = document.createElement("div");
+    filters.className = "universe-filters";
+    filters.setAttribute("data-universe-filters", "");
+    filters.setAttribute("aria-label", "Filtrer les créations Faty Style");
+
+    const buttons = [
+      { label: "Tout", slug: "all" },
+      ...categories.map((category) => ({ label: category.shortTitle || category.title, slug: category.slug }))
+    ];
+
+    filters.innerHTML = buttons.map((button, index) => `
+      <button class="filter-btn${index === 0 ? " is-active" : ""}" type="button" data-filter="${esc(button.slug)}" aria-pressed="${index === 0 ? "true" : "false"}">${esc(button.label)}</button>
+    `).join("");
+
+    list.before(filters);
+    filters.addEventListener("click", (event) => {
+      const button = event.target.closest("[data-filter]");
+      if (!button) return;
+      const currentScroll = window.scrollY;
+      const filter = button.dataset.filter;
+
+      filters.querySelectorAll("[data-filter]").forEach((item) => {
+        const isActive = item === button;
+        item.classList.toggle("is-active", isActive);
+        item.setAttribute("aria-pressed", String(isActive));
+      });
+
+      list.classList.add("is-filtering");
+      list.querySelectorAll("[data-category-card]").forEach((card) => {
+        const visible = filter === "all" || card.dataset.categoryCard === filter;
+        card.toggleAttribute("hidden", !visible);
+      });
+      window.scrollTo({ top: currentScroll, left: 0 });
+      window.setTimeout(() => list.classList.remove("is-filtering"), 180);
+    });
   }
 
   function renderSavoir(content) {

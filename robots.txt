@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: http://178.105.180.143:8082/sitemap.xml

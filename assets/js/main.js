@@ -34,4 +34,40 @@
       link.href = "https://wa.me/33768655643?text=" + encodeURIComponent(message);
     }
   });
+
+  function initReveal() {
+    const items = document.querySelectorAll(
+      ".hero-content, .section-head, .section-title, .split, .card, .pill-card, .creation-widget, .artisan-card, .universe-card, .method-card, .method-section .step, .review-card, .contact-card, .contact-form, .timeline-item, .cta-band"
+    );
+
+    items.forEach((item) => {
+      if (!item.classList.contains("reveal")) {
+        item.classList.add("reveal");
+      }
+    });
+
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches || !("IntersectionObserver" in window)) {
+      items.forEach((item) => item.classList.add("is-visible"));
+      return;
+    }
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("is-visible");
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.12 }
+    );
+
+    items.forEach((item) => {
+      if (!item.classList.contains("is-visible")) observer.observe(item);
+    });
+  }
+
+  initReveal();
+  window.addEventListener("fatystyle:content-ready", initReveal);
 })();

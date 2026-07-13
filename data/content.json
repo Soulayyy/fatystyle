@@ -8,7 +8,7 @@
     "address": "9 Bis Boulevard Aristide Briand, 78520 Limay",
     "hours": "Les mardis et samedis de 8h à 12h ou sur RDV",
     "facebook": "https://www.facebook.com/fatystylefr/",
-    "instagram": "https://www.instagram.com/atelier_fatystyle/",
+    "instagram": "https://www.instagram.com/fatystylefr/",
     "googleReviews": "https://maps.app.goo.gl/nF1pmM96V2LGEomj8?g_st=ic",
     "metaTitle": "Faty Style | Atelier de couture haute couture à Limay",
     "metaDescription": "Atelier de couture à Limay : créations sur mesure, robes de mariage, robes de soirée, retouches, accessoires, enfants et initiation couture."
@@ -16,6 +16,7 @@
   "seo": {
     "title": "Faty Style | Atelier de couture, haute couture et retouches à Limay",
     "description": "Faty Style, atelier de couture à Limay : créations sur mesure, robes de mariage, robes de soirée, retouches, accessoires et initiation couture.",
+    "image": "assets/images/hero/1.jpg",
     "keywords": [
       "couture Limay",
       "couturière Limay",
@@ -33,8 +34,8 @@
   "navigation": [
     { "label": "Accueil", "url": "index.html" },
     { "label": "Présentation", "url": "presentation.html" },
-    { "label": "Création", "url": "savoir-faire.html" },
-    { "label": "Page Pro", "url": "pro.html" },
+    { "label": "Créations", "url": "savoir-faire.html" },
+    { "label": "Professionnels", "url": "pro.html" },
     { "label": "Contact", "url": "contact.html" }
   ],
   "pages": {
@@ -242,7 +243,7 @@
   },
   "socialLinks": [
     { "label": "Facebook", "url": "https://www.facebook.com/fatystylefr/", "icon": "assets/images/icons/facebook.png" },
-    { "label": "Instagram", "url": "https://www.instagram.com/atelier_fatystyle/", "icon": "assets/images/icons/instagram.png" }
+    { "label": "Instagram", "url": "https://www.instagram.com/fatystylefr/", "icon": "assets/images/icons/instagram.png" }
   ],
   "footer": {
     "text": "Atelier de couture et haute couture à Limay. Créations sur mesure, retouches, robes de mariage, tenues de cérémonie, accessoires et initiation couture.",

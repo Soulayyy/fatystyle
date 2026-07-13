@@ -35,7 +35,7 @@ Le site fonctionne sur un hébergement Apache ou Nginx classique. Aucun build, a
 ## Réseaux officiels
 
 - Facebook : https://www.facebook.com/fatystylefr/
-- Instagram : https://www.instagram.com/atelier_fatystyle/
+- Instagram : https://www.instagram.com/fatystylefr/
 
 ## Administration
 
