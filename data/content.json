@@ -80,7 +80,12 @@
     },
     "about": {
       "title": "Un atelier artisanal au service de vos envies",
-      "text": "Créée en 2003, Faty Style accompagne les projets de robe de mariage, robe de soirée, vêtement sur mesure, retouche et accessoire textile. Fatima Abajjane met son expérience d'artisan couturière au service de pièces uniques, pensées pour votre style et votre silhouette.",
+      "text": "Il existe des vêtements que l'on trouve partout. Et puis, il y a ceux que l'on ne trouve nulle part ailleurs…",
+      "paragraphs": [
+        "Il existe des vêtements que l'on trouve partout. Et puis, il y a ceux que l'on ne trouve nulle part ailleurs…",
+        "Chez Faty Style, chaque création naît d'une histoire, d'une rencontre et d'une envie de donner vie à une pièce qui ne ressemble à aucune autre. Depuis 2003, l'atelier accompagne celles et ceux qui recherchent bien plus qu'un simple vêtement : une création pensée pour eux, dans les moindres détails.",
+        "Qu'il s'agisse d'une robe de mariée, d'une tenue de cérémonie, d'un vêtement sur mesure ou d'une retouche, chaque projet est réalisé avec la même exigence, la même précision et le même respect du savoir-faire artisanal. Ici, rien n'est produit en série. Chaque pièce est imaginée, conçue et confectionnée pour raconter votre histoire."
+      ],
       "image": "assets/images/ambiance/1.jpg"
     },
     "certification": {

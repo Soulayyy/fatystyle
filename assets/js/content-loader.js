@@ -135,7 +135,13 @@
     if (hero.image) document.querySelector(".hero--home")?.style.setProperty("background-image", `url('${hero.image}')`);
 
     text(".split-copy h2", home.about?.title);
-    text(".split-copy p", home.about?.text);
+    const aboutParagraphs = document.querySelectorAll(".split-copy > p");
+    const aboutTexts = Array.isArray(home.about?.paragraphs) && home.about.paragraphs.length
+      ? home.about.paragraphs
+      : [home.about?.text].filter(Boolean);
+    aboutParagraphs.forEach((paragraph, index) => {
+      if (aboutTexts[index]) paragraph.textContent = aboutTexts[index];
+    });
     attr(".split-media img", "src", home.about?.image);
 
     text(".artisan-copy h2", home.certification?.title);

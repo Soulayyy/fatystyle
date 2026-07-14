@@ -37,7 +37,7 @@
 
   function initReveal() {
     const items = document.querySelectorAll(
-      ".hero-content, .section-head, .section-title, .split, .card, .pill-card, .creation-widget, .artisan-card, .universe-card, .method-card, .method-section .step, .review-card, .contact-card, .contact-form, .timeline-item, .cta-band"
+      ".hero-content, .section-head, .section-title, .split, .card, .pill-card, .creation-widget, .artisan-card, .universe-card, .method-card, .method-section .step, .review-card, .contact-card, .contact-form, .timeline-item, .cta-band, .pro-lounge-hero__copy, .pro-lounge-hero__visual, .pro-step-card, .pro-expertise-card, .pro-final-cta__box"
     );
 
     items.forEach((item) => {
