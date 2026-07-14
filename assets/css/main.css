@@ -6,6 +6,8 @@
   --ivory: #fffdf8;
   --mist: #f2f5fb;
   --champagne: #c19449;
+  --champagne-readable: #906721;
+  --champagne-display: #a1762e;
   --champagne-soft: #e8d9bf;
   --rose: #c80b58;
   --muted: #77706a;
@@ -232,7 +234,7 @@ textarea:focus-visible {
 }
 
 .eyebrow-dark {
-  color: var(--champagne);
+  color: var(--champagne-readable);
 }
 
 .hero h1,
@@ -329,7 +331,7 @@ textarea:focus-visible {
 .script-title {
   display: block;
   margin-bottom: -6px;
-  color: var(--champagne);
+  color: var(--champagne-display);
   font-family: "Great Vibes", "Brush Script MT", cursive;
   font-size: clamp(46px, 7vw, 82px);
   line-height: 0.9;
@@ -534,7 +536,7 @@ textarea:focus-visible {
 
 .text-link {
   display: inline-flex;
-  color: var(--champagne);
+  color: var(--champagne-readable);
   font-weight: 900;
 }
 
@@ -1118,7 +1120,7 @@ textarea:focus-visible {
 
 .method-card strong {
   display: inline-flex;
-  color: var(--champagne);
+  color: var(--champagne-readable);
   font-size: 13px;
   font-weight: 900;
   letter-spacing: 0.12em;
@@ -1166,7 +1168,7 @@ textarea:focus-visible {
 
 .contact-line small {
   display: block;
-  color: var(--champagne);
+  color: var(--champagne-readable);
   font-size: 11px;
   font-weight: 900;
   letter-spacing: 0.13em;
@@ -1504,7 +1506,7 @@ textarea {
 .pro-step-card strong {
   display: block;
   margin-bottom: 16px;
-  color: var(--champagne);
+  color: var(--champagne-readable);
   font-size: 13px;
   font-weight: 900;
   letter-spacing: 0.1em;

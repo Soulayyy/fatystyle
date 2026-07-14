@@ -58,5 +58,5 @@ Commandes utiles :
 ```bash
 nginx -t
 systemctl reload nginx
-curl -I http://127.0.0.1:8082/
+curl -I http://localhost:8082/
 ```

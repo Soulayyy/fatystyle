@@ -2,12 +2,14 @@
 
 Une interface d’administration légère est disponible dans `admin/index.html`.
 
-## Accès temporaire
+## Accès
 
-- Identifiant : `admin`
-- Mot de passe : `pwd123`
+L'administration n'embarque aucun identifiant ni secret dans le code. Le serveur PHP doit fournir :
 
-Cette authentification est temporaire et front-end. Elle convient pour une prévisualisation ou une administration simple sur un espace maîtrisé, mais elle doit être remplacée par une vraie authentification serveur si le site est exposé avec des besoins de sécurité sensibles.
+- `FATYSTYLE_ADMIN_USER` : identifiant administrateur, `admin` par défaut ;
+- `FATYSTYLE_ADMIN_TOKEN` : secret long et aléatoire, obligatoire.
+
+Sans `FATYSTYLE_ADMIN_TOKEN`, l'authentification, la sauvegarde et l'import d'images sont refusés.
 
 ## Contenus administrables
 

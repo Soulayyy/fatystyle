@@ -30,6 +30,7 @@ function initGallery() {
   let currentGallery = "";
   let currentIndex = 0;
   let touchStartX = 0;
+  let opener = null;
 
   function currentItems() {
     return galleries[currentGallery] || [];
@@ -60,19 +61,23 @@ function initGallery() {
     quote.href = "contact.html?type=" + encodeURIComponent(typeByCategory[item.category] || item.category);
   }
 
-  function open(gallery, index) {
+  function open(gallery, index, trigger) {
+    opener = trigger || document.activeElement;
     currentGallery = gallery;
     currentIndex = Number(index) || 0;
     render();
     lightbox.classList.add("is-open");
     lightbox.setAttribute("aria-hidden", "false");
     document.body.classList.add("is-locked");
+    closeButton?.focus();
   }
 
   function close() {
     lightbox.classList.remove("is-open");
     lightbox.setAttribute("aria-hidden", "true");
     document.body.classList.remove("is-locked");
+    if (opener instanceof HTMLElement) opener.focus();
+    opener = null;
   }
 
   function move(direction) {
@@ -85,13 +90,13 @@ function initGallery() {
   items.forEach((item) => {
     if (item.dataset.lightboxBound === "true") return;
     item.dataset.lightboxBound = "true";
-    item.addEventListener("click", () => open(item.dataset.gallery, item.dataset.index));
+    item.addEventListener("click", () => open(item.dataset.gallery, item.dataset.index, item.closest("button, a") || item));
   });
 
   document.querySelectorAll("[data-open-gallery]").forEach((button) => {
     if (button.dataset.lightboxBound === "true") return;
     button.dataset.lightboxBound = "true";
-    button.addEventListener("click", () => open(button.dataset.openGallery, 0));
+    button.addEventListener("click", () => open(button.dataset.openGallery, 0, button));
   });
 
   closeButton?.addEventListener("click", close);
@@ -115,6 +120,19 @@ function initGallery() {
     if (event.key === "Escape") close();
     if (event.key === "ArrowLeft") move(-1);
     if (event.key === "ArrowRight") move(1);
+    if (event.key === "Tab") {
+      const focusable = Array.from(lightbox.querySelectorAll('button:not([disabled]), a[href]'));
+      if (!focusable.length) return;
+      const first = focusable[0];
+      const last = focusable[focusable.length - 1];
+      if (event.shiftKey && document.activeElement === first) {
+        event.preventDefault();
+        last.focus();
+      } else if (!event.shiftKey && document.activeElement === last) {
+        event.preventDefault();
+        first.focus();
+      }
+    }
   });
 }
 

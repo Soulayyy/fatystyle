@@ -1,1 +1,0 @@
-// Aucun vendor externe requis.

@@ -70,4 +70,50 @@
 
   initReveal();
   window.addEventListener("fatystyle:content-ready", initReveal);
+
+  function applyRequestedContactType() {
+    const select = document.getElementById("requestType");
+    const requestedType = new URLSearchParams(window.location.search).get("type");
+    if (!select || !requestedType) return;
+    const normalized = requestedType.trim().toLowerCase();
+    Array.from(select.options).some((option) => {
+      const matches = option.value.trim().toLowerCase() === normalized || option.text.trim().toLowerCase() === normalized;
+      if (matches) select.value = option.value;
+      return matches;
+    });
+  }
+
+  function initContactForm() {
+    const form = document.querySelector("[data-contact-form]");
+    if (!form) return;
+
+    const params = new URLSearchParams(window.location.search);
+    const alert = document.querySelector("[data-form-alert]");
+    const redirect = form.querySelector("[data-form-redirect]");
+    const replyTo = form.querySelector("[data-form-replyto]");
+    const email = form.querySelector('#email');
+
+    if (params.has("erreur") && alert) alert.hidden = false;
+    if (redirect) redirect.value = new URL("message-envoye.html", window.location.href).href;
+    applyRequestedContactType();
+
+    if (form.dataset.formBound === "true") return;
+    form.dataset.formBound = "true";
+    form.addEventListener("submit", (event) => {
+      form.querySelectorAll('input:not([type="hidden"]):not([type="checkbox"]), textarea').forEach((field) => {
+        field.value = field.value.trim();
+      });
+      if (replyTo && email) replyTo.value = email.value;
+      if (!form.checkValidity()) {
+        event.preventDefault();
+        form.reportValidity();
+      }
+    });
+  }
+
+  initContactForm();
+  window.addEventListener("fatystyle:content-ready", () => {
+    initContactForm();
+    applyRequestedContactType();
+  });
 })();

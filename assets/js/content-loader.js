@@ -57,8 +57,10 @@
     const seoByPage = (content.pages && content.pages[page] && content.pages[page].seo) || {};
     const titleValue = seoByPage.title || content.seo?.title || content.site?.metaTitle;
     const description = seoByPage.description || content.seo?.description || content.site?.metaDescription;
-    const canonical = `${window.location.origin}${window.location.pathname}`;
-    const socialImage = new URL(content.seo?.image || "assets/images/hero/1.jpg", window.location.href).href;
+    const existingCanonical = document.querySelector('link[rel="canonical"]')?.href;
+    const siteUrl = content.seo?.siteUrl || existingCanonical || `${window.location.origin}/`;
+    const canonical = new URL(page || "index.html", siteUrl.endsWith("/") ? siteUrl : `${siteUrl}/`).href;
+    const socialImage = new URL(content.seo?.image || "assets/images/hero/1.jpg", siteUrl).href;
     if (titleValue) document.title = titleValue;
     setMeta("description", description);
     if (Array.isArray(content.seo?.keywords)) setMeta("keywords", content.seo.keywords.join(", "));
@@ -157,39 +159,13 @@
     if (grid && Array.isArray(home.creationPreview?.items)) {
       grid.innerHTML = home.creationPreview.items.map((item) => `
         <a class="creation-tile" href="${esc(item.url || "savoir-faire.html#univers")}">
-          <img src="${esc(item.image)}" alt="${esc(item.title)}" loading="lazy">
+          <img src="${esc(item.image)}" alt="${esc(item.title)}" loading="lazy" decoding="async">
           <span>${esc(item.category)}</span>
           <strong>${esc(item.title)}</strong>
         </a>`).join("");
     }
     const googleLink = document.querySelector('.reviews-section a[href*="maps.app"], .reviews-section a[href*="google"]');
     if (googleLink && (home.googleReviews?.url || content.site?.googleReviews)) googleLink.href = home.googleReviews?.url || content.site.googleReviews;
-  }
-
-  function renderServices(content) {
-    const list = document.querySelector(".service-list");
-    if (!list || !Array.isArray(content.services)) return;
-    list.innerHTML = content.services.map((service) => `
-      <article class="card">
-        <img src="${esc(service.image)}" alt="${esc(service.title)}" loading="lazy">
-        <div class="card-body">
-          <h3>${esc(service.title)}</h3>
-          <p>${esc(service.description)}</p>
-          <a class="text-link" href="contact.html?type=${encodeURIComponent(service.title)}">Demander un devis</a>
-        </div>
-      </article>`).join("");
-  }
-
-  function categoryType(category) {
-    const titleValue = category.quoteType || category.title || "";
-    const map = {
-      "Robes de mariage": "Robe de mariage",
-      "Robes de soirée": "Robe de soirée",
-      "Retouches / transformations": "Retouche",
-      "L'Atelier des Petits": "Enfant",
-      "Initiation couture": "Initiation couture"
-    };
-    return map[titleValue] || titleValue;
   }
 
   function renderUnivers(content) {
@@ -199,7 +175,7 @@
       return (category.photos || []).map((photo, index) => {
         const src = category.folder + photo;
         return `<button class="creation-photo" type="button" data-photo-category="${esc(category.slug)}" aria-label="Voir ${esc(category.title)} ${index + 1}">
-          <img data-gallery="${esc(category.slug)}" data-category="${esc(category.title)}" data-title="${esc(category.title)} ${index + 1}" data-src="${esc(src)}" src="${esc(src)}" alt="${esc(category.title)} ${index + 1}" loading="lazy">
+          <img data-gallery="${esc(category.slug)}" data-category="${esc(category.title)}" data-title="${esc(category.title)} ${index + 1}" data-src="${esc(src)}" src="${esc(src)}" alt="${esc(category.title)} ${index + 1}" loading="lazy" decoding="async">
         </button>`;
       }).join("");
     }).join("");
@@ -270,17 +246,6 @@
     });
   }
 
-  function renderSavoir(content) {
-    const grid = document.querySelector(".method-grid");
-    if (!grid || !Array.isArray(content.savoirFaire)) return;
-    grid.innerHTML = content.savoirFaire.map((step, index) => `
-      <article class="method-card">
-        <strong>${String(index + 1).padStart(2, "0")}</strong>
-        <h3>${esc(step.title)}</h3>
-        <p>${esc(step.text)}</p>
-      </article>`).join("");
-  }
-
   function renderContact(content) {
     const site = content.site || {};
     const contact = content.contact || {};
@@ -314,7 +279,6 @@
     updateSeo(content);
     updateCommon(content);
     if (page === "index.html" || page === "") renderHome(content);
-    if (page === "presentation.html") renderServices(content);
     if (page === "savoir-faire.html") renderUnivers(content);
     if (page === "contact.html") renderContact(content);
     window.dispatchEvent(new CustomEvent("fatystyle:content-ready", { detail: content }));

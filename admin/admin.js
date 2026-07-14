@@ -1,6 +1,5 @@
 (function () {
-  const LOGIN = { user: "admin", pass: "pwd123" };
-  const API_TOKEN = "faty-style-admin-2026";
+  let apiToken = sessionStorage.getItem("fatystyle-admin-token") || "";
   const state = {
     content: null,
     active: "overview",
@@ -149,6 +148,7 @@
         ${field("Facebook", "site.facebook", { full: true })}
         ${field("Instagram", "site.instagram", { full: true })}
         ${field("Lien avis Google", "site.googleReviews", { full: true })}
+        ${field("URL officielle du site", "seo.siteUrl", { full: true })}
         ${field("Title SEO global", "seo.title", { full: true })}
         ${field("Description SEO", "seo.description", { type: "textarea", full: true })}
         ${field("Mots-clés SEO", "seo.keywords", { type: "textarea", full: true, noBind: true })}
@@ -428,7 +428,7 @@
     try {
       const response = await fetch("upload-image.php", {
         method: "POST",
-        headers: { "X-Faty-Admin": API_TOKEN },
+        headers: { "X-Faty-Admin": apiToken },
         body: data,
       });
       const json = await response.json();
@@ -483,7 +483,7 @@
         method: "POST",
         headers: {
           "Content-Type": "application/json",
-          "X-Faty-Admin": API_TOKEN,
+          "X-Faty-Admin": apiToken,
         },
         body: JSON.stringify(state.content),
       });
@@ -523,18 +523,49 @@
     reader.readAsText(file);
   }
 
-  function boot() {
-    const authenticated = sessionStorage.getItem("fatystyle-admin-auth") === "yes";
-    if (authenticated) showDashboard();
+  async function authenticate(username, token) {
+    const response = await fetch("auth.php", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "X-Faty-Admin": token,
+      },
+      body: JSON.stringify({ username }),
+    });
+    const json = await response.json().catch(() => ({ ok: false, message: "Réponse serveur invalide." }));
+    if (!response.ok || !json.ok) throw new Error(json.message || "Accès refusé.");
+  }
 
-    $("[data-login-form]")?.addEventListener("submit", (event) => {
+  function clearAuthentication() {
+    apiToken = "";
+    sessionStorage.removeItem("fatystyle-admin-token");
+    sessionStorage.removeItem("fatystyle-admin-user");
+  }
+
+  function boot() {
+    const storedUser = sessionStorage.getItem("fatystyle-admin-user") || "";
+    if (apiToken && storedUser) {
+      authenticate(storedUser, apiToken)
+        .then(showDashboard)
+        .catch(clearAuthentication);
+    }
+
+    $("[data-login-form]")?.addEventListener("submit", async (event) => {
       event.preventDefault();
       const data = new FormData(event.currentTarget);
-      if (data.get("username") === LOGIN.user && data.get("password") === LOGIN.pass) {
-        sessionStorage.setItem("fatystyle-admin-auth", "yes");
+      const username = String(data.get("username") || "").trim();
+      const token = String(data.get("password") || "");
+      const message = $("[data-login-message]");
+      try {
+        await authenticate(username, token);
+        apiToken = token;
+        sessionStorage.setItem("fatystyle-admin-token", token);
+        sessionStorage.setItem("fatystyle-admin-user", username);
+        if (message) message.textContent = "";
         showDashboard();
-      } else {
-        $("[data-login-message]").textContent = "Identifiants incorrects.";
+      } catch (error) {
+        clearAuthentication();
+        if (message) message.textContent = error.message;
       }
     });
 
@@ -548,7 +579,7 @@
 
     $("[data-save]")?.addEventListener("click", saveContent);
     $("[data-logout]")?.addEventListener("click", () => {
-      sessionStorage.removeItem("fatystyle-admin-auth");
+      clearAuthentication();
       window.location.reload();
     });
 

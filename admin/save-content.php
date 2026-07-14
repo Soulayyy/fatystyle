@@ -2,14 +2,8 @@
 declare(strict_types=1);
 
 header('Content-Type: application/json; charset=utf-8');
-
-// Protection temporaire légère pour l'admin front-end.
-// À remplacer par une vraie authentification serveur si le site devient sensible.
-if (($_SERVER['HTTP_X_FATY_ADMIN'] ?? '') !== 'faty-style-admin-2026') {
-    http_response_code(403);
-    echo json_encode(['ok' => false, 'message' => 'Accès refusé.']);
-    exit;
-}
+require_once __DIR__ . '/_auth.php';
+require_admin_token();
 
 if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
     http_response_code(405);

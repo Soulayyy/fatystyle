@@ -26,7 +26,7 @@ Livrer un site premium, clair, transférable et sans dépendance WordPress. Le s
 python3 -m http.server 8080
 ```
 
-Puis ouvrir `http://127.0.0.1:8080/`.
+Puis ouvrir `http://localhost:8080/`.
 
 ## Déploiement
 
@@ -41,10 +41,7 @@ Le site fonctionne sur un hébergement Apache ou Nginx classique. Aucun build, a
 
 L’interface `admin/index.html` sert de base de travail pour la future administration : textes, coordonnées, prestations, catégories de créations, galeries, savoir-faire, contact, réseaux sociaux et SEO.
 
-Accès temporaire :
-
-- identifiant : `admin`
-- mot de passe : `pwd123`
+L'accès doit être configuré côté serveur avec `FATYSTYLE_ADMIN_USER` et un `FATYSTYLE_ADMIN_TOKEN` long et aléatoire. Aucun secret d'administration n'est stocké dans le dépôt.
 
 La sauvegarde réelle utilise `admin/save-content.php` et nécessite un hébergement compatible PHP avec droits d’écriture sur `data/content.json`. Si PHP n’est pas disponible, l’admin propose une sauvegarde locale navigateur et un export/import JSON.
 

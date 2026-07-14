@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: http://178.105.180.143:8082/sitemap.xml
+Sitemap: https://www.fatystyle.fr/sitemap.xml
