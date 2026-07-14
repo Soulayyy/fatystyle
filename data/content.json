@@ -5,10 +5,10 @@
     "phone": "07 68 65 56 43",
     "whatsapp": "33768655643",
     "email": "fatystyle@hotmail.fr",
-    "address": "9 Bis Boulevard Aristide Briand, 78520 Limay",
+    "address": "9 Bis Boulevard Aristide Briand, 78520 Limay - Ile de france",
     "hours": "Les mardis et samedis de 8h à 12h ou sur RDV",
-    "facebook": "https://www.facebook.com/fatystylefr/",
-    "instagram": "https://www.instagram.com/fatystylefr/",
+    "facebook": "https://www.facebook.com/fatystylefr",
+    "instagram": "https://www.instagram.com/atelier_fatystyle/",
     "googleReviews": "https://maps.app.goo.gl/nF1pmM96V2LGEomj8?g_st=ic",
     "metaTitle": "Faty Style | Atelier de couture haute couture à Limay",
     "metaDescription": "Atelier de couture à Limay : créations sur mesure, robes de mariage, robes de soirée, retouches, accessoires, enfants et initiation couture."
@@ -247,11 +247,11 @@
     ]
   },
   "socialLinks": [
-    { "label": "Facebook", "url": "https://www.facebook.com/fatystylefr/", "icon": "assets/images/icons/facebook.png" },
-    { "label": "Instagram", "url": "https://www.instagram.com/fatystylefr/", "icon": "assets/images/icons/instagram.png" }
+    { "label": "Facebook", "url": "https://www.facebook.com/fatystylefr", "icon": "assets/images/icons/facebook.png" },
+    { "label": "Instagram", "url": "https://www.instagram.com/atelier_fatystyle/", "icon": "assets/images/icons/instagram.png" }
   ],
   "footer": {
-    "text": "Atelier de couture et haute couture à Limay. Créations sur mesure, retouches, robes de mariage, tenues de cérémonie, accessoires et initiation couture.",
+    "text": "Depuis 2003, Faty Style accompagne particuliers et créateurs dans leurs projets de couture.",
     "copyright": "© 2026 Faty Style. Site créé par MaVitrine Online."
   }
 }
