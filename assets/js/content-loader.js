@@ -193,43 +193,23 @@
   }
 
   function renderUnivers(content) {
-    const list = document.querySelector(".universe-list");
-    if (!list || !Array.isArray(content.creationCategories)) return;
-    list.innerHTML = content.creationCategories.map((category) => {
-      const photos = category.photos || [];
-      const preview = photos.slice(0, 4).map((photo, index) => {
+    const grid = document.querySelector("[data-creation-grid]");
+    if (!grid || !Array.isArray(content.creationCategories)) return;
+    grid.innerHTML = content.creationCategories.map((category) => {
+      return (category.photos || []).map((photo, index) => {
         const src = category.folder + photo;
-        return `<button type="button"><img data-gallery="${esc(category.slug)}" data-category="${esc(category.title)}" data-title="${esc(category.title)} ${index + 1}" data-src="${esc(src)}" src="${esc(src)}" alt="${esc(category.title)} ${index + 1}" loading="lazy"></button>`;
+        return `<button class="creation-photo" type="button" data-photo-category="${esc(category.slug)}" aria-label="Voir ${esc(category.title)} ${index + 1}">
+          <img data-gallery="${esc(category.slug)}" data-category="${esc(category.title)}" data-title="${esc(category.title)} ${index + 1}" data-src="${esc(src)}" src="${esc(src)}" alt="${esc(category.title)} ${index + 1}" loading="lazy">
+        </button>`;
       }).join("");
-      return `<article class="universe-card" data-category-card="${esc(category.slug)}">
-        <div class="universe-cover"><img src="${esc(category.folder + category.cover)}" alt="${esc(category.title)}" loading="lazy"></div>
-        <div class="universe-content">
-          <h3>${esc(category.title)}</h3>
-          <p>${esc(category.description)}</p>
-          <div class="mini-gallery">${preview}</div>
-          <div class="actions" style="justify-content:flex-start">
-            <button class="btn" type="button" data-open-gallery="${esc(category.slug)}">Voir les créations</button>
-            <a class="btn btn-light" href="contact.html?type=${encodeURIComponent(categoryType(category))}">Demander un devis</a>
-          </div>
-        </div>
-      </article>`;
     }).join("");
 
-    bindUniverseFilters(list, content.creationCategories);
-
-    const hidden = document.querySelector(".sr-only");
-    if (hidden) {
-      hidden.innerHTML = content.creationCategories.map((category) => {
-        return (category.photos || []).slice(4).map((photo, index) => {
-          const src = category.folder + photo;
-          return `<span data-gallery="${esc(category.slug)}" data-category="${esc(category.title)}" data-title="${esc(category.title)} ${index + 5}" data-src="${esc(src)}"></span>`;
-        }).join("");
-      }).join("");
-    }
+    bindUniverseFilters(grid, content.creationCategories);
+    bindUniverseShowcase(grid);
   }
 
-  function bindUniverseFilters(list, categories) {
-    const section = list.closest("section");
+  function bindUniverseFilters(grid, categories) {
+    const section = grid.closest("section");
     if (!section || !Array.isArray(categories) || !categories.length) return;
     section.querySelector("[data-universe-filters]")?.remove();
 
@@ -247,11 +227,10 @@
       <button class="filter-btn${index === 0 ? " is-active" : ""}" type="button" data-filter="${esc(button.slug)}" aria-pressed="${index === 0 ? "true" : "false"}">${esc(button.label)}</button>
     `).join("");
 
-    list.before(filters);
+    grid.before(filters);
     filters.addEventListener("click", (event) => {
       const button = event.target.closest("[data-filter]");
       if (!button) return;
-      const currentScroll = window.scrollY;
       const filter = button.dataset.filter;
 
       filters.querySelectorAll("[data-filter]").forEach((item) => {
@@ -260,13 +239,34 @@
         item.setAttribute("aria-pressed", String(isActive));
       });
 
-      list.classList.add("is-filtering");
-      list.querySelectorAll("[data-category-card]").forEach((card) => {
-        const visible = filter === "all" || card.dataset.categoryCard === filter;
-        card.toggleAttribute("hidden", !visible);
+      grid.classList.add("is-filtering");
+      grid.querySelectorAll("[data-photo-category]").forEach((photo) => {
+        const visible = filter === "all" || photo.dataset.photoCategory === filter;
+        photo.toggleAttribute("hidden", !visible);
       });
-      window.scrollTo({ top: currentScroll, left: 0 });
-      window.setTimeout(() => list.classList.remove("is-filtering"), 180);
+      window.setTimeout(() => grid.classList.remove("is-filtering"), 180);
+    });
+  }
+
+  function bindUniverseShowcase(grid) {
+    const panel = document.querySelector("[data-creation-gallery]");
+    const filters = panel?.querySelector("[data-universe-filters]");
+    document.querySelectorAll("[data-universe-slugs]").forEach((entry) => {
+      if (entry.dataset.universeBound === "true") return;
+      entry.dataset.universeBound = "true";
+      entry.addEventListener("click", () => {
+        const slugs = entry.dataset.universeSlugs.split(",").filter(Boolean);
+        grid.classList.add("is-filtering");
+        grid.querySelectorAll("[data-photo-category]").forEach((photo) => {
+          photo.toggleAttribute("hidden", !slugs.includes(photo.dataset.photoCategory));
+        });
+        filters?.querySelectorAll("[data-filter]").forEach((button) => {
+          button.classList.remove("is-active");
+          button.setAttribute("aria-pressed", "false");
+        });
+        window.setTimeout(() => grid.classList.remove("is-filtering"), 180);
+        panel?.scrollIntoView({ behavior: "smooth", block: "start" });
+      });
     });
   }
 
