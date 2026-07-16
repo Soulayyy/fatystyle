@@ -3,12 +3,17 @@
 namespace Tests\Feature;
 
 use App\Enums\RoleName;
+use App\Filament\Resources\ActivityLogs\ActivityLogResource;
+use App\Filament\Resources\ContactRequests\ContactRequestResource;
 use App\Filament\Resources\CreationCategories\CreationCategoryResource;
 use App\Filament\Resources\MediaAssets\MediaAssetResource;
 use App\Filament\Resources\NavigationItems\NavigationItemResource;
 use App\Filament\Resources\Pages\PageResource;
+use App\Filament\Resources\PublicationReleases\PublicationReleaseResource;
+use App\Filament\Resources\RedirectRules\RedirectRuleResource;
 use App\Filament\Resources\Services\ServiceResource;
 use App\Filament\Resources\SiteSettings\SiteSettingResource;
+use App\Filament\Resources\Users\UserResource;
 use App\Models\User;
 use Database\Seeders\RolePermissionSeeder;
 use Illuminate\Foundation\Testing\RefreshDatabase;
@@ -36,5 +41,11 @@ class FilamentResourcesTest extends TestCase
         $this->get(ServiceResource::getUrl())->assertOk();
         $this->get(CreationCategoryResource::getUrl())->assertOk();
         $this->get(SiteSettingResource::getUrl())->assertOk();
+        $this->get(ContactRequestResource::getUrl())->assertOk();
+        $this->get(RedirectRuleResource::getUrl())->assertOk();
+        $this->get(UserResource::getUrl())->assertOk();
+        $this->get(UserResource::getUrl('create'))->assertOk();
+        $this->get(ActivityLogResource::getUrl())->assertOk();
+        $this->get(PublicationReleaseResource::getUrl())->assertOk();
     }
 }

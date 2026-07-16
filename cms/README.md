@@ -20,6 +20,11 @@ Application d'administration du site Faty Style. Ce dossier remplace progressive
 - médiathèque privée avec empreinte SHA-256, dimensions, poids, texte alternatif et suivi des usages ;
 - gestion de la navigation, des prestations, des univers de création et des réglages ;
 - import transactionnel et réexécutable du contenu public historique.
+- gestion sécurisée des utilisateurs et des cinq rôles ;
+- demandes de contact avec assignation, statut et notes internes ;
+- journal d’audit en lecture seule et redirections SEO ;
+- tableau de bord synthétique et prévisualisation protégée ;
+- releases JSON immuables, bascule atomique et rollback.
 
 ## Démarrage local avec Docker
 
@@ -58,6 +63,19 @@ php artisan cms:import-public-content ../data/content.json
 ```
 
 La clé Web3Forms historique est volontairement exclue de l’import. Les secrets des futurs formulaires seront fournis par l’environnement du CMS.
+
+## Déploiement VPS
+
+Le document d’exploitation est disponible dans `docs/ADMIN_ARCHITECTURE.md`. L’application doit être servie depuis `cms/public`, avec PHP-FPM, PostgreSQL, un stockage partagé persistant et une configuration Nginx distincte du site public.
+
+Variables de publication indispensables en production :
+
+```dotenv
+CMS_PUBLIC_RELEASE_PATH=/var/www/fatystyle-content-releases
+CMS_PUBLIC_CONTENT_LINK=/var/www/fatystyle/data/content.json
+```
+
+Le processus PHP doit pouvoir écrire dans le dossier des releases et remplacer atomiquement le lien de contenu public. Une sauvegarde de la base et du fichier actif doit précéder toute opération de publication en production.
 
 ## Principes de sécurité
 

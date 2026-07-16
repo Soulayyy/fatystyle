@@ -44,6 +44,21 @@ La base PostgreSQL et l’administration ne sont donc jamais sollicitées par un
 
 Le panneau couvre désormais les pages, traductions, blocs, médias, menus, prestations, univers de création et réglages généraux. Les permissions de chaque ressource reprennent les matrices de rôles du socle. Les contenus JSON complexes restent éditables sans perte en attendant les formulaires spécialisés par type de bloc.
 
+Il couvre également les utilisateurs, rôles, demandes de contact, redirections, journal d’audit, prévisualisations et releases publiques. Le tableau de bord expose uniquement les compteurs autorisés à l’utilisateur connecté.
+
+## Publication et retour arrière
+
+Chaque publication reconstruit un `content.json` complet dans un répertoire numéroté et immuable. Une empreinte SHA-256 est enregistrée en base et dans le manifeste. Lorsque `CMS_PUBLIC_CONTENT_LINK` est configuré, le fichier public est remplacé par renommage atomique d’un lien symbolique préparé dans le même répertoire. Une restauration crée une nouvelle entrée de release pointant vers l’artefact historique choisi ; l’historique n’est jamais réécrit.
+
+## Déploiement courant
+
+- site public : Nginx sur le port `8082` ;
+- administration : Nginx et PHP-FPM sur un port distinct ;
+- code : releases horodatées avec un lien `current` ;
+- données persistantes : `.env`, stockage Laravel et PostgreSQL séparés du code ;
+- administration et prévisualisations : en-tête `X-Robots-Tag: noindex, nofollow` ;
+- sessions : serveur, chiffrées, cookies HTTP-only et SameSite strict.
+
 ## Compatibilité multilingue
 
 Les pages et blocs séparent dès le départ les données structurelles de leurs traductions. Seul le français est affiché dans le premier périmètre, mais l’ajout d’une langue ne nécessitera pas de refonte du schéma.

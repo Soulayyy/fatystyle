@@ -12,6 +12,7 @@ use Filament\Actions\DeleteAction;
 use Filament\Actions\RestoreAction;
 use Filament\Notifications\Notification;
 use Filament\Resources\Pages\EditRecord;
+use Filament\Support\Icons\Heroicon;
 use Illuminate\Validation\ValidationException;
 
 class EditPage extends EditRecord
@@ -51,6 +52,9 @@ class EditPage extends EditRecord
     protected function getHeaderActions(): array
     {
         return [
+            Action::make('preview')->label('Prévisualiser')->icon(Heroicon::OutlinedEye)
+                ->url(fn (): string => route('preview.pages.show', $this->record))
+                ->openUrlInNewTab(),
             $this->transitionAction('submit', 'Soumettre à validation', ContentStatus::InReview, 'pages.update'),
             $this->transitionAction('approve', 'Valider', ContentStatus::Approved, 'pages.publish'),
             $this->transitionAction('publish', 'Publier', ContentStatus::Published, 'pages.publish'),

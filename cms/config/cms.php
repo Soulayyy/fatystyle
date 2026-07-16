@@ -15,4 +15,6 @@ return [
 
     'public_site_url' => env('CMS_PUBLIC_SITE_URL', 'http://localhost:8082'),
     'public_release_path' => env('CMS_PUBLIC_RELEASE_PATH', '../public-site/releases'),
+    'public_content_link' => env('CMS_PUBLIC_CONTENT_LINK'),
+    'release_keep_count' => (int) env('CMS_RELEASE_KEEP_COUNT', 20),
 ];
