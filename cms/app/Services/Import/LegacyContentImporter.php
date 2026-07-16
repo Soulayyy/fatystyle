@@ -211,6 +211,8 @@ class LegacyContentImporter
     /** @param list<array<string, mixed>> $items @param array<string, int> $stats */
     private function importCategories(array $items, string $siteRoot, array &$stats): void
     {
+        $importedSlugs = array_column($items, 'slug');
+
         foreach ($items as $position => $item) {
             $coverPath = ($item['folder'] ?? '').($item['cover'] ?? '');
             $cover = $this->importMedia($siteRoot, $coverPath, $stats);
@@ -240,6 +242,10 @@ class LegacyContentImporter
             $category->media()->sync($sync);
             $stats['categories']++;
         }
+
+        CreationCategory::query()
+            ->whereNotIn('slug', $importedSlugs)
+            ->delete();
     }
 
     /** @param array<string, int> $stats */

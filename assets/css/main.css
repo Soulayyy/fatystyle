@@ -936,10 +936,6 @@ textarea:focus-visible {
   grid-column: span 2;
 }
 
-.universe-entry:nth-child(4) {
-  grid-column: 2 / span 2;
-}
-
 .universe-entry:hover {
   transform: translateY(-5px);
   border-color: rgba(193, 148, 73, 0.52);
@@ -2537,13 +2533,8 @@ textarea {
     margin-bottom: 56px;
   }
 
-  .universe-entry,
-  .universe-entry:nth-child(4) {
+  .universe-entry {
     grid-column: auto;
-  }
-
-  .universe-entry:last-child {
-    grid-column: span 2;
   }
 
   .creation-photo-grid {

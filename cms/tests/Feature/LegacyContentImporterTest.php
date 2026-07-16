@@ -70,6 +70,25 @@ class LegacyContentImporterTest extends TestCase
         $this->deleteFixture($root);
     }
 
+    public function test_reimport_removes_categories_that_are_no_longer_in_public_content(): void
+    {
+        Storage::fake('local');
+        [$jsonPath, $root] = $this->fixture();
+        CreationCategory::create([
+            'title' => 'Ancienne catégorie',
+            'slug' => 'ancienne-categorie',
+            'position' => 99,
+            'is_visible' => true,
+        ]);
+
+        app(LegacyContentImporter::class)->import($jsonPath);
+
+        $this->assertSame(['mariage'], CreationCategory::query()->pluck('slug')->all());
+        $this->assertTrue(CreationCategory::withTrashed()->where('slug', 'ancienne-categorie')->firstOrFail()->trashed());
+
+        $this->deleteFixture($root);
+    }
+
     /** @return array{0: string, 1: string} */
     private function fixture(): array
     {

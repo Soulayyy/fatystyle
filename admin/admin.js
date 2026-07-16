@@ -281,7 +281,7 @@
         <label>Image<input data-array-field data-index="${index}" data-key="image" value="${escapeHtml(item.image)}"></label>
         <label>Lien<input data-array-field data-index="${index}" data-key="url" value="${escapeHtml(item.url)}"></label>
         ${cardActions(index)}
-      </article>`, () => ({ title: "Nouvelle création", category: "Univers", image: "assets/images/creations/robes-mariage/cover.jpg", url: "savoir-faire.html#univers" }));
+      </article>`, () => ({ title: "Nouvelle création", category: "Univers", image: "assets/images/creations/robes-de-mariee/1.webp", url: "savoir-faire.html#univers" }));
   }
 
   function renderServices() {
@@ -316,7 +316,7 @@
           <label class="full">Photos<textarea data-array-field data-list="true" data-index="${index}" data-key="photos">${escapeHtml((item.photos || []).join("\n"))}</textarea></label>
         </div>
         ${cardActions(index)}
-      </article>`, () => ({ title: "Nouvelle catégorie", slug: "nouvelle-categorie", folder: "assets/images/creations/nouvelle-categorie/", cover: "cover.jpg", description: "", photos: [] }));
+      </article>`, () => ({ title: "Nouvelle catégorie", slug: "nouvelle-categorie", folder: "assets/images/creations/nouvelle-categorie/", cover: "1.webp", description: "", photos: [] }));
   }
 
   function renderSavoir() {

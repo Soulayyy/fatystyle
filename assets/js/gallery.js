@@ -46,17 +46,12 @@ function initGallery() {
     category.textContent = item.category;
     counter.textContent = `${currentIndex + 1} / ${list.length}`;
     const typeByCategory = {
-      "Robes de mariage": "Robe de mariage",
-      "Robes de soirée": "Robe de soirée",
-      "Ensembles & vestes": "Création sur mesure",
-      "Nœuds papillon": "Accessoire",
+      "Sur mesure": "Création sur mesure",
+      "Robes de mariée": "Robe de mariage",
+      "Création haute couture": "Création sur mesure",
+      "Enfants": "Enfant",
       "Accessoires": "Accessoire",
-      "Tabliers": "Accessoire",
-      "Sacs porte-plat": "Accessoire",
-      "Écharpes": "Accessoire",
-      "L'Atelier des Petits": "Enfant",
-      "Retouches / transformations": "Retouche",
-      "Initiation couture": "Initiation couture"
+      "Les coulisses ateliers": "Autre demande"
     };
     quote.href = "contact.html?type=" + encodeURIComponent(typeByCategory[item.category] || item.category);
   }

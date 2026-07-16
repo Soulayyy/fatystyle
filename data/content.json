@@ -99,10 +99,10 @@
       "title": "Des créations réelles, regroupées par univers",
       "text": "Un aperçu maîtrisé du travail de l'atelier : robes, ensembles, accessoires et pièces enfants.",
       "items": [
-        { "title": "Robes nuptiales", "category": "Mariage & cérémonie", "image": "assets/images/creations/robes-mariage/cover.jpg", "url": "savoir-faire.html#univers" },
-        { "title": "Ensembles & vestes", "category": "Sur-mesure", "image": "assets/images/creations/ensembles-vestes/cover.jpg", "url": "savoir-faire.html#univers" },
-        { "title": "Détails faits main", "category": "Accessoires", "image": "assets/images/creations/noeuds-papillon/cover.jpg", "url": "savoir-faire.html#univers" },
-        { "title": "L'Atelier des Petits", "category": "Enfants", "image": "assets/images/creations/enfants/cover.jpg", "url": "savoir-faire.html#univers" }
+        { "title": "Robes nuptiales", "category": "Robes de mariée", "image": "assets/images/creations/robes-de-mariee/1.webp", "url": "savoir-faire.html#univers" },
+        { "title": "Créations sur mesure", "category": "Sur mesure", "image": "assets/images/creations/sur-mesure/1.webp", "url": "savoir-faire.html#univers" },
+        { "title": "Détails faits main", "category": "Accessoires", "image": "assets/images/creations/accessoires/1.webp", "url": "savoir-faire.html#univers" },
+        { "title": "Créations pour enfants", "category": "Enfants", "image": "assets/images/creations/enfants/1.webp", "url": "savoir-faire.html#univers" }
       ]
     },
     "googleReviews": {
@@ -133,92 +133,52 @@
   ],
   "creationCategories": [
     {
-      "title": "Robes de mariage",
-      "slug": "robes-mariage",
-      "folder": "assets/images/creations/robes-mariage/",
-      "cover": "cover.jpg",
-      "description": "Robes nuptiales sur mesure, pensées pour sublimer chaque silhouette avec élégance et précision.",
-      "photos": ["1.jpg", "2.jpg", "3.jpg", "4.jpg", "5.jpg", "6.jpg", "7.jpg", "8.jpg", "9.jpg", "10.jpg"]
+      "title": "Sur mesure",
+      "slug": "sur-mesure",
+      "folder": "assets/images/creations/sur-mesure/",
+      "cover": "1.webp",
+      "description": "Des vêtements imaginés et confectionnés selon vos envies et votre silhouette.",
+      "photos": ["1.webp","2.webp","3.webp","4.webp","5.webp","6.webp","7.webp","8.webp","9.webp","10.webp","11.webp","12.webp","13.webp","14.webp","15.webp","16.webp","17.webp","18.webp","19.webp","20.webp","21.webp","22.webp","23.webp","24.webp","25.webp","26.webp","27.webp","28.webp","29.webp","30.webp","31.webp","32.webp","33.webp","34.webp","35.webp","36.webp","37.webp","38.webp","39.webp","40.webp","41.webp","42.webp","43.webp","44.webp","45.webp","46.webp","47.webp","48.webp","49.webp","50.webp","51.webp","52.webp","53.webp","54.webp","55.webp","56.webp","57.webp","58.webp","59.webp","60.webp","61.webp","62.webp","63.webp","64.webp","65.webp","66.webp","67.webp","68.webp","69.webp","70.webp","71.webp","72.webp","73.webp","74.webp","75.webp","76.webp","77.webp","78.webp","79.webp","80.webp","81.webp","82.webp","83.webp","84.webp","85.webp","86.webp","87.webp","88.webp","89.webp","90.webp","91.webp","92.webp","93.webp","94.webp","95.webp","96.webp","97.webp","98.webp","99.webp","100.webp","101.webp","102.webp","103.webp","104.webp","105.webp","106.webp","107.webp","108.webp","109.webp","110.webp","111.webp","112.webp","113.webp","114.webp","115.webp","116.webp","117.webp","118.webp","119.webp","120.webp","121.webp"]
     },
     {
-      "title": "Robes de soirée",
-      "slug": "robes-soiree",
-      "folder": "assets/images/creations/robes-soiree/",
-      "cover": "cover.jpg",
-      "description": "Tenues habillées, robes élégantes et pièces de cérémonie réalisées avec soin.",
-      "photos": ["1.jpg", "2.jpg", "3.jpg", "4.jpg", "5.jpg", "6.jpg", "7.jpg", "8.jpg", "9.jpg"]
+      "title": "Robes de mariée",
+      "slug": "robes-de-mariee",
+      "folder": "assets/images/creations/robes-de-mariee/",
+      "cover": "1.webp",
+      "description": "Des créations uniques pensées pour sublimer le plus beau jour de votre vie.",
+      "photos": ["1.webp","2.webp","3.webp","4.webp","5.webp","6.webp","7.webp","8.webp","9.webp","10.webp","11.webp","12.webp","13.webp","14.webp","15.webp","16.webp","17.webp","18.webp","19.webp","20.webp","21.webp","22.webp","23.webp","24.webp","25.webp","26.webp","27.webp","28.webp","29.webp","30.webp","31.webp","32.webp","33.webp","34.webp","35.webp"]
     },
     {
-      "title": "Ensembles & vestes",
-      "slug": "ensembles-vestes",
-      "folder": "assets/images/creations/ensembles-vestes/",
-      "cover": "cover.jpg",
-      "description": "Capes, vestes, pantalons et tenues professionnelles conçues pour allier raffinement et confort.",
-      "photos": ["1.jpg", "2.jpg", "3.jpg", "4.jpg", "5.jpg", "6.jpg"]
+      "title": "Création haute couture",
+      "slug": "creation-haute-couture",
+      "folder": "assets/images/creations/creation-haute-couture/",
+      "cover": "1.webp",
+      "description": "Des pièces d'exception où créativité, précision et savoir-faire ne font qu'un.",
+      "photos": ["1.webp","2.webp","3.webp","4.webp","5.webp","6.webp","7.webp","8.webp","9.webp","10.webp","11.webp","12.webp","13.webp","14.webp","15.webp","16.webp","17.webp","18.webp","19.webp","20.webp","21.webp","22.webp","23.webp","24.webp","25.webp","26.webp","27.webp","28.webp","29.webp","30.webp","31.webp","32.webp","33.webp","34.webp","35.webp","36.webp","37.webp","38.webp","39.webp","40.webp","41.webp","42.webp","43.webp","44.webp","45.webp","46.webp","47.webp","48.webp","49.webp","50.webp","51.webp","52.webp","53.webp","54.webp"]
+    },
+    {
+      "title": "Enfants",
+      "slug": "enfants",
+      "folder": "assets/images/creations/enfants/",
+      "cover": "1.webp",
+      "description": "Des créations sur mesure alliant confort, douceur et liberté de mouvement.",
+      "photos": ["1.webp","2.webp","3.webp","4.webp","5.webp","6.webp","7.webp","8.webp","9.webp","10.webp","11.webp","12.webp","13.webp","14.webp","15.webp","16.webp","17.webp","18.webp","19.webp","20.webp"]
     },
     {
       "title": "Accessoires",
       "slug": "accessoires",
       "folder": "assets/images/creations/accessoires/",
-      "cover": "cover.jpg",
-      "description": "Accessoires et petites pièces textiles réalisées sur mesure pour compléter une tenue.",
-      "photos": ["1.jpg", "2.jpg", "3.jpg", "4.jpg"]
+      "cover": "1.webp",
+      "description": "Des pièces artisanales conçues pour compléter chaque création avec élégance.",
+      "photos": ["1.webp","2.webp","3.webp","4.webp","5.webp","6.webp","7.webp","8.webp","9.webp","10.webp","11.webp","12.webp","13.webp","14.webp","15.webp","16.webp","17.webp","18.webp","19.webp","20.webp","21.webp","22.webp","23.webp","24.webp","25.webp","26.webp","27.webp","28.webp","29.webp","30.webp","31.webp","32.webp","33.webp","34.webp","35.webp","36.webp","37.webp","38.webp","39.webp","40.webp","41.webp","42.webp","43.webp","44.webp","45.webp","46.webp","47.webp","48.webp","49.webp","50.webp","51.webp","52.webp","53.webp","54.webp","55.webp","56.webp","57.webp","58.webp","59.webp","60.webp","61.webp","62.webp","63.webp","64.webp","65.webp","66.webp","67.webp","68.webp","69.webp","70.webp","71.webp","72.webp","73.webp","74.webp","75.webp","76.webp","77.webp","78.webp","79.webp","80.webp","81.webp","82.webp","83.webp","84.webp","85.webp","86.webp","87.webp","88.webp"]
     },
     {
-      "title": "Nœuds papillon",
-      "slug": "noeuds-papillon",
-      "folder": "assets/images/creations/noeuds-papillon/",
-      "cover": "cover.jpg",
-      "description": "Nœuds papillon élégants, coordonnés et confectionnés avec soin.",
-      "photos": ["1.jpg", "2.jpg", "3.jpg", "4.jpg", "5.jpg", "6.jpg"]
-    },
-    {
-      "title": "Tabliers",
-      "slug": "tabliers",
-      "folder": "assets/images/creations/tabliers/",
-      "cover": "cover.jpg",
-      "description": "Tabliers artisanaux, utiles et colorés, réalisés selon vos envies.",
-      "photos": ["1.jpg", "2.jpg", "3.jpg", "4.jpg", "5.jpg", "6.jpg"]
-    },
-    {
-      "title": "Sacs porte-plat",
-      "slug": "sacs-porte-plat",
-      "folder": "assets/images/creations/sacs-porte-plat/",
-      "cover": "cover.jpg",
-      "description": "Sacs porte-plat et accessoires pratiques pour transporter avec style.",
-      "photos": ["1.jpg", "2.jpg", "3.jpg", "4.jpg", "5.jpg", "6.jpg"]
-    },
-    {
-      "title": "Écharpes",
-      "slug": "echarpes",
-      "folder": "assets/images/creations/echarpes/",
-      "cover": "cover.jpg",
-      "description": "Écharpes et accessoires chaleureux, pensés pour le confort et le détail.",
-      "photos": ["1.jpg", "2.jpg", "3.jpg", "4.jpg"]
-    },
-    {
-      "title": "L'Atelier des Petits",
-      "slug": "enfants",
-      "folder": "assets/images/creations/enfants/",
-      "cover": "cover.jpg",
-      "description": "Vêtements enfants sur mesure, confortables, colorés et adaptés aux occasions.",
-      "photos": ["1.jpg", "2.jpg", "3.jpg", "4.jpg", "5.jpg", "6.jpg"]
-    },
-    {
-      "title": "Retouches / transformations",
-      "slug": "retouches",
-      "folder": "assets/images/creations/retouches/",
-      "cover": "cover.jpg",
-      "description": "Retouches, ajustements et transformations pour redonner vie à vos vêtements.",
-      "photos": ["1.jpg", "2.jpg"]
-    },
-    {
-      "title": "Initiation couture",
-      "slug": "formation-couture",
-      "folder": "assets/images/creations/formation-couture/",
-      "cover": "cover.jpg",
-      "description": "Cours et moments d'atelier pour apprendre les bases ou progresser.",
-      "photos": ["1.jpg", "2.jpg", "3.jpg"]
+      "title": "Les coulisses ateliers",
+      "slug": "les-coulisses-ateliers",
+      "folder": "assets/images/creations/les-coulisses-ateliers/",
+      "cover": "1.webp",
+      "description": "De la première esquisse aux dernières finitions, découvrez le quotidien de l’atelier et les étapes qui transforment une idée en création",
+      "photos": ["1.webp","2.webp","3.webp","4.webp","5.webp","6.webp","7.webp","8.webp","9.webp","10.webp","11.webp","12.webp","13.webp","14.webp","15.webp","16.webp","17.webp","18.webp","19.webp","20.webp","21.webp"]
     }
   ],
   "gallery": [],

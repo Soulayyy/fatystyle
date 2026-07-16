@@ -171,11 +171,13 @@
   function renderUnivers(content) {
     const grid = document.querySelector("[data-creation-grid]");
     if (!grid || !Array.isArray(content.creationCategories)) return;
-    grid.innerHTML = content.creationCategories.map((category) => {
+    grid.innerHTML = content.creationCategories.map((category, categoryIndex) => {
       return (category.photos || []).map((photo, index) => {
         const src = category.folder + photo;
-        return `<button class="creation-photo" type="button" data-photo-category="${esc(category.slug)}" aria-label="Voir ${esc(category.title)} ${index + 1}">
-          <img data-gallery="${esc(category.slug)}" data-category="${esc(category.title)}" data-title="${esc(category.title)} ${index + 1}" data-src="${esc(src)}" src="${esc(src)}" alt="${esc(category.title)} ${index + 1}" loading="lazy" decoding="async">
+        const thumbnail = category.folder + "thumbs/" + photo;
+        const initialSource = categoryIndex === 0 ? ` src="${esc(thumbnail)}"` : "";
+        return `<button class="creation-photo" type="button" data-photo-category="${esc(category.slug)}"${categoryIndex === 0 ? "" : " hidden"} aria-label="Voir ${esc(category.title)} ${index + 1}">
+          <img data-gallery="${esc(category.slug)}" data-category="${esc(category.title)}" data-title="${esc(category.title)} ${index + 1}" data-src="${esc(src)}" data-thumb="${esc(thumbnail)}"${initialSource} alt="${esc(category.title)} ${index + 1}" loading="lazy" decoding="async">
         </button>`;
       }).join("");
     }).join("");
@@ -194,16 +196,15 @@
     filters.setAttribute("data-universe-filters", "");
     filters.setAttribute("aria-label", "Filtrer les créations Faty Style");
 
-    const buttons = [
-      { label: "Tout", slug: "all" },
-      ...categories.map((category) => ({ label: category.shortTitle || category.title, slug: category.slug }))
-    ];
+    const buttons = categories.map((category) => ({ label: category.title, slug: category.slug }));
 
     filters.innerHTML = buttons.map((button, index) => `
       <button class="filter-btn${index === 0 ? " is-active" : ""}" type="button" data-filter="${esc(button.slug)}" aria-pressed="${index === 0 ? "true" : "false"}">${esc(button.label)}</button>
     `).join("");
 
     grid.before(filters);
+    const initialFilter = buttons[0].slug;
+    activateUniverse(grid, initialFilter);
     filters.addEventListener("click", (event) => {
       const button = event.target.closest("[data-filter]");
       if (!button) return;
@@ -216,11 +217,19 @@
       });
 
       grid.classList.add("is-filtering");
-      grid.querySelectorAll("[data-photo-category]").forEach((photo) => {
-        const visible = filter === "all" || photo.dataset.photoCategory === filter;
-        photo.toggleAttribute("hidden", !visible);
-      });
+      activateUniverse(grid, filter);
       window.setTimeout(() => grid.classList.remove("is-filtering"), 180);
+    });
+  }
+
+  function activateUniverse(grid, slug) {
+    grid.querySelectorAll("[data-photo-category]").forEach((photo) => {
+      const visible = photo.dataset.photoCategory === slug;
+      photo.toggleAttribute("hidden", !visible);
+      if (visible) {
+        const image = photo.querySelector("img[data-thumb]");
+        if (image && !image.hasAttribute("src")) image.src = image.dataset.thumb;
+      }
     });
   }
 
@@ -233,12 +242,11 @@
       entry.addEventListener("click", () => {
         const slugs = entry.dataset.universeSlugs.split(",").filter(Boolean);
         grid.classList.add("is-filtering");
-        grid.querySelectorAll("[data-photo-category]").forEach((photo) => {
-          photo.toggleAttribute("hidden", !slugs.includes(photo.dataset.photoCategory));
-        });
+        slugs.forEach((slug) => activateUniverse(grid, slug));
         filters?.querySelectorAll("[data-filter]").forEach((button) => {
-          button.classList.remove("is-active");
-          button.setAttribute("aria-pressed", "false");
+          const isActive = slugs.length === 1 && button.dataset.filter === slugs[0];
+          button.classList.toggle("is-active", isActive);
+          button.setAttribute("aria-pressed", String(isActive));
         });
         window.setTimeout(() => grid.classList.remove("is-filtering"), 180);
         panel?.scrollIntoView({ behavior: "smooth", block: "start" });
