@@ -67,4 +67,11 @@ class Page extends Model
     {
         return $this->belongsTo(User::class, 'updated_by');
     }
+
+    public function getDisplayTitleAttribute(): string
+    {
+        return $this->translations->firstWhere('locale', config('cms.default_locale'))?->title
+            ?? $this->translations->first()?->title
+            ?? 'Page sans titre';
+    }
 }

@@ -58,7 +58,7 @@ jobs:
       - name: Run fast test suite
         run: composer test
 
-      - name: Validate PostgreSQL migrations and seeders
+      - name: Validate PostgreSQL migrations, seeders and tests
         env:
           DB_CONNECTION: pgsql
           DB_HOST: 127.0.0.1
@@ -66,7 +66,9 @@ jobs:
           DB_DATABASE: fatystyle_cms_test
           DB_USERNAME: fatystyle_test
           DB_PASSWORD: test-only-password
-        run: php artisan migrate:fresh --seed --force
+        run: |
+          php artisan migrate:fresh --seed --force
+          php artisan test
 
       - name: Check formatting
         run: ./vendor/bin/pint --test

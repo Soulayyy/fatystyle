@@ -36,6 +36,13 @@ La base PostgreSQL et l’administration ne sont donc jamais sollicitées par un
 - les suppressions métier utilisent une corbeille ;
 - chaque page possède un verrou de version pour prévenir les écrasements concurrents ;
 - les releases possèdent une empreinte et peuvent référencer la release restaurée.
+- les médias originaux sont privés, dédupliqués par SHA-256 et ne peuvent pas être supprimés lorsqu’ils sont utilisés ;
+- l’import historique est transactionnel, simulable et n’importe aucun secret du formulaire public ;
+- les transitions éditoriales sont contrôlées côté serveur et capturées dans des versions immuables.
+
+## Administration disponible
+
+Le panneau couvre désormais les pages, traductions, blocs, médias, menus, prestations, univers de création et réglages généraux. Les permissions de chaque ressource reprennent les matrices de rôles du socle. Les contenus JSON complexes restent éditables sans perte en attendant les formulaires spécialisés par type de bloc.
 
 ## Compatibilité multilingue
 

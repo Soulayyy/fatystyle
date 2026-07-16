@@ -12,6 +12,15 @@ Application d'administration du site Faty Style. Ce dossier remplace progressive
 - Modèle multilingue prêt pour les pages et les blocs
 - Releases publiques atomiques et réversibles
 
+## Fonctions disponibles dans le deuxième jalon
+
+- édition des pages multilingues et de leurs blocs réordonnables ;
+- workflow brouillon, validation, publication, masquage et archivage ;
+- versions immuables et verrou optimiste contre les écrasements concurrents ;
+- médiathèque privée avec empreinte SHA-256, dimensions, poids, texte alternatif et suivi des usages ;
+- gestion de la navigation, des prestations, des univers de création et des réglages ;
+- import transactionnel et réexécutable du contenu public historique.
+
 ## Démarrage local avec Docker
 
 ```bash
@@ -38,6 +47,17 @@ docker compose run --rm app composer audit
 ```
 
 Les tests unitaires utilisent SQLite en mémoire pour leur rapidité. Une suite d'intégration PostgreSQL est également obligatoire avant chaque livraison.
+
+## Import initial du site public
+
+La commande lit le JSON actuel et copie les originaux référencés vers le stockage privé. Elle ne modifie jamais le frontend existant.
+
+```bash
+php artisan cms:import-public-content ../data/content.json --dry-run
+php artisan cms:import-public-content ../data/content.json
+```
+
+La clé Web3Forms historique est volontairement exclue de l’import. Les secrets des futurs formulaires seront fournis par l’environnement du CMS.
 
 ## Principes de sécurité
 
