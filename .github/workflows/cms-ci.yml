@@ -1,0 +1,75 @@
+name: CMS quality
+
+on:
+  push:
+    branches:
+      - main
+      - 'feature/admin-cms-*'
+    paths:
+      - 'cms/**'
+      - '.github/workflows/cms-ci.yml'
+  pull_request:
+    paths:
+      - 'cms/**'
+      - '.github/workflows/cms-ci.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: cms
+    services:
+      postgres:
+        image: postgres:18.4-alpine
+        env:
+          POSTGRES_DB: fatystyle_cms_test
+          POSTGRES_USER: fatystyle_test
+          POSTGRES_PASSWORD: test-only-password
+        ports:
+          - 5432:5432
+        options: >-
+          --health-cmd "pg_isready -U fatystyle_test -d fatystyle_cms_test"
+          --health-interval 5s
+          --health-timeout 5s
+          --health-retries 10
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Configure PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.5'
+          extensions: bcmath, dom, exif, fileinfo, gd, intl, mbstring, pdo_pgsql, pdo_sqlite, xml, zip
+          coverage: none
+
+      - name: Install PHP dependencies
+        run: composer install --no-interaction --prefer-dist --no-progress
+
+      - name: Prepare application
+        run: |
+          cp .env.example .env
+          php artisan key:generate
+
+      - name: Run fast test suite
+        run: composer test
+
+      - name: Validate PostgreSQL migrations and seeders
+        env:
+          DB_CONNECTION: pgsql
+          DB_HOST: 127.0.0.1
+          DB_PORT: 5432
+          DB_DATABASE: fatystyle_cms_test
+          DB_USERNAME: fatystyle_test
+          DB_PASSWORD: test-only-password
+        run: php artisan migrate:fresh --seed --force
+
+      - name: Check formatting
+        run: ./vendor/bin/pint --test
+
+      - name: Audit dependencies
+        run: composer audit
