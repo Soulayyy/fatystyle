@@ -72,6 +72,18 @@ class OperationalModulesTest extends TestCase
             'size_bytes' => 13,
             'sha256' => $hash,
         ]);
+        $variantPath = 'media/variants/'.substr($hash, 0, 2).'/'.$hash.'/640.webp';
+        Storage::disk('local')->put($variantPath, 'responsive-image');
+        $media->variants()->create([
+            'disk' => 'local',
+            'path' => $variantPath,
+            'mime_type' => 'image/webp',
+            'format' => 'webp',
+            'width' => 640,
+            'height' => 480,
+            'size_bytes' => 16,
+            'quality' => 82,
+        ]);
         Service::create(['slug' => 'atelier', 'title' => 'Atelier', 'image_id' => $media->id]);
 
         $release = app(ReleasePublisher::class)->publish();
@@ -81,9 +93,9 @@ class OperationalModulesTest extends TestCase
         $payload = json_decode(file_get_contents($root.'/public/content.json'), true, flags: JSON_THROW_ON_ERROR);
         $this->assertSame('Faty Style', $payload['site']['name']);
         $this->assertSame('Faty Style', $payload['pages']['index.html']['seo']['title']);
-        $this->assertSame('assets/images/cms/'.$hash.'.png', $payload['services'][0]['image']);
+        $this->assertSame('assets/images/cms/'.$hash.'/640.webp', $payload['services'][0]['image']);
         $this->assertTrue(is_link($root.'/public/assets/images/cms'));
-        $this->assertFileExists($root.'/public/assets/images/cms/'.$hash.'.png');
+        $this->assertFileExists($root.'/public/assets/images/cms/'.$hash.'/640.webp');
         $this->assertSame(1, PublicationRelease::count());
 
         $this->deleteDirectory($root);

@@ -109,6 +109,8 @@ class MediaAssetResource extends Resource
                 IconColumn::make('is_decorative')->label('Décorative')->boolean(),
                 TextColumn::make('usages_count')->counts('usages')->label('Utilisations')->badge()
                     ->color(fn (int $state): string => $state > 0 ? 'success' : 'gray'),
+                TextColumn::make('variants_count')->counts('variants')->label('Variantes')->badge()
+                    ->color(fn (int $state): string => $state > 0 ? 'info' : 'warning'),
                 TextColumn::make('created_at')->label('Ajouté')->dateTime('d/m/Y H:i')->sortable(),
             ])
             ->filters([

@@ -15,6 +15,9 @@ return [
 
     'media' => [
         'max_upload_mb' => (int) env('CMS_MEDIA_MAX_UPLOAD_MB', 20),
+        'max_pixels' => (int) env('CMS_MEDIA_MAX_PIXELS', 60000000),
+        'variant_widths' => [320, 640, 960, 1280, 1920],
+        'webp_quality' => (int) env('CMS_MEDIA_WEBP_QUALITY', 82),
     ],
 
     'public_site_url' => env('CMS_PUBLIC_SITE_URL', 'http://localhost:8082'),

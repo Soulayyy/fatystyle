@@ -38,6 +38,7 @@ La base PostgreSQL et l’administration ne sont donc jamais sollicitées par un
 - les releases possèdent une empreinte et peuvent référencer la release restaurée.
 - les médias originaux sont privés, contrôlés par leur signature réelle, dédupliqués par SHA-256 et ne peuvent pas être supprimés lorsqu’ils sont utilisés ;
 - les usages des médias sont indexés automatiquement pour les prestations, couvertures, galeries et images Open Graph, avec vérification directe de secours ;
+- les originaux restent privés ; les formats publics sont des variantes WebP responsives de 320 à 1 920 pixels, régénérables sans perte ;
 - l’import historique est transactionnel, simulable et n’importe aucun secret du formulaire public ;
 - les transitions éditoriales sont contrôlées côté serveur et capturées dans des versions immuables.
 

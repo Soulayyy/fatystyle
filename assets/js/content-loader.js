@@ -176,10 +176,12 @@
         const isStructuredPhoto = photo && typeof photo === "object";
         const src = isStructuredPhoto ? photo.src : category.folder + photo;
         const thumbnail = isStructuredPhoto ? (photo.thumbnail || photo.src) : category.folder + "thumbs/" + photo;
+        const srcset = isStructuredPhoto ? (photo.srcset || "") : "";
         const alt = isStructuredPhoto ? (photo.alt || `${category.title} ${index + 1}`) : `${category.title} ${index + 1}`;
         const initialSource = categoryIndex === 0 ? ` src="${esc(thumbnail)}"` : "";
+        const responsiveSource = srcset ? ` data-srcset="${esc(srcset)}"${categoryIndex === 0 ? ` srcset="${esc(srcset)}" sizes="(max-width: 700px) 50vw, 25vw"` : ""}` : "";
         return `<button class="creation-photo" type="button" data-photo-category="${esc(category.slug)}"${categoryIndex === 0 ? "" : " hidden"} aria-label="Voir ${esc(category.title)} ${index + 1}">
-          <img data-gallery="${esc(category.slug)}" data-category="${esc(category.title)}" data-title="${esc(category.title)} ${index + 1}" data-src="${esc(src)}" data-thumb="${esc(thumbnail)}"${initialSource} alt="${esc(alt)}" loading="lazy" decoding="async">
+          <img data-gallery="${esc(category.slug)}" data-category="${esc(category.title)}" data-title="${esc(category.title)} ${index + 1}" data-src="${esc(src)}" data-thumb="${esc(thumbnail)}"${responsiveSource}${initialSource} alt="${esc(alt)}" loading="lazy" decoding="async">
         </button>`;
       }).join("");
     }).join("");
@@ -230,7 +232,13 @@
       photo.toggleAttribute("hidden", !visible);
       if (visible) {
         const image = photo.querySelector("img[data-thumb]");
-        if (image && !image.hasAttribute("src")) image.src = image.dataset.thumb;
+        if (image && !image.hasAttribute("src")) {
+          image.src = image.dataset.thumb;
+          if (image.dataset.srcset) {
+            image.srcset = image.dataset.srcset;
+            image.sizes = "(max-width: 700px) 50vw, 25vw";
+          }
+        }
       }
     });
   }

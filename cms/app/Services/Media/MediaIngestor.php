@@ -18,6 +18,8 @@ class MediaIngestor
         'image/gif' => 'gif',
     ];
 
+    public function __construct(private readonly MediaVariantGenerator $variants) {}
+
     public function importLegacyFile(string $absolutePath, string $sourcePath, ?int $userId = null): MediaAsset
     {
         if (! is_file($absolutePath) || ! is_readable($absolutePath)) {
@@ -108,6 +110,9 @@ class MediaIngestor
             if ($existing->trashed()) {
                 $existing->restore();
             }
+            if (! $existing->variants()->exists()) {
+                $this->variants->generate($existing);
+            }
 
             return $existing;
         }
@@ -124,7 +129,7 @@ class MediaIngestor
             throw new RuntimeException("Impossible de finaliser le stockage du fichier {$originalName}.");
         }
 
-        return MediaAsset::query()->create([
+        $media = MediaAsset::query()->create([
             ...$attributes,
             'disk' => 'local',
             'path' => $storagePath,
@@ -137,6 +142,16 @@ class MediaIngestor
             'sha256' => $hash,
             'uploaded_by' => $userId,
         ]);
+
+        try {
+            $this->variants->generate($media);
+        } catch (\Throwable $exception) {
+            $disk->delete($storagePath);
+            $media->forceDelete();
+            throw $exception;
+        }
+
+        return $media->refresh();
     }
 
     private function disk(): FilesystemAdapter

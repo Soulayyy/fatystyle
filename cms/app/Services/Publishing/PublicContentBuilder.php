@@ -62,7 +62,7 @@ class PublicContentBuilder
                 ->toArray(),
             'pages' => $pages,
             'home' => $home,
-            'services' => Service::query()->with('image')->where('is_visible', true)->orderBy('position')->get()
+            'services' => Service::query()->with('image.variants')->where('is_visible', true)->orderBy('position')->get()
                 ->map(fn (Service $service): array => [
                     'title' => $service->title,
                     'slug' => $service->slug,
@@ -70,7 +70,7 @@ class PublicContentBuilder
                     'description' => $service->description,
                 ])->values()->all(),
             'creationCategories' => CreationCategory::query()
-                ->with(['cover', 'media'])
+                ->with(['cover.variants', 'media.variants'])
                 ->where('is_visible', true)
                 ->orderBy('position')
                 ->get()
@@ -84,6 +84,7 @@ class PublicContentBuilder
                         fn ($media): array => [
                             'src' => $media->publicPath(),
                             'thumbnail' => $media->publicThumbnailPath(),
+                            'srcset' => $media->publicSrcset(),
                             'alt' => $media->pivot->alt_text ?: $media->alt_text ?: $category->title,
                         ],
                     )->values()->all(),

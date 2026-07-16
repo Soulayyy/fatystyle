@@ -34,6 +34,8 @@ class MediaIngestorTest extends TestCase
         $this->assertStringStartsWith('media/originals/', $media->path);
         Storage::disk('local')->assertExists($media->path);
         Storage::disk('local')->assertMissing('media/originals/uploads/first.png');
+        $this->assertSame([1], $media->variants()->pluck('width')->all());
+        Storage::disk('local')->assertExists($media->variants()->firstOrFail()->path);
 
         Storage::disk('local')->put('media/originals/uploads/duplicate.png', $png);
         $duplicate = $ingestor->ingestStoredUpload('media/originals/uploads/duplicate.png', 'Copie.png');

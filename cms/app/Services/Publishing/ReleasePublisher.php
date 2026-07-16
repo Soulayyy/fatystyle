@@ -104,15 +104,32 @@ class ReleasePublisher
 
     private function copyManagedMedia(string $targetDirectory): void
     {
-        MediaAsset::withTrashed()->whereNull('source_path')->each(function (MediaAsset $media) use ($targetDirectory): void {
-            $source = Storage::disk($media->disk)->path($media->path);
-            if (! is_file($source)) {
-                throw new RuntimeException("Média source introuvable : {$media->original_name}");
+        MediaAsset::withTrashed()->with('variants')->each(function (MediaAsset $media) use ($targetDirectory): void {
+            if ($media->variants->isNotEmpty()) {
+                foreach ($media->variants as $variant) {
+                    $source = Storage::disk($variant->disk)->path($variant->path);
+                    if (! is_file($source)) {
+                        throw new RuntimeException("Variante média introuvable : {$media->original_name} ({$variant->width}px)");
+                    }
+
+                    $directory = $targetDirectory.'/'.$media->sha256;
+                    $this->files->ensureDirectoryExists($directory, 0750, true);
+                    if (! $this->files->copy($source, $directory.'/'.$variant->width.'.'.$variant->format)) {
+                        throw new RuntimeException("Impossible de publier la variante : {$media->original_name}");
+                    }
+                }
+
+                return;
             }
 
-            $target = $targetDirectory.'/'.$media->sha256.'.'.$media->extension;
-            if (! $this->files->copy($source, $target)) {
-                throw new RuntimeException("Impossible de publier le média : {$media->original_name}");
+            if ($media->source_path === null) {
+                $source = Storage::disk($media->disk)->path($media->path);
+                if (! is_file($source)) {
+                    throw new RuntimeException("Média source introuvable : {$media->original_name}");
+                }
+                if (! $this->files->copy($source, $targetDirectory.'/'.$media->sha256.'.'.$media->extension)) {
+                    throw new RuntimeException("Impossible de publier le média : {$media->original_name}");
+                }
             }
         });
     }

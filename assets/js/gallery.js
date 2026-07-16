@@ -8,6 +8,7 @@ function initGallery() {
     if (!acc[name]) acc[name] = [];
     acc[name].push({
       src: item.dataset.src || item.currentSrc || item.src,
+      srcset: item.dataset.srcset || "",
       title: item.dataset.title || item.getAttribute("alt") || "Création Faty Style",
       category: item.dataset.category || name,
     });
@@ -41,6 +42,13 @@ function initGallery() {
     const item = list[currentIndex];
     if (!item) return;
     image.src = item.src;
+    if (item.srcset) {
+      image.srcset = item.srcset;
+      image.sizes = "min(92vw, 1400px)";
+    } else {
+      image.removeAttribute("srcset");
+      image.removeAttribute("sizes");
+    }
     image.alt = item.title;
     title.textContent = item.title;
     category.textContent = item.category;

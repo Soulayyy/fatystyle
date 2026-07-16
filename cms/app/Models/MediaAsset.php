@@ -44,6 +44,11 @@ class MediaAsset extends Model
         return $this->hasMany(MediaUsage::class);
     }
 
+    public function variants(): HasMany
+    {
+        return $this->hasMany(MediaVariant::class)->orderBy('width');
+    }
+
     public function getHumanSizeAttribute(): string
     {
         $bytes = max(0, $this->size_bytes);
@@ -64,6 +69,11 @@ class MediaAsset extends Model
 
     public function publicPath(): string
     {
+        $variant = $this->bestVariant(1920);
+        if ($variant !== null) {
+            return $variant->publicPath();
+        }
+
         if ($this->source_path) {
             return ltrim($this->source_path, '/');
         }
@@ -73,6 +83,11 @@ class MediaAsset extends Model
 
     public function publicThumbnailPath(): string
     {
+        $variant = $this->bestVariant(640);
+        if ($variant !== null) {
+            return $variant->publicPath();
+        }
+
         if ($this->source_path) {
             $directory = trim(dirname($this->source_path), '.\/');
 
@@ -80,5 +95,25 @@ class MediaAsset extends Model
         }
 
         return $this->publicPath();
+    }
+
+    public function publicSrcset(): ?string
+    {
+        $variants = $this->relationLoaded('variants') ? $this->variants : $this->variants()->get();
+        if ($variants->isEmpty()) {
+            return null;
+        }
+
+        return $variants->map(fn (MediaVariant $variant): string => $variant->publicPath().' '.$variant->width.'w')->implode(', ');
+    }
+
+    private function bestVariant(int $maximumWidth): ?MediaVariant
+    {
+        $variants = $this->relationLoaded('variants') ? $this->variants : $this->variants()->get();
+        if ($variants->isEmpty()) {
+            return null;
+        }
+
+        return $variants->where('width', '<=', $maximumWidth)->last() ?: $variants->first();
     }
 }
