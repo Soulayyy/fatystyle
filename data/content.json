@@ -232,7 +232,6 @@
   ],
   "contact": {
     "intro": "Décrivez votre projet couture. Le message est envoyé par email à l'atelier, avec une confirmation automatique à votre adresse.",
-    "web3formsAccessKey": "24828741-d117-4016-811f-d9d24eca2ecb",
     "ownerNotification": "Un visiteur vient d'envoyer une demande depuis le site Faty Style. Merci de le recontacter rapidement.",
     "confirmationMessage": "Bonjour, nous avons bien reçu votre message envoyé à Faty Style. L'atelier revient vers vous très bientôt. Pour une demande urgente, vous pouvez aussi contacter directement Faty Style au 07 68 65 56 43. Merci pour votre confiance.",
     "requestTypes": [

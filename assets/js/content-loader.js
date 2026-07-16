@@ -250,12 +250,8 @@
     const site = content.site || {};
     const contact = content.contact || {};
     text(".contact-form > p:not(.form-alert)", contact.intro);
-    const access = document.querySelector('input[name="access_key"]');
-    if (access && contact.web3formsAccessKey) access.value = contact.web3formsAccessKey;
     const owner = document.querySelector('input[name="Notification propriétaire"]');
     if (owner && contact.ownerNotification) owner.value = contact.ownerNotification;
-    const confirmation = document.querySelector('input[name="Confirmation"]');
-    if (confirmation && contact.confirmationMessage) confirmation.value = contact.confirmationMessage;
     const select = document.getElementById("requestType");
     if (select && Array.isArray(contact.requestTypes)) {
       select.innerHTML = contact.requestTypes.map((item) => `<option>${esc(item.value || item)}</option>`).join("");
