@@ -8,6 +8,7 @@ use App\Models\CreationCategory;
 use BackedEnum;
 use Filament\Actions\DeleteAction;
 use Filament\Actions\EditAction;
+use Filament\Forms\Components\Repeater;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\Textarea;
 use Filament\Forms\Components\TextInput;
@@ -17,7 +18,9 @@ use Filament\Schemas\Components\Section;
 use Filament\Schemas\Schema;
 use Filament\Support\Icons\Heroicon;
 use Filament\Tables\Columns\IconColumn;
+use Filament\Tables\Columns\ImageColumn;
 use Filament\Tables\Columns\TextColumn;
+use Filament\Tables\Filters\TernaryFilter;
 use Filament\Tables\Table;
 
 class CreationCategoryResource extends Resource
@@ -47,25 +50,50 @@ class CreationCategoryResource extends Resource
                 TextInput::make('position')->numeric()->minValue(0)->default(0)->required(),
                 Toggle::make('is_visible')->label('Visible')->default(true),
             ]),
-            Section::make('Galerie')->description('Sélectionnez les images appartenant à cet univers.')->schema([
-                Select::make('media')
-                    ->label('Images')
-                    ->relationship('media', 'original_name')
-                    ->multiple()
-                    ->searchable()
-                    ->preload()
-                    ->columnSpanFull(),
-            ]),
+            Section::make('Galerie')
+                ->description('Ajoutez les photos, complétez leur texte alternatif puis réordonnez-les par glisser-déposer.')
+                ->schema([
+                    Repeater::make('galleryItems')
+                        ->label('Photos')
+                        ->relationship()
+                        ->orderColumn('position')
+                        ->maxItems(200)
+                        ->addActionLabel('Ajouter une photo')
+                        ->reorderableWithDragAndDrop()
+                        ->schema([
+                            Select::make('media_asset_id')
+                                ->label('Image')
+                                ->relationship('mediaAsset', 'original_name')
+                                ->searchable()
+                                ->preload()
+                                ->disableOptionsWhenSelectedInSiblingRepeaterItems()
+                                ->required(),
+                            TextInput::make('alt_text')
+                                ->label('Texte alternatif dans cette galerie')
+                                ->maxLength(180)
+                                ->helperText('Laissez vide uniquement si le texte alternatif général du média convient.'),
+                        ])
+                        ->columns(2)
+                        ->columnSpanFull(),
+                ]),
         ]);
     }
 
     public static function table(Table $table): Table
     {
         return $table->defaultSort('position')->reorderable('position')->columns([
+            ImageColumn::make('cover.path')
+                ->label('Couverture')
+                ->disk('local')
+                ->visibility('private')
+                ->square()
+                ->imageSize(64),
             TextColumn::make('title')->label('Univers')->searchable()->weight('semibold'),
             TextColumn::make('media_count')->counts('media')->label('Photos'),
             TextColumn::make('position')->label('Position')->sortable(),
             IconColumn::make('is_visible')->label('Visible')->boolean(),
+        ])->filters([
+            TernaryFilter::make('is_visible')->label('Visibilité'),
         ])->recordActions([EditAction::make(), DeleteAction::make()]);
     }
 

@@ -73,9 +73,11 @@ Variables de publication indispensables en production :
 ```dotenv
 CMS_PUBLIC_RELEASE_PATH=/var/www/fatystyle-content-releases
 CMS_PUBLIC_CONTENT_LINK=/var/www/fatystyle/data/content.json
+CMS_PUBLIC_MEDIA_LINK=/var/www/fatystyle/assets/images/cms
+CMS_MEDIA_MAX_UPLOAD_MB=20
 ```
 
-Le processus PHP doit pouvoir écrire dans le dossier des releases et remplacer atomiquement le lien de contenu public. Une sauvegarde de la base et du fichier actif doit précéder toute opération de publication en production.
+Le processus PHP doit pouvoir écrire dans le dossier des releases et remplacer atomiquement les liens du contenu et des médias publics. Une sauvegarde de la base et des liens actifs doit précéder toute opération de publication en production.
 
 ## Principes de sécurité
 

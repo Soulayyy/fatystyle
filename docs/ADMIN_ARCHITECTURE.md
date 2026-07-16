@@ -36,7 +36,8 @@ La base PostgreSQL et l’administration ne sont donc jamais sollicitées par un
 - les suppressions métier utilisent une corbeille ;
 - chaque page possède un verrou de version pour prévenir les écrasements concurrents ;
 - les releases possèdent une empreinte et peuvent référencer la release restaurée.
-- les médias originaux sont privés, dédupliqués par SHA-256 et ne peuvent pas être supprimés lorsqu’ils sont utilisés ;
+- les médias originaux sont privés, contrôlés par leur signature réelle, dédupliqués par SHA-256 et ne peuvent pas être supprimés lorsqu’ils sont utilisés ;
+- les usages des médias sont indexés automatiquement pour les prestations, couvertures, galeries et images Open Graph, avec vérification directe de secours ;
 - l’import historique est transactionnel, simulable et n’importe aucun secret du formulaire public ;
 - les transitions éditoriales sont contrôlées côté serveur et capturées dans des versions immuables.
 
@@ -48,7 +49,7 @@ Il couvre également les utilisateurs, rôles, demandes de contact, redirections
 
 ## Publication et retour arrière
 
-Chaque publication reconstruit un `content.json` complet dans un répertoire numéroté et immuable. Une empreinte SHA-256 est enregistrée en base et dans le manifeste. Lorsque `CMS_PUBLIC_CONTENT_LINK` est configuré, le fichier public est remplacé par renommage atomique d’un lien symbolique préparé dans le même répertoire. Une restauration crée une nouvelle entrée de release pointant vers l’artefact historique choisi ; l’historique n’est jamais réécrit.
+Chaque publication reconstruit un `content.json` complet et copie les médias gérés par le CMS dans un répertoire numéroté et immuable. Une empreinte SHA-256 est enregistrée en base et dans le manifeste. Lorsque `CMS_PUBLIC_CONTENT_LINK` et `CMS_PUBLIC_MEDIA_LINK` sont configurés, les liens publics du contenu et des médias sont remplacés par renommage atomique de liens symboliques préparés dans leurs répertoires respectifs. Une restauration crée une nouvelle entrée de release pointant vers l’artefact historique choisi ; l’historique n’est jamais réécrit.
 
 ## Déploiement courant
 

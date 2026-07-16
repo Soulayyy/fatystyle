@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\MorphTo;
 
 class MediaUsage extends Model
 {
@@ -12,5 +13,10 @@ class MediaUsage extends Model
     public function mediaAsset(): BelongsTo
     {
         return $this->belongsTo(MediaAsset::class);
+    }
+
+    public function usable(): MorphTo
+    {
+        return $this->morphTo();
     }
 }

@@ -66,7 +66,7 @@ class PublicContentBuilder
                 ->map(fn (Service $service): array => [
                     'title' => $service->title,
                     'slug' => $service->slug,
-                    'image' => $service->image?->source_path ?: $service->legacy_image_path,
+                    'image' => $service->image?->publicPath() ?: $service->legacy_image_path,
                     'description' => $service->description,
                 ])->values()->all(),
             'creationCategories' => CreationCategory::query()
@@ -77,12 +77,16 @@ class PublicContentBuilder
                 ->map(fn (CreationCategory $category): array => [
                     'title' => $category->title,
                     'slug' => $category->slug,
-                    'folder' => $category->legacy_folder,
-                    'cover' => $category->legacy_cover ?: basename((string) $category->cover?->source_path),
+                    'folder' => '',
+                    'cover' => $category->cover?->publicPath() ?: ($category->legacy_folder.$category->legacy_cover),
                     'description' => $category->description,
                     'photos' => $category->media->map(
-                        fn ($media): string => basename((string) $media->source_path),
-                    )->filter()->values()->all(),
+                        fn ($media): array => [
+                            'src' => $media->publicPath(),
+                            'thumbnail' => $media->publicThumbnailPath(),
+                            'alt' => $media->pivot->alt_text ?: $media->alt_text ?: $category->title,
+                        ],
+                    )->values()->all(),
                 ])->values()->all(),
             'gallery' => [],
             'savoirFaire' => $settings->get('savoirFaire', []),

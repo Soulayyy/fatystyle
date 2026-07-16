@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Illuminate\Support\Facades\DB;
 
 class MediaAsset extends Model
 {
@@ -17,12 +18,20 @@ class MediaAsset extends Model
 
     protected $fillable = [
         'disk', 'path', 'original_name', 'mime_type', 'extension', 'size_bytes', 'width', 'height',
-        'sha256', 'alt_text', 'caption', 'credit', 'source_path', 'metadata', 'uploaded_by',
+        'sha256', 'title', 'alt_text', 'is_decorative', 'caption', 'credit', 'rights', 'taken_at',
+        'tags', 'focal_x', 'focal_y', 'source_path', 'metadata', 'uploaded_by',
     ];
 
     protected function casts(): array
     {
-        return ['metadata' => 'array'];
+        return [
+            'is_decorative' => 'boolean',
+            'taken_at' => 'date',
+            'tags' => 'array',
+            'focal_x' => 'decimal:4',
+            'focal_y' => 'decimal:4',
+            'metadata' => 'array',
+        ];
     }
 
     public function uploader(): BelongsTo
@@ -42,5 +51,34 @@ class MediaAsset extends Model
         $power = min((int) floor(log(max($bytes, 1), 1024)), count($units) - 1);
 
         return number_format($bytes / (1024 ** $power), $power === 0 ? 0 : 1, ',', ' ').' '.$units[$power];
+    }
+
+    public function isInUse(): bool
+    {
+        return $this->usages()->exists()
+            || Service::withTrashed()->where('image_id', $this->getKey())->exists()
+            || CreationCategory::withTrashed()->where('cover_id', $this->getKey())->exists()
+            || PageTranslation::query()->where('og_image_id', $this->getKey())->exists()
+            || DB::table('creation_category_media')->where('media_asset_id', $this->getKey())->exists();
+    }
+
+    public function publicPath(): string
+    {
+        if ($this->source_path) {
+            return ltrim($this->source_path, '/');
+        }
+
+        return 'assets/images/cms/'.$this->sha256.'.'.$this->extension;
+    }
+
+    public function publicThumbnailPath(): string
+    {
+        if ($this->source_path) {
+            $directory = trim(dirname($this->source_path), '.\/');
+
+            return ($directory === '' ? '' : $directory.'/').'thumbs/'.basename($this->source_path);
+        }
+
+        return $this->publicPath();
     }
 }

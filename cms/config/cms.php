@@ -13,8 +13,13 @@ return [
     'version_retention_count' => (int) env('CMS_VERSION_RETENTION_COUNT', 100),
     'mfa_required' => (bool) env('CMS_MFA_REQUIRED', true),
 
+    'media' => [
+        'max_upload_mb' => (int) env('CMS_MEDIA_MAX_UPLOAD_MB', 20),
+    ],
+
     'public_site_url' => env('CMS_PUBLIC_SITE_URL', 'http://localhost:8082'),
     'public_release_path' => env('CMS_PUBLIC_RELEASE_PATH', '../public-site/releases'),
     'public_content_link' => env('CMS_PUBLIC_CONTENT_LINK'),
+    'public_media_link' => env('CMS_PUBLIC_MEDIA_LINK'),
     'release_keep_count' => (int) env('CMS_RELEASE_KEEP_COUNT', 20),
 ];

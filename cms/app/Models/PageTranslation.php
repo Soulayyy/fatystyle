@@ -41,4 +41,9 @@ class PageTranslation extends Model
     {
         return $this->belongsTo(Page::class);
     }
+
+    public function ogImage(): BelongsTo
+    {
+        return $this->belongsTo(MediaAsset::class, 'og_image_id');
+    }
 }

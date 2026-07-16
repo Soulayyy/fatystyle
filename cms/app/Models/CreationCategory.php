@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Concerns\HasUlids;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
 class CreationCategory extends Model
@@ -32,8 +33,14 @@ class CreationCategory extends Model
     public function media(): BelongsToMany
     {
         return $this->belongsToMany(MediaAsset::class, 'creation_category_media')
+            ->using(CreationCategoryMedia::class)
             ->withPivot(['position', 'alt_text'])
             ->withTimestamps()
             ->orderByPivot('position');
+    }
+
+    public function galleryItems(): HasMany
+    {
+        return $this->hasMany(CreationCategoryMedia::class)->orderBy('position');
     }
 }

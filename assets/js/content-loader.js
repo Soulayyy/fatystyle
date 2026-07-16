@@ -173,11 +173,13 @@
     if (!grid || !Array.isArray(content.creationCategories)) return;
     grid.innerHTML = content.creationCategories.map((category, categoryIndex) => {
       return (category.photos || []).map((photo, index) => {
-        const src = category.folder + photo;
-        const thumbnail = category.folder + "thumbs/" + photo;
+        const isStructuredPhoto = photo && typeof photo === "object";
+        const src = isStructuredPhoto ? photo.src : category.folder + photo;
+        const thumbnail = isStructuredPhoto ? (photo.thumbnail || photo.src) : category.folder + "thumbs/" + photo;
+        const alt = isStructuredPhoto ? (photo.alt || `${category.title} ${index + 1}`) : `${category.title} ${index + 1}`;
         const initialSource = categoryIndex === 0 ? ` src="${esc(thumbnail)}"` : "";
         return `<button class="creation-photo" type="button" data-photo-category="${esc(category.slug)}"${categoryIndex === 0 ? "" : " hidden"} aria-label="Voir ${esc(category.title)} ${index + 1}">
-          <img data-gallery="${esc(category.slug)}" data-category="${esc(category.title)}" data-title="${esc(category.title)} ${index + 1}" data-src="${esc(src)}" data-thumb="${esc(thumbnail)}"${initialSource} alt="${esc(category.title)} ${index + 1}" loading="lazy" decoding="async">
+          <img data-gallery="${esc(category.slug)}" data-category="${esc(category.title)}" data-title="${esc(category.title)} ${index + 1}" data-src="${esc(src)}" data-thumb="${esc(thumbnail)}"${initialSource} alt="${esc(alt)}" loading="lazy" decoding="async">
         </button>`;
       }).join("");
     }).join("");
