@@ -22,7 +22,7 @@ class PublicContentBuilder
 
         $pages = [];
         $home = [];
-        foreach (Page::query()->with(['translations', 'blocks.translations'])->get() as $page) {
+        foreach (Page::query()->publiclyAvailable()->with(['translations', 'blocks.translations'])->get() as $page) {
             $translation = $page->translations->firstWhere('locale', config('cms.default_locale'));
             if (! $translation) {
                 continue;
@@ -38,7 +38,9 @@ class PublicContentBuilder
 
             if ($page->is_home) {
                 foreach ($page->blocks as $block) {
-                    if (! $block->is_visible) {
+                    if (! $block->is_visible
+                        || ($block->visible_from && $block->visible_from->isFuture())
+                        || ($block->visible_until && $block->visible_until->isPast())) {
                         continue;
                     }
                     $key = $block->settings['import_key'] ?? null;
@@ -62,7 +64,7 @@ class PublicContentBuilder
                 ->toArray(),
             'pages' => $pages,
             'home' => $home,
-            'services' => Service::query()->with('image.variants')->where('is_visible', true)->orderBy('position')->get()
+            'services' => Service::query()->with('image.variants')->publiclyAvailable()->orderBy('position')->get()
                 ->map(fn (Service $service): array => [
                     'title' => $service->title,
                     'slug' => $service->slug,
@@ -71,7 +73,7 @@ class PublicContentBuilder
                 ])->values()->all(),
             'creationCategories' => CreationCategory::query()
                 ->with(['cover.variants', 'media.variants'])
-                ->where('is_visible', true)
+                ->publiclyAvailable()
                 ->orderBy('position')
                 ->get()
                 ->map(fn (CreationCategory $category): array => [

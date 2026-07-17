@@ -17,7 +17,7 @@ Livrer un site premium, clair, transférable et sans dépendance WordPress. Le s
 - `assets/` : CSS, JS, images et polices locales.
 - `assets/images/` : images structurées par usage et par univers, avec noms simples pour faciliter une future administration.
 - `data/content.json` : structure de contenu prête pour la future administration.
-- `admin/` : base technique de future administration, non mise en avant sur le site public.
+- `cms/` : administration Laravel/Filament complète, séparée du site public.
 - `docs/README_INSTALLATION.md` : guide d’installation.
 
 ## Lancer localement
@@ -39,10 +39,8 @@ Le site fonctionne sur un hébergement Apache ou Nginx classique. Aucun build, a
 
 ## Administration
 
-L’interface `admin/index.html` sert de base de travail pour la future administration : textes, coordonnées, prestations, catégories de créations, galeries, savoir-faire, contact, réseaux sociaux et SEO.
+Le CMS dans `cms/` gère les pages, médias, prestations, créations, contacts, utilisateurs, publication, sauvegardes, exports et audit. L’accès est protégé par rôles et double authentification.
 
-L'accès doit être configuré côté serveur avec `FATYSTYLE_ADMIN_USER` et un `FATYSTYLE_ADMIN_TOKEN` long et aléatoire. Aucun secret d'administration n'est stocké dans le dépôt.
+Les publications sont générées dans des releases immuables et basculées atomiquement vers le site public. L’ancienne administration statique et ses points d’écriture PHP ont été retirés.
 
-La sauvegarde réelle utilise `admin/save-content.php` et nécessite un hébergement compatible PHP avec droits d’écriture sur `data/content.json`. Si PHP n’est pas disponible, l’admin propose une sauvegarde locale navigateur et un export/import JSON.
-
-Le bouton `Voir le site` ouvre une prévisualisation locale (`?preview=admin`) basée sur le contenu stocké dans le navigateur. Cette prévisualisation ne remplace pas la version publiée tant que `data/content.json` n’est pas exporté/importé ou sauvegardé côté serveur.
+Voir `cms/README.md` et `docs/ADMIN_ARCHITECTURE.md` pour l’installation et l’exploitation.

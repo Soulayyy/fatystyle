@@ -5,6 +5,7 @@ namespace App\Models;
 use App\Enums\ContentStatus;
 use App\Enums\PageTemplate;
 use App\Models\Concerns\RecordsActivity;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Concerns\HasUlids;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
@@ -73,5 +74,17 @@ class Page extends Model
         return $this->translations->firstWhere('locale', config('cms.default_locale'))?->title
             ?? $this->translations->first()?->title
             ?? 'Page sans titre';
+    }
+
+    public function scopePubliclyAvailable(Builder $query): Builder
+    {
+        return $query
+            ->where('status', ContentStatus::Published->value)
+            ->where(function (Builder $query): void {
+                $query->whereNull('published_at')->orWhere('published_at', '<=', now());
+            })
+            ->where(function (Builder $query): void {
+                $query->whereNull('expires_at')->orWhere('expires_at', '>', now());
+            });
     }
 }

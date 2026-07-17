@@ -14,10 +14,13 @@ class ReleasePublisher
     public function __construct(
         private readonly PublicContentBuilder $builder,
         private readonly Filesystem $files,
+        private readonly ContentPublicationValidator $validator,
     ) {}
 
     public function publish(?int $userId = null): PublicationRelease
     {
+        $this->validator->ensureValid();
+
         $release = DB::transaction(function () use ($userId): PublicationRelease {
             $lastRelease = PublicationRelease::query()->orderByDesc('sequence')->lockForUpdate()->first();
             $sequence = ((int) $lastRelease?->sequence) + 1;

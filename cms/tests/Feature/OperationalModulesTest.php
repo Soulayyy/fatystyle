@@ -84,7 +84,12 @@ class OperationalModulesTest extends TestCase
             'size_bytes' => 16,
             'quality' => 82,
         ]);
-        Service::create(['slug' => 'atelier', 'title' => 'Atelier', 'image_id' => $media->id]);
+        Service::create([
+            'slug' => 'atelier',
+            'title' => 'Atelier',
+            'description' => 'Une prestation artisanale complète réalisée avec précision dans notre atelier.',
+            'image_id' => $media->id,
+        ]);
 
         $release = app(ReleasePublisher::class)->publish();
 

@@ -12,7 +12,7 @@ Application d'administration du site Faty Style. Ce dossier remplace progressive
 - Modèle multilingue prêt pour les pages et les blocs
 - Releases publiques atomiques et réversibles
 
-## Fonctions disponibles dans le deuxième jalon
+## Fonctions disponibles
 
 - édition des pages multilingues et de leurs blocs réordonnables ;
 - workflow brouillon, validation, publication, masquage et archivage ;
@@ -25,6 +25,12 @@ Application d'administration du site Faty Style. Ce dossier remplace progressive
 - journal d’audit en lecture seule et redirections SEO ;
 - tableau de bord synthétique et prévisualisation protégée ;
 - releases JSON immuables, bascule atomique et rollback.
+- workflow homogène des pages, prestations et univers, avec programmation et expiration automatiques ;
+- contrôles de publication bloquants pour les éléments SEO et médias indispensables ;
+- formulaire public interne avec double email, antispam, consentement, suivi, export et rétention RGPD ;
+- sauvegardes PostgreSQL et médias, vérification d’intégrité, téléchargement et restauration réservée au super-administrateur ;
+- exports JSON/CSV, alertes opérationnelles, rétention des versions, corbeilles et sauvegardes ;
+- remplacement global d’un média tout en conservant ses utilisations.
 
 ## Démarrage local avec Docker
 
@@ -42,6 +48,12 @@ Administration : `http://localhost:8083/admin`
 Mailpit : `http://localhost:8026`
 
 Les variables `ADMIN_BOOTSTRAP_*` permettent de créer le premier super-administrateur lors du seeding. Elles ne doivent jamais être commitées.
+
+Le planificateur Laravel doit fonctionner chaque minute en production :
+
+```cron
+* * * * * cd /var/www/fatystyle-cms/current && php artisan schedule:run >> /dev/null 2>&1
+```
 
 ## Tests
 
@@ -77,6 +89,9 @@ CMS_PUBLIC_MEDIA_LINK=/var/www/fatystyle/assets/images/cms
 CMS_MEDIA_MAX_UPLOAD_MB=20
 CMS_MEDIA_MAX_PIXELS=60000000
 CMS_MEDIA_WEBP_QUALITY=82
+CMS_CONTACT_RECIPIENT=fatystyle@hotmail.fr
+CMS_CONTACT_RETENTION_MONTHS=36
+CMS_BACKUP_RETENTION_DAYS=30
 ```
 
 Le processus PHP doit pouvoir écrire dans le dossier des releases et remplacer atomiquement les liens du contenu et des médias publics. Une sauvegarde de la base et des liens actifs doit précéder toute opération de publication en production.
@@ -87,6 +102,18 @@ Après une migration ou une modification des réglages de qualité, les variante
 php artisan cms:generate-media-variants
 php artisan cms:generate-media-variants --force
 ```
+
+## Exploitation
+
+```bash
+php artisan cms:publish-scheduled
+php artisan cms:backup --type=database
+php artisan cms:backup --type=full
+php artisan cms:purge-contact-data --dry-run
+php artisan cms:prune --dry-run
+```
+
+Les binaires PostgreSQL `pg_dump` et `pg_restore` ainsi que l’extension PHP ZIP sont requis pour les sauvegardes. Une restauration crée d’abord une nouvelle sauvegarde complète de sécurité.
 
 ## Principes de sécurité
 

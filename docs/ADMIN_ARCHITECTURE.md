@@ -22,7 +22,7 @@ La base PostgreSQL et l’administration ne sont donc jamais sollicitées par un
 - **Content** : pages, traductions, blocs, statuts et versions.
 - **Publishing** : validations, prévisualisations, programmation, releases et rollback.
 - **Media** : originaux privés, variantes, métadonnées, usages et corbeille.
-- **Contact** : formulaires, demandes, pièces jointes, consentements et emails.
+- **Contact** : formulaires, demandes, consentements, antispam, emails et rétention RGPD.
 - **SEO** : métadonnées, indexation, redirections, sitemap et données structurées.
 - **Operations** : audit, exports, sauvegardes, alertes et supervision.
 
@@ -72,3 +72,28 @@ Les pages et blocs séparent dès le départ les données structurelles de leurs
 - **Production** : déploiement automatisé, sauvegardes externes, HTTPS et supervision.
 
 Le site public existant n’est modifié qu’après validation de la recette et test du plan de retour arrière.
+
+## Tâches planifiées
+
+- chaque minute : publication et expiration des contenus programmés ;
+- chaque nuit : sauvegarde PostgreSQL ;
+- chaque lundi : sauvegarde complète PostgreSQL + médias ;
+- chaque nuit : purge des demandes dépassant la durée de conservation ;
+- chaque lundi : nettoyage des anciennes versions, sauvegardes et médias en corbeille.
+
+Le tableau de bord signale les demandes non traitées depuis 48 heures, médias sans texte alternatif, sauvegardes en échec et contenus programmés.
+
+## Formulaire public
+
+Le site public transmet le formulaire à `/cms-api/contact`, que Nginx relaie vers le contrôleur du CMS. Le traitement valide et normalise les champs, contrôle un honeypot, impose un délai minimal, limite le débit par IP hachée, conserve le consentement puis envoie une notification à `CMS_CONTACT_RECIPIENT` et un accusé de réception au visiteur.
+
+La route publique Nginx ne doit exposer que ce point d’entrée :
+
+```nginx
+location = /cms-api/contact {
+    proxy_pass http://127.0.0.1:8083/api/contact;
+    proxy_set_header Host $host;
+    proxy_set_header X-Real-IP $remote_addr;
+    proxy_set_header X-Forwarded-Proto $scheme;
+}
+```

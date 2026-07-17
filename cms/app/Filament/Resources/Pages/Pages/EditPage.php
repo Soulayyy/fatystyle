@@ -57,9 +57,11 @@ class EditPage extends EditRecord
                 ->openUrlInNewTab(),
             $this->transitionAction('submit', 'Soumettre à validation', ContentStatus::InReview, 'pages.update'),
             $this->transitionAction('approve', 'Valider', ContentStatus::Approved, 'pages.publish'),
+            $this->transitionAction('schedule', 'Programmer', ContentStatus::Scheduled, 'pages.publish'),
             $this->transitionAction('publish', 'Publier', ContentStatus::Published, 'pages.publish'),
             $this->transitionAction('hide', 'Masquer', ContentStatus::Hidden, 'pages.publish'),
             $this->transitionAction('draft', 'Repasser en brouillon', ContentStatus::Draft, 'pages.update'),
+            $this->transitionAction('archive', 'Archiver', ContentStatus::Archived, 'pages.publish'),
             DeleteAction::make(),
             RestoreAction::make(),
         ];

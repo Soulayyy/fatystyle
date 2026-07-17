@@ -89,12 +89,10 @@
 
     const params = new URLSearchParams(window.location.search);
     const alert = document.querySelector("[data-form-alert]");
-    const redirect = form.querySelector("[data-form-redirect]");
-    const replyTo = form.querySelector("[data-form-replyto]");
-    const email = form.querySelector('#email');
+    const startedAt = form.querySelector("[data-form-started-at]");
 
     if (params.has("erreur") && alert) alert.hidden = false;
-    if (redirect) redirect.value = new URL("message-envoye.html", window.location.href).href;
+    if (startedAt && !startedAt.value) startedAt.value = String(Math.floor(Date.now() / 1000));
     applyRequestedContactType();
 
     if (form.dataset.formBound === "true") return;
@@ -103,7 +101,6 @@
       form.querySelectorAll('input:not([type="hidden"]):not([type="checkbox"]), textarea').forEach((field) => {
         field.value = field.value.trim();
       });
-      if (replyTo && email) replyTo.value = email.value;
       if (!form.checkValidity()) {
         event.preventDefault();
         form.reportValidity();
