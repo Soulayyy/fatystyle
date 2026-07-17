@@ -97,13 +97,32 @@
 
     if (form.dataset.formBound === "true") return;
     form.dataset.formBound = "true";
-    form.addEventListener("submit", (event) => {
+    form.addEventListener("submit", async (event) => {
       form.querySelectorAll('input:not([type="hidden"]):not([type="checkbox"]), textarea').forEach((field) => {
         field.value = field.value.trim();
       });
       if (!form.checkValidity()) {
         event.preventDefault();
         form.reportValidity();
+        return;
+      }
+
+      event.preventDefault();
+      const button = form.querySelector('button[type="submit"]');
+      if (button) button.disabled = true;
+      if (alert) alert.hidden = true;
+
+      try {
+        const response = await fetch(form.action, {
+          method: "POST",
+          headers: { Accept: "application/json" },
+          body: new FormData(form),
+        });
+        if (!response.ok) throw new Error("Contact request failed");
+        window.location.assign(response.url || "message-envoye.html");
+      } catch (error) {
+        if (alert) alert.hidden = false;
+        if (button) button.disabled = false;
       }
     });
   }
