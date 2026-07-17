@@ -20,7 +20,8 @@ Livrer un site premium, clair, transférable et sans dépendance WordPress. Le s
 - `assets/images/` : images structurées par usage et par univers, avec noms simples pour faciliter une future administration.
 - `data/content.json` : structure de contenu prête pour la future administration.
 - `cms/` : administration Laravel/Filament complète, séparée du site public.
-- `docs/README_INSTALLATION.md` : guide d’installation.
+- `docs/README_INSTALLATION.md` : guide d’installation rapide.
+- `docs/HEBERGEMENT_PRODUCTION.md` : remise complète à l’hébergeur et procédure de production.
 
 ## Lancer localement
 
@@ -45,4 +46,4 @@ Le CMS dans `cms/` gère les pages, médias, prestations, créations, contacts, 
 
 Les publications sont générées dans des releases immuables et basculées atomiquement vers le site public. L’ancienne administration statique et ses points d’écriture PHP ont été retirés.
 
-Voir `cms/README.md`, `docs/ADMIN_ARCHITECTURE.md` et `docs/RAPPORT_LIVRAISON_v1.0.0.md` pour l’installation, l’exploitation et les réserves avant passage sur le domaine définitif.
+Voir `docs/HEBERGEMENT_PRODUCTION.md`, `cms/README.md`, `docs/ADMIN_ARCHITECTURE.md` et `docs/RAPPORT_LIVRAISON_v1.0.0.md` pour l’installation, l’exploitation et les réserves avant passage sur le domaine définitif.

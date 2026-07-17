@@ -1,0 +1,89 @@
+# Remplacer les domaines et adapter les chemins avant activation.
+
+server {
+    listen 80;
+    listen [::]:80;
+    server_name domaine-client.fr www.domaine-client.fr admin.domaine-client.fr;
+    return 301 https://$host$request_uri;
+}
+
+server {
+    listen 443 ssl http2;
+    listen [::]:443 ssl http2;
+    server_name domaine-client.fr www.domaine-client.fr;
+
+    root /var/www/fatystyle;
+    index index.html;
+
+    # Configurer ici les certificats gérés par la plateforme.
+    ssl_certificate /CHANGE_ME/fullchain.pem;
+    ssl_certificate_key /CHANGE_ME/privkey.pem;
+
+    add_header X-Content-Type-Options "nosniff" always;
+    add_header Referrer-Policy "strict-origin-when-cross-origin" always;
+    add_header Permissions-Policy "camera=(), geolocation=(), microphone=()" always;
+    add_header X-Frame-Options "SAMEORIGIN" always;
+
+    gzip on;
+    gzip_vary on;
+    gzip_types text/plain text/css application/json application/javascript image/svg+xml;
+
+    location = /cms-api/contact {
+        limit_except POST { deny all; }
+        # Utiliser l'adresse privée/interne du service CMS, jamais une URL publique si
+        # la plateforme fournit un réseau interne entre services.
+        proxy_pass http://CHANGE_ME_CMS_INTERNAL:8083/api/contact;
+        proxy_set_header Host admin.domaine-client.fr;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header X-Forwarded-Proto https;
+        proxy_connect_timeout 5s;
+        proxy_read_timeout 30s;
+    }
+
+    location / {
+        try_files $uri $uri/ =404;
+    }
+
+    location ~* ^/(?:cms|docs|deploy|server|admin)(?:/|$) { return 404; }
+    location ~ /\. { deny all; }
+    location ~ \.php$ { return 404; }
+
+    location ~* \.(?:css|js|json|jpg|jpeg|png|gif|webp|avif|svg|ico|woff|woff2|ttf)$ {
+        expires 7d;
+        add_header Cache-Control "public, max-age=604800";
+        try_files $uri =404;
+    }
+}
+
+server {
+    listen 443 ssl http2;
+    listen [::]:443 ssl http2;
+    server_name admin.domaine-client.fr;
+
+    root /var/www/fatystyle/cms/public;
+    index index.php;
+    client_max_body_size 21m;
+
+    ssl_certificate /CHANGE_ME/fullchain.pem;
+    ssl_certificate_key /CHANGE_ME/privkey.pem;
+
+    add_header X-Robots-Tag "noindex, nofollow, noarchive" always;
+    add_header X-Content-Type-Options "nosniff" always;
+    add_header Referrer-Policy "same-origin" always;
+    add_header Permissions-Policy "camera=(), geolocation=(), microphone=()" always;
+    add_header X-Frame-Options "SAMEORIGIN" always;
+
+    location / {
+        try_files $uri $uri/ /index.php?$query_string;
+    }
+
+    location ~ \.php$ {
+        include snippets/fastcgi-php.conf;
+        fastcgi_pass unix:/run/php/php8.5-fpm.sock;
+        fastcgi_read_timeout 120;
+    }
+
+    location ~ /\. { deny all; }
+    location ~* \.(?:env|log|sql|bak|ini|lock)$ { deny all; }
+}
