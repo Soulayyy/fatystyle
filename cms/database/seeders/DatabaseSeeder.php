@@ -25,7 +25,7 @@ class DatabaseSeeder extends Seeder
         $password = (string) env('ADMIN_BOOTSTRAP_PASSWORD');
 
         if ($name !== '' && filter_var($email, FILTER_VALIDATE_EMAIL) && mb_strlen($password) >= 14) {
-            $user = User::query()->updateOrCreate(
+            $user = User::query()->firstOrCreate(
                 ['email' => $email],
                 [
                     'name' => $name,
@@ -35,7 +35,9 @@ class DatabaseSeeder extends Seeder
                 ],
             );
 
-            $user->syncRoles([RoleName::SuperAdministrator->value]);
+            if ($user->wasRecentlyCreated) {
+                $user->syncRoles([RoleName::SuperAdministrator->value]);
+            }
         }
     }
 }

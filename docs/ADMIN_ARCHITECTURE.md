@@ -85,7 +85,9 @@ Le tableau de bord signale les demandes non traitées depuis 48 heures, médias 
 
 ## Formulaire public
 
-Le site public transmet le formulaire à `/cms-api/contact`, que Nginx relaie vers le contrôleur du CMS. Le traitement valide et normalise les champs, contrôle un honeypot, impose un délai minimal, limite le débit par IP hachée, conserve le consentement puis envoie une notification à `CMS_CONTACT_RECIPIENT` et un accusé de réception au visiteur.
+Le site public transmet d’abord le formulaire à `/cms-api/contact`, que Nginx relaie vers le contrôleur du CMS. Le traitement valide et normalise les champs, contrôle un honeypot, impose un délai minimal, limite le débit, conserve le consentement et enregistre la demande avant toute transmission externe.
+
+Deux modes de livraison sont prévus : `mail`, qui utilise le SMTP configuré par le client, et `formsubmit`, relais provisoire de recette. La recette actuelle utilise encore FormSubmit afin d’adresser les messages à l’atelier. Le passage en production doit privilégier SMTP exclusivement ; il nécessite les paramètres du fournisseur du client et la validation de la politique de confidentialité. Cette réserve est détaillée dans le rapport de livraison.
 
 La route publique Nginx ne doit exposer que ce point d’entrée :
 

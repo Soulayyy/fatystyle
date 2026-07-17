@@ -1,6 +1,6 @@
 # Faty Style CMS
 
-Application d'administration du site Faty Style. Ce dossier remplace progressivement l'administration JSON historique sans modifier le site public avant la recette finale.
+Application d'administration du site Faty Style. Le CMS Laravel/Filament remplace l’administration JSON historique et publie le contenu public par releases atomiques.
 
 ## Socle
 
@@ -65,6 +65,8 @@ docker compose run --rm app composer audit
 
 Les tests unitaires utilisent SQLite en mémoire pour leur rapidité. Une suite d'intégration PostgreSQL est également obligatoire avant chaque livraison.
 
+La recette `v1.0.0` a été exécutée sur SQLite et PostgreSQL 18. Les résultats et les limites connues sont consignés dans `../docs/RAPPORT_LIVRAISON_v1.0.0.md`.
+
 ## Import initial du site public
 
 La commande lit le JSON actuel et copie les originaux référencés vers le stockage privé. Elle ne modifie jamais le frontend existant.
@@ -114,6 +116,8 @@ php artisan cms:prune --dry-run
 ```
 
 Les binaires PostgreSQL `pg_dump` et `pg_restore` ainsi que l’extension PHP ZIP sont requis pour les sauvegardes. Une restauration crée d’abord une nouvelle sauvegarde complète de sécurité.
+
+Les sauvegardes locales ne remplacent pas une copie chiffrée hors du VPS. Le fournisseur et la politique de rétention externe doivent être validés avant la production définitive.
 
 ## Principes de sécurité
 

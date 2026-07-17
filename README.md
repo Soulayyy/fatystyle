@@ -2,6 +2,8 @@
 
 Site statique autonome pour Faty Style, atelier de couture, haute couture et retouches à Limay.
 
+Version de livraison : `v1.0.0`. Le site public et l’administration sont déployés séparément afin que la consultation du site ne dépende jamais de PostgreSQL ou de Filament.
+
 ## Objectif
 
 Livrer un site premium, clair, transférable et sans dépendance WordPress. Le site présente l’atelier, les prestations, les univers de créations, le savoir-faire et les moyens de contact.
@@ -35,7 +37,7 @@ Le site fonctionne sur un hébergement Apache ou Nginx classique. Aucun build, a
 ## Réseaux officiels
 
 - Facebook : https://www.facebook.com/fatystylefr/
-- Instagram : https://www.instagram.com/fatystylefr/
+- Instagram : https://www.instagram.com/atelier_fatystyle/
 
 ## Administration
 
@@ -43,4 +45,4 @@ Le CMS dans `cms/` gère les pages, médias, prestations, créations, contacts, 
 
 Les publications sont générées dans des releases immuables et basculées atomiquement vers le site public. L’ancienne administration statique et ses points d’écriture PHP ont été retirés.
 
-Voir `cms/README.md` et `docs/ADMIN_ARCHITECTURE.md` pour l’installation et l’exploitation.
+Voir `cms/README.md`, `docs/ADMIN_ARCHITECTURE.md` et `docs/RAPPORT_LIVRAISON_v1.0.0.md` pour l’installation, l’exploitation et les réserves avant passage sur le domaine définitif.

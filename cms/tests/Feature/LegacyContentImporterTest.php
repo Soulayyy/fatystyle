@@ -29,6 +29,7 @@ class LegacyContentImporterTest extends TestCase
         $this->assertSame(1, Service::count());
         $this->assertSame(1, CreationCategory::count());
         $this->assertSame(2, MediaAsset::count());
+        $this->assertSame('assets/images/cover.png', CreationCategory::firstOrFail()->cover->source_path);
         $this->assertSame(2, Page::count());
         $this->assertSame(2, Page::query()->withCount('versions')->get()->sum('versions_count'));
 

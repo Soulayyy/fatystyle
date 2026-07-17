@@ -58,7 +58,8 @@ class RolePermissionSeeder extends Seeder
         Role::findOrCreate(RoleName::ContentAdministrator->value)->syncPermissions(
             $permissions->reject(fn (string $permission): bool => str_starts_with($permission, 'users.')
                 || $permission === 'backups.restore'
-                || $permission === 'backups.manage'),
+                || $permission === 'backups.manage'
+                || $permission === 'backups.delete'),
         );
 
         Role::findOrCreate(RoleName::Editor->value)->syncPermissions(
