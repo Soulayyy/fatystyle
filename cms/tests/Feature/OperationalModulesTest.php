@@ -91,7 +91,13 @@ class OperationalModulesTest extends TestCase
             'image_id' => $media->id,
         ]);
 
-        $release = app(ReleasePublisher::class)->publish();
+        $previousUmask = umask(0027);
+
+        try {
+            $release = app(ReleasePublisher::class)->publish();
+        } finally {
+            umask($previousUmask);
+        }
 
         $this->assertSame('published', $release->status);
         $this->assertTrue(is_link($root.'/public/content.json'));
@@ -101,6 +107,10 @@ class OperationalModulesTest extends TestCase
         $this->assertSame('assets/images/cms/'.$hash.'/640.webp', $payload['services'][0]['image']);
         $this->assertTrue(is_link($root.'/public/assets/images/cms'));
         $this->assertFileExists($root.'/public/assets/images/cms/'.$hash.'/640.webp');
+        $releaseDirectory = dirname(dirname(realpath($root.'/public/content.json')));
+        $this->assertSame(0755, fileperms($releaseDirectory) & 0777);
+        $this->assertSame(0755, fileperms($releaseDirectory.'/data') & 0777);
+        $this->assertSame(0755, fileperms($releaseDirectory.'/assets/images/cms/'.$hash) & 0777);
         $this->assertSame(1, PublicationRelease::count());
 
         $this->deleteDirectory($root);

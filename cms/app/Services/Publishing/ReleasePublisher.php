@@ -44,8 +44,8 @@ class ReleasePublisher
             $temporary = $directory.'.tmp';
 
             $this->files->deleteDirectory($temporary);
-            $this->files->makeDirectory($temporary.'/data', 0750, true);
-            $this->files->makeDirectory($temporary.'/assets/images/cms', 0750, true);
+            $this->files->makeDirectory($temporary.'/data', 0755, true);
+            $this->files->makeDirectory($temporary.'/assets/images/cms', 0755, true);
             $this->files->put($temporary.'/data/content.json', $json);
             $this->copyManagedMedia($temporary.'/assets/images/cms');
             $this->files->put($temporary.'/manifest.json', json_encode([
@@ -58,6 +58,7 @@ class ReleasePublisher
                 throw new RuntimeException('Impossible de finaliser le répertoire de release.');
             }
 
+            $this->makePubliclyTraversable($directory);
             $this->switchPublicRelease($directory, $release->sequence);
             $release->update([
                 'status' => 'published',
@@ -100,9 +101,19 @@ class ReleasePublisher
     {
         $configured = (string) config('cms.public_release_path');
         $path = str_starts_with($configured, '/') ? $configured : base_path($configured);
-        $this->files->ensureDirectoryExists($path, 0750, true);
+        $this->files->ensureDirectoryExists($path, 0755, true);
+        $this->files->chmod($path, 0755);
 
         return realpath($path) ?: $path;
+    }
+
+    private function makePubliclyTraversable(string $directory): void
+    {
+        $this->files->chmod($directory, 0755);
+
+        foreach ($this->files->allDirectories($directory) as $childDirectory) {
+            $this->files->chmod($childDirectory, 0755);
+        }
     }
 
     private function copyManagedMedia(string $targetDirectory): void
@@ -116,7 +127,7 @@ class ReleasePublisher
                     }
 
                     $directory = $targetDirectory.'/'.$media->sha256;
-                    $this->files->ensureDirectoryExists($directory, 0750, true);
+                    $this->files->ensureDirectoryExists($directory, 0755, true);
                     if (! $this->files->copy($source, $directory.'/'.$variant->width.'.'.$variant->format)) {
                         throw new RuntimeException("Impossible de publier la variante : {$media->original_name}");
                     }
