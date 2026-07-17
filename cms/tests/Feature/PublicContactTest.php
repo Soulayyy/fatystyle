@@ -53,4 +53,21 @@ class PublicContactTest extends TestCase
         $this->assertDatabaseCount('contact_requests', 0);
         Mail::assertNothingSent();
     }
+
+    public function test_formsubmit_mode_stores_the_request_without_using_the_local_mailer(): void
+    {
+        Mail::fake();
+        config()->set('cms.contact_delivery', 'formsubmit');
+
+        $response = $this->postJson('/api/contact', [
+            'name' => 'Cliente', 'phone' => '0612345678', 'email' => 'cliente@example.test',
+            'message' => 'Je souhaite échanger au sujet d’une création personnalisée.',
+            'privacy_consent' => '1', 'website' => '',
+            'form_started_at' => now()->subSeconds(5)->timestamp,
+        ]);
+
+        $response->assertOk()->assertJson(['ok' => true, 'delivery' => 'formsubmit']);
+        $this->assertDatabaseCount('contact_requests', 1);
+        Mail::assertNothingSent();
+    }
 }

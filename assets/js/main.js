@@ -119,7 +119,39 @@
           body: new FormData(form),
         });
         if (!response.ok) throw new Error("Contact request failed");
-        window.location.assign(response.url || "message-envoye.html");
+        const result = await response.json();
+        const deliveryEndpoint = form.dataset.deliveryEndpoint;
+        if (result.delivery === "formsubmit" && deliveryEndpoint) {
+          const relay = document.createElement("form");
+          relay.method = "POST";
+          relay.action = deliveryEndpoint;
+          relay.hidden = true;
+          const fields = {
+            _subject: `Nouveau message Faty Style — ${result.reference}`,
+            _template: "table",
+            _next: result.redirect,
+            _replyto: form.elements.email.value,
+            _autoresponse: `Bonjour, votre demande Faty Style a bien été reçue. Référence : ${result.reference}. L'atelier revient vers vous très bientôt.`,
+            Référence: result.reference,
+            Nom: form.elements.name.value,
+            Téléphone: form.elements.phone.value,
+            Email: form.elements.email.value,
+            "Type de demande": form.elements.request_type.value,
+            "Date souhaitée": form.elements.desired_date.value,
+            Message: form.elements.message.value,
+          };
+          Object.entries(fields).forEach(([name, value]) => {
+            const input = document.createElement("input");
+            input.type = "hidden";
+            input.name = name;
+            input.value = value;
+            relay.appendChild(input);
+          });
+          document.body.appendChild(relay);
+          relay.submit();
+          return;
+        }
+        window.location.assign(result.redirect || "message-envoye.html");
       } catch (error) {
         if (alert) alert.hidden = false;
         if (button) button.disabled = false;

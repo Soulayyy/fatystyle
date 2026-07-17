@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Mail\ContactConfirmationMail;
 use App\Mail\ContactOwnerMail;
 use App\Models\ContactRequest;
+use Illuminate\Http\JsonResponse;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
@@ -13,7 +14,7 @@ use Illuminate\Validation\Rule;
 
 class PublicContactController extends Controller
 {
-    public function __invoke(Request $request): RedirectResponse
+    public function __invoke(Request $request): RedirectResponse|JsonResponse
     {
         $validated = $request->validate([
             'name' => ['required', 'string', 'min:2', 'max:120'],
@@ -43,9 +44,21 @@ class PublicContactController extends Controller
             'metadata' => ['referer' => Str::limit((string) $request->headers->get('referer'), 500, '')],
         ]);
 
-        Mail::to(config('cms.contact_recipient'))->send(new ContactOwnerMail($contact));
-        Mail::to($contact->email)->send(new ContactConfirmationMail($contact));
+        if (config('cms.contact_delivery') === 'mail') {
+            Mail::to(config('cms.contact_recipient'))->send(new ContactOwnerMail($contact));
+            Mail::to($contact->email)->send(new ContactConfirmationMail($contact));
+        }
 
-        return redirect()->away(rtrim((string) config('cms.public_site_url'), '/').'/message-envoye.html');
+        $redirect = rtrim((string) config('cms.public_site_url'), '/').'/message-envoye.html';
+        if ($request->expectsJson()) {
+            return response()->json([
+                'ok' => true,
+                'reference' => $contact->reference,
+                'redirect' => $redirect,
+                'delivery' => config('cms.contact_delivery'),
+            ]);
+        }
+
+        return redirect()->away($redirect);
     }
 }
