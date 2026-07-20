@@ -1304,6 +1304,7 @@ textarea {
 .footer-social .social-pill {
   min-width: 130px;
   justify-content: center;
+  color: #263140;
 }
 
 .footer-bottom {
